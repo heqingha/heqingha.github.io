@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>css3 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Hexo</span>
+                    <span class="description"></span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2017/10/17/css3/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2017/10/17/css3/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2017/10/17/css3/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2017/10/17/css3/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>css3</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2017-10-17T06:37:12.000Z">2017-10-17</time>
+    </p>
+    <div class="post-content">
+        <ul>
+<li><a href="#0">calc()使用</a></li>
+<li><a href="#1">边框</a></li>
+<li><a href="#2">背景</a></li>
+<li><a href="#3">渐变</a></li>
+<li><a href="#4">文本效果</a></li>
+<li><a href="#5">2D转换</a></li>
+<li><a href="#6">3D转换</a></li>
+<li><a href="#7">过渡</a></li>
+<li><a href="#8">动画</a></li>
+<li><a href="#9">多列</a></li>
+<li><a href="#10">用户界面</a></li>
+<li><a href="#11">弹性盒</a></li>
+</ul>
+<h2 id="calc-使用"><a href="#calc-使用" class="headerlink" title="calc()使用"></a><span id="0"><a href="http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html" target="_blank" rel="external">calc()使用</a></span></h2><blockquote>
+<p>能实现自适应的布局 box-sizing, 浏览器对calc()的兼容性还算不错，在IE9+、FF4.0+、Chrome19+、Safari6+都得到较好支持著作权归作者所有。不过calc()最大的好处就是用在流体布局上(百分比)，可以通过calc()计算得到元素的宽度高度<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#div&#123;</div><div class="line">    float: left;</div><div class="line">    width: 50%;</div><div class="line">    width:calc(50% - 2px - 80px);</div><div class="line">    height: 100px;</div><div class="line">    background: red;</div><div class="line">    border: thin solid;</div><div class="line">    padding: 40px;</div><div class="line">    //box-sizing: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a><span id="1">边框</span></h2><blockquote>
+<p>用 CSS3，你可以创建圆角边框，添加阴影框，并作为边界的形象而不使用设计程序</p>
+</blockquote>
+<ul>
+<li><p>border-radius (圆角)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&apos;div&apos;&gt;&lt;/div&gt;</div><div class="line">#div</div><div class="line">&#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    border:2px solid;</div><div class="line">    border-radius:25px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>box-shadow  (盒阴影)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#div</div><div class="line">    &#123;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        box-shadow: 20px 20px 20px 0 gold inset;</div><div class="line">        box-shadow: 10px 10px 5px #888888;</div><div class="line">        background: red;</div><div class="line">        margin: 50px;</div><div class="line">        // box-shadow: 10px(向右偏移,可取负数,必填) </div><div class="line">                       10px(向下偏移,可取负数,必填) </div><div class="line">                       20px(模糊距离,可选)</div><div class="line">                       5px(阴影尺寸 可选)                                      </div><div class="line">                       #888888(颜色,可选 默认黑色)</div><div class="line">                       inset(内阴影,可选);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><a href="http://www.runoob.com/cssref/css3-pr-border-image.html" target="_blank" rel="external">border-image</a>  (边界图片) …Internet Explorer 不支持</p>
+<pre><code>border-image:   source(图片路径) 
+                slice(图像边界向内偏移) 
+                width(图像边界的宽度) 
+                outset(用于指定在边框外部绘制 border-image-area 的量) 
+                repeat|initial|inherit(用于设置图像边界是否应重复（repeat）、拉伸（stretch）或铺满（round）);
+</code></pre><p>  默认border-image: none 100% 1 0 stretch</p>
+</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a><span id="2">背景</span></h2><ul>
+<li>background-size: 100% 100%(200px 200px)注:(写成px的时候不包含padding 加box-sizing: border-box 一样)   (规定背景的绘制区域)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#div &#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    padding: 20px;</div><div class="line">    background: #ccc url(&apos;http://pic10.nipic.com/20101014/5888301_112136782000_2.jpg&apos;) no-repeat;</div><div class="line">    background-size: 100% 100%;</div><div class="line">    box-sizing: border-box;</div><div class="line">    /* background-size: 240px 240px; *</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>background-origin  (content-box(只填充内容区域)、padding-box(包含padding) 或 border-box(包含边框) ) =&gt;  相对于背景图片(背景色完全没有作用  规定背景图片的定位区域)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#div &#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    padding: 20px;</div><div class="line">    border: 10px dotted red;</div><div class="line">    background: #ccc url(&apos;http://pic10.nipic.com/20101014/5888301_112136782000_2.jpg&apos;) no-repeat;</div><div class="line">    background-size: 100% 100%;</div><div class="line">    background-origin: content-box;</div><div class="line">    //background-origin: padding-box;</div><div class="line">    //background-origin: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>background-clip (content-box(只填充内容区域)、padding-box(包含padding) 或 border-box(包含边框) )=&gt;相对于背景色(对图片的padding content 有作用  对border-box无用(默认就是))  (规定背景图片的尺寸)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#div &#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    padding: 20px;</div><div class="line">    background:  url(&apos;http://pic10.nipic.com/20101014/5888301_112136782000_2.jpg&apos;) no-repeat;</div><div class="line">    background-size: 100% 100%;</div><div class="line">    background-color: green;</div><div class="line">    background-clip: border-box;</div><div class="line">    /* background-origin: border-box; */</div><div class="line">    border: 10px dashed red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>background-origin与background-clip区别</li>
+</ul>
+<ol>
+<li>background-origin只作用于背景图片,对背景色无用, background-clip即可作用于背景图片,也可作用于背景色</li>
+<li>当两者都作用于背景图片时, 不同于border-box 属性,background-origin边框在图片上面, 并且填充了边框,  background-clip 没有填充边框</li>
+</ol>
+<h2 id="渐变-线性渐变-径向渐变"><a href="#渐变-线性渐变-径向渐变" class="headerlink" title="渐变 (线性渐变) (径向渐变)"></a><span id="3">渐变 (线性渐变) (径向渐变)</span></h2><blockquote>
+<p>在两个或多个指定的颜色之间显示平稳的过渡,如果你想要在渐变的方向上做更多的控制，你可以定义一个角度(逆时针)，而不用预定义方向（to bottom、to top、to right、to left、to bottom right，等等）</p>
+</blockquote>
+<ul>
+<li>线性渐变 background: linear-gradient(direction(90deg), color-stop1, color-stop2, …);</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#div </div><div class="line">    &#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    background: -webkit-linear-gradient(top, red, blue, green);</div><div class="line">    //background: -webkit-linear-gradient(left, red, blue, green);</div><div class="line">    //background: -webkit-linear-gradient(top left, red, blue, green);</div><div class="line">    //background: -webkit-linear-gradient(left bottom, red, blue, green);</div><div class="line">    //background: -webkit-repeating-linear-gradient(top left, red, blue 10%,green 30%);//重复渐变</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>径向渐变 background: radial-gradient(center, shape(ellipse/circle) size, start-color, …, last-color);</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#div</div><div class="line">    &#123;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        background: -webkit-radial-gradient(red, green, blue);</div><div class="line">        //background: -webkit-radial-gradient(red 5%, green 15%, blue 60%);</div><div class="line">        //background: -webkit-repeating-radial-gradient(red, green 10%, blue 15%);//重复渐变</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="文本效果"><a href="#文本效果" class="headerlink" title="文本效果"></a><span id="4">文本效果</span></h2><ul>
+<li><p>text-shadow: 5px(水平阴影)   5px(垂直阴影)   10px(模糊距离)   green;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#div</div><div class="line">    &#123;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        text-shadow: 5px 5px 5px #FF0000;</div><div class="line">        font-size: 40px;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>word-wrap:break-word(自动换行)   文字超出会自动换行    字母 数字 标点符号不换  (ps不兼容 Opera)</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#div</div><div class="line">   &#123;</div><div class="line">       width: 200px;</div><div class="line">       height: 200px;</div><div class="line">       text-shadow: 5px 5px 5px #FF0000;</div><div class="line">       font-size: 40px;</div><div class="line">       border: 2px solid red;</div><div class="line">       word-wrap:break-word;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h2 id="2D转换"><a href="#2D转换" class="headerlink" title="2D转换"></a><span id="5">2D转换</span></h2><blockquote>
+<p>可以移动，比例化，反过来，旋转，和拉伸元素。<br> transform  (IE10 ff  Opera 支持. IE9(-ms-)和Chrome Safari(-webkit-) 要加前缀)</p>
+</blockquote>
+<ul>
+<li>transform: translate(50px, 50px) (translateX/Y)    (上下 作用偏移,以元素中心点为中心偏移,设置transform-origin属性无用)</li>
+<li>transform: rotate(90deg) rotate(X/Y)               (旋转,以中心为原点旋转,可改变中心点)</li>
+<li>transform: scale(2,2) (scaleX/Y)                   (元素尺寸增加或减少倍数,中心点旋转,可改变中心点)</li>
+<li>transform: skew(10deg,0deg) (skewX/Y)              (元素翻转 x y,中心点旋转,可改变中心点)</li>
+<li>transform:matrix(0.866,0.5,-0.5,0.866,0,0)         (matrix()方法,六个参数，包含旋转，缩放，移动（平移）和倾斜功能)</li>
+<li>transform-origin:0 0;                              (允许改变被转换元素的位置,默认元素中心点)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    background: red;</div><div class="line">    //transform:translate(200px,200px);</div><div class="line">    //transform: rotate(30deg);</div><div class="line">    //transform-origin:0 0;</div><div class="line">    //transform: skew(30deg,20deg);</div><div class="line">    transform: scale(2,2)</div><div class="line">    //transform:matrix(0.866,0.5,-0.5,0.866,0,0);</div><div class="line">    margin: 100px auto;</div><div class="line">    transform-origin:0 0;</div><div class="line">    //animation:myfirst 5s linear 2s infinite alternate;</div><div class="line">&#125;</div><div class="line">@keyframes myfirst</div><div class="line">    &#123;</div><div class="line">    from &#123;transform: scale(1,1)&#125;</div><div class="line">    to &#123;transform: scale(2,2)&#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a><span id="6">3D转换</span></h2><blockquote>
+<p>方法 同2D 只是多了Z轴  rotate可以规定X Y Z (transform: rotateX/Y/Z(30deg))</p>
+</blockquote>
+<ul>
+<li>transform: translate3d(x,y,z)</li>
+<li>transform: scale3d(x,y,z)</li>
+<li>transform: rotate3d(x,y,z,angle)</li>
+<li>perspective: 500 (设置从何处查看一个元素的角度,perspective 属性只影响 3D 转换元素)</li>
+<li>perspective-origin: 10% 10% (设置一个3D元素的基数位置)</li>
+<li>transform-style: preserve-3d (让转换的子元素保留3D转换)</li>
+</ul>
+<h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a><span id="7">过渡</span></h2><blockquote>
+<p>为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript</p>
+</blockquote>
+<ul>
+<li>transition 属性是一个简写属性，用于设置四个过渡属性  (默认all 0 ease 0) (给运动元素加此属性,hover时加要变的属性)</li>
+<li>transition-property (哪个属性变)</li>
+<li>transition-duration (完成这个效果的时间  必须设置 否则默认为0)</li>
+<li>transition-timing-function (<a href="http://www.runoob.com/cssref/css3-pr-transition-timing-function.html" target="_blank" rel="external">规定速度效果的速度曲线</a>   linear|ease|ease-in|ease-out|ease-in-out)</li>
+<li>transition-delay (效果延时多少开始)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#div</div><div class="line">    &#123;</div><div class="line">        width:100px;</div><div class="line">        height:100px;</div><div class="line">        background:red;</div><div class="line">        transition:width 2s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">#div:hover</div><div class="line">    &#123;</div><div class="line">        width:300px;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a><span id="8">动画</span></h2><ul>
+<li>@keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果</li>
+<li>先定义动画,然后在动画元素属性里面调用,(animation: 动画名  运动的时间 <a href="http://www.runoob.com/cssref/css3-pr-animation-timing-function.html" target="_blank" rel="external">速度曲线</a> 延时多少开始 运动次数(infinite 无数次)  反向播放动画 )</li>
+<li>animation:myfirst 5s linear 2s infinite alternate;</li>
+<li>animation-play-state:running/paused (属性规定动画正在运行还是暂停 js中使用 可以控制动画暂停与播放)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#div </div><div class="line">    &#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 100px;</div><div class="line">        position:relative;</div><div class="line">        animation:myfirst 5s linear 2s infinite alternate;</div><div class="line">        //animation-play-state:paused;</div><div class="line">    &#125;</div><div class="line">@keyframes myfirst</div><div class="line">    &#123;</div><div class="line">        0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">        25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">        50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">        75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">        100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="多列"><a href="#多列" class="headerlink" title="多列"></a><span id="9">多列</span></h2><blockquote>
+<p>可以将文本内容设计成像报纸一样的多列布局</p>
+</blockquote>
+<ul>
+<li>column-count 属性规定元素应该被分隔的列数  (column-count:3)</li>
+<li>column-gap 属性规定列之间的间隔 (column-gap:30px)</li>
+<li>column-rule 属性设置列之间的宽度、样式和颜色规则  (column-rule:4px outset #ff0000)</li>
+<li>column-width 属性规定列的宽度  (column-width: auto(浏览器决定 没有效果) / 100px)</li>
+<li>column-span 属性规定元素应横跨多少列  (column-span: 1 / all)</li>
+<li>columns 属性是一个简写属性，用于设置列宽和列数   (columns:100px(4) 3(1);)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;div&quot;&gt;</div><div class="line">    &lt;h2&gt;英国维斯米斯特教堂碑文&lt;/h2&gt;</div><div class="line">    当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。</div><div class="line">&lt;/div&gt;</div><div class="line">#div </div><div class="line">    &#123;</div><div class="line">        column-count: 3;</div><div class="line">        column-gap:90px;</div><div class="line">        column-rule:4px outset #ff0000;</div><div class="line">        //column-rule:4px dotted #ff0000;</div><div class="line">        column-span: all;</div><div class="line">        column-width:100px;</div><div class="line">        //column-span: 1; // 默认</div><div class="line">        //columns:100px 3;</div><div class="line">    &#125;</div><div class="line">    h2</div><div class="line">    &#123;</div><div class="line">        column-span:1;</div><div class="line">        -webkit-column-span:1; /* Safari and Chrome */</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a><span id="10">用户界面</span></h2><ul>
+<li>调整尺寸(Resizing)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&apos;div&apos;&gt;调整属性指定一个元素是否由用户可调整大小的&lt;/div&gt;</div><div class="line">#div</div><div class="line">    &#123;</div><div class="line">        border:2px solid;</div><div class="line">        padding:10px 40px; </div><div class="line">        width:300px;</div><div class="line">        resize:both;</div><div class="line">        overflow:auto;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>外形修饰（outline-offset ）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&apos;div&apos;&gt;</div><div class="line">    这个 div有一个轮廓边界15 px边境外的边缘。Internet Explorer 不兼容 outline-offset属性.</div><div class="line">&lt;/div&gt;</div><div class="line">#div</div><div class="line">    &#123;</div><div class="line">        margin:20px;</div><div class="line">        width:150px; </div><div class="line">        padding:10px;</div><div class="line">        height:70px;</div><div class="line">        border:2px solid black;</div><div class="line">        outline:2px solid red;</div><div class="line">        outline-offset:15px;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="弹性盒"><a href="#弹性盒" class="headerlink" title="弹性盒"></a><span id="11">弹性盒</span></h2><blockquote>
+<p>弹性盒子是 CSS3 的一种新的布局模式。CSS3 弹性盒（ Flexible Box 或 flexbox），是一种当页面需要适应不同的屏幕大小以及设备类型时确保元素拥有恰当的行为的布局方式。引入弹性盒布局模型的目的是提供一种更加有效的方式来对一个容器中的子元素进行排列、对齐和分配空白空间</p>
+</blockquote>
+<ul>
+<li>弹性盒子 = 弹性容器(Flex container) + 弹性子元素(Flex item)</li>
+<li>弹性容器设置 display 属性的值为 flex 或 inline-flex将其定义为弹性容器(弹性容器上)</li>
+<li>direction: rtl (right-to-left) 修改弹性子元素的排列方式也会改变，页面布局也跟着改变 (弹性容器上)</li>
+<li>flex-direction 顺序指定了弹性子元素在父容器中的位置 (flex-direction: row | row-reverse | column | column-reverse)(弹性容器上)<ul>
+<li>row：横向从左到右排列（左对齐），默认</li>
+<li>row-reverse：反转横向排列（右对齐，从后往前排，最后一项排在最前面</li>
+<li>column：纵向排列</li>
+<li>column-reverse：反转纵向排列，从后往前排，最后一项排在最上面</li>
+</ul>
+</li>
+<li>justify-content(内容对齐): flex-start | flex-end | center | space-between | space-around (弹性容器上)</li>
+<li>align-items(设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式): flex-start | flex-end | center | baseline | stretch(弹性容器上)</li>
+<li>flex-wrap(用于指定弹性盒子的子元素换行方式): nowrap|wrap|wrap-reverse|initial|inherit; (弹性容器上)<ul>
+<li>nowrap - 默认， 弹性容器为单行。该情况下弹性子项可能会溢出容器。</li>
+<li>wrap - 弹性容器为多行。该情况下弹性子项溢出的部分会被放置到新行，子项内部会发生断行</li>
+<li>wrap-reverse -反转 wrap 排列</li>
+</ul>
+</li>
+<li>align-content(用于修改 flex-wrap 属性的行为): flex-start | flex-end | center | space-between | space-around | stretch, 类似于 align-items, 但它不是设置弹性子元素的对齐，而是设置各个行的对齐 (弹性容器上)<ul>
+<li>stretch - 默认。各行将会伸展以占用剩余的空间。</li>
+<li>flex-start - 各行向弹性盒容器的起始位置堆叠。</li>
+<li>flex-end - 各行向弹性盒容器的结束位置堆叠。</li>
+<li>center -各行向弹性盒容器的中间位置堆叠。</li>
+<li>space-between -各行在弹性盒容器中平均分布。</li>
+<li>space-around - 各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半。 </li>
+</ul>
+</li>
+</ul>
+<h3 id="弹性子元素属性"><a href="#弹性子元素属性" class="headerlink" title="弹性子元素属性"></a>弹性子元素属性</h3><ul>
+<li>order 属性设置弹性容器内弹性子元素的属性</li>
+<li>align-self (在弹性子元素上使用。覆盖容器的 align-items 属性): auto | flex-start | flex-end | center | baseline | stretch</li>
+<li>flex (设置弹性盒子的子元素如何分配空间): auto | initial | none | inherit |  [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;flex-container&quot;&gt;</div><div class="line">    &lt;div class=&quot;flex-item&quot;&gt;flex item 1&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;flex-item&quot;&gt;flex item 2&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;flex-item&quot;&gt;flex item 3&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;flex-item&quot;&gt;flex item 4&lt;/div&gt;  </div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">.flex-container &#123;</div><div class="line">    display: -webkit-flex;</div><div class="line">    display: flex;</div><div class="line">    width: 400px;</div><div class="line">    height: 250px;</div><div class="line">    background-color: lightgrey;</div><div class="line">    //direction: rtl;</div><div class="line">    //flex-direction: row;</div><div class="line">    //flex-direction: row-reverse;</div><div class="line">    //flex-direction: column;</div><div class="line">    //flex-direction: column-reverse;</div><div class="line">    //justify-content: flex-start;</div><div class="line">    //justify-content: flex-end;</div><div class="line">    //justify-content: center;</div><div class="line">    //justify-content: space-between;</div><div class="line">    //justify-content: space-around;</div><div class="line">    //flex-wrap: nowrap;</div><div class="line">    //flex-wrap: wrap;</div><div class="line">    //flex-wrap: wrap-reverse;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.flex-item &#123;</div><div class="line">    background-color: cornflowerblue;</div><div class="line">    width: 15%;</div><div class="line">    height: 100px;</div><div class="line">    margin: 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/css3/">css3</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/css3/" title="css3">css3</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/10/17/markdown/">
+            
+                markdown
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/css3/">css3</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/搭建博客/">搭建博客</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/语法/">语法</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/博客/" title="博客">博客 (1)</a>
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

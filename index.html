@@ -1,281 +1,407 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Hexo</span>
+                    <span class="description"></span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/index.html" class="item current">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-qq" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/14/qq/" class="article-date">
-  <time datetime="2017-09-14T10:00:22.000Z" itemprop="datePublished">2017-09-14</time>
-</a>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 首页 -->
+
     
-  </div>
-  <div class="article-inner">
+    <h3 class="widget-hd">
+        <strong>
+            
+                最近动态
+            
+        </strong>
+    </h3>
     
-    
-      <header class="article-header">
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/14/qq/">qq</a>
-    </h1>
-  
+        <a class="cat-link" href="/categories/css3/">css3</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="http://localhost:4000/2017/10/17/css3/">
+    		css3
+    	</a>
+    </h3>
 
-      </header>
+    </header>
+    <p class="post-meta">
+        Jelon 发表于
+        <time datetime="2017-10-17T06:37:12.000Z">2017-10-17</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>惊世毒妃开发的经费待会发</p>
+        <a href="/tags/css3/" title="css3">css3</a>
+    
 
-      
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <ul>
+<li><a href="#0">calc()使用</a></li>
+<li><a href="#1">边框</a></li>
+<li><a href="#2">背景</a></li>
+<li><a href="#3">渐变</a></li>
+<li><a href="#4">文本效果</a></li>
+<li><a href="#5">2D转换</a></li>
+<li><a href="#6">3D转换</a></li>
+<li><a href="#7">过渡</a></li>
+<li><a href="#8">动画</a></li>
+<li><a href="#9">多列</a></li>
+<li><a href="#10">用户界面</a></li>
+<li><a href="#11">弹性盒</a></li>
+</ul>
+<h2 id="calc-使用"><a href="#calc-使用" class="headerlink" title="calc()使用"></a><span id="0"><a href="http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html" target="_blank" rel="external">calc()使用</a></span></h2><blockquote>
+<p>能实现自适应的布局 box-sizing, 浏览器对calc()的兼容性还算不错，在IE9+、FF4.0+、Chrome19+、Safari6+都得到较好支持著作权归作者所有。不过calc()最大的好处就是用在流体布局上(百分比)，可以通过calc()计算得到元素的宽度高度<br>
+            
+            <p class="more">
+                <a href="http://localhost:4000/2017/10/17/css3/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img="">
+            <a href="http://localhost:4000/2017/10/17/css3/" title="css3">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/7.jpg" alt="默认配图" >
+                
+            </a>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/14/qq/" data-id="cj7kav58s00023ctj6z3ccd6y" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hqqqq/">hqqqq</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
 
-
-  
-    <article id="post-hq" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/14/hq/" class="article-date">
-  <time datetime="2017-09-14T09:40:20.000Z" itemprop="datePublished">2017-09-14</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/14/hq/">hq</a>
-    </h1>
-  
+        <a class="cat-link" href="/categories/语法/">语法</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="http://localhost:4000/2017/10/17/markdown/">
+    		markdown
+    	</a>
+    </h3>
 
-      </header>
+    </header>
+    <p class="post-meta">
+        Jelon 发表于
+        <time datetime="2017-10-17T05:49:58.000Z">2017-10-17</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ww</p>
+        <a href="/tags/语法/" title="语法">语法</a>
+    
 
-      
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h2 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么?"></a>Markdown是什么?</h2><blockquote>
+<p>Markdown是一种可以使用普通文本编辑器编写的<a href="https://baike.baidu.com/item/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/5964436?fr=aladdin," title="标记语言" target="_blank" rel="external">标记语言</a>，通过简单的标记语法，它可以使普通文本内容具有一定的格式</p>
+</blockquote>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><blockquote>
+<p>Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客 当然还有其他的用途</p>
+</blockquote>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><blockquote>
+<p>实现「易读易写」成为一种适用于网络的书写语言，Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然</p>
+</blockquote>
+<h2 id="Markdown-语法的简要规则"><a href="#Markdown-语法的简要规则" class="headerlink" title="Markdown 语法的简要规则"></a>Markdown 语法的简要规则</h2>
+            
+            <p class="more">
+                <a href="http://localhost:4000/2017/10/17/markdown/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img="">
+            <a href="http://localhost:4000/2017/10/17/markdown/" title="markdown">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/7.jpg" alt="默认配图" >
+                
+            </a>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/14/hq/" data-id="cj7kav58o00013ctjs0c1ah9a" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ksdjksjd/">ksdjksjd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qq/">qq</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
 
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/14/hello-world/" class="article-date">
-  <time datetime="2017-09-14T09:31:52.972Z" itemprop="datePublished">2017-09-14</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/14/hello-world/">Hello World</a>
-    </h1>
-  
+        <a class="cat-link" href="/categories/搭建博客/">搭建博客</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="http://localhost:4000/2017/10/17/hello-world/">
+    		Hello World
+    	</a>
+    </h3>
 
-      </header>
+    </header>
+    <p class="post-meta">
+        Jelon 发表于
+        <time datetime="2017-10-17T02:41:24.896Z">2017-10-17</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <a href="/tags/博客/" title="博客">博客</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3>
+            
+            <p class="more">
+                <a href="http://localhost:4000/2017/10/17/hello-world/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img="">
+            <a href="http://localhost:4000/2017/10/17/hello-world/" title="Hello World">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/7.jpg" alt="默认配图" >
+                
+            </a>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/14/hello-world/" data-id="cj7kav58h00003ctj3ambk5sk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
 </article>
 
-
-  
-
-</section>
-        
-          <aside id="sidebar">
-  
     
 
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hqqqq/">hqqqq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ksdjksjd/">ksdjksjd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qq/">qq</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    <nav class="page-navigator">
+        <span class="page-number current">1</span>
+    </nav>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/hqqqq/" style="font-size: 10px;">hqqqq</a> <a href="/tags/ksdjksjd/" style="font-size: 10px;">ksdjksjd</a> <a href="/tags/qq/" style="font-size: 10px;">qq</a>
-    </div>
-  </div>
 
-  
+
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    <li>
+        <a href="/categories/css3/">css3</a>
+        <span class="badge">(1)</span>
+    </li>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/09/14/qq/">qq</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/14/hq/">hq</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/14/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+    <li>
+        <a href="/categories/搭建博客/">搭建博客</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/语法/">语法</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
 
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
   
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/博客/" title="博客">博客 (1)</a>
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+<!-- / 侧栏部分 -->
     </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
 </body>
 </html>
