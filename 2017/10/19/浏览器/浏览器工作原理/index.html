@@ -133,10 +133,9 @@
 <li><a href="#3">浏览器的高层结构</a></li>
 <li><a href="#4">主流程</a></li>
 <li><a href="#5">浏览器处理脚本和样式表的顺序</a></li>
-<li><a href="#6">浏览器如何干活的</a></li>
+<li><a href="#6">浏览器如何干活的</a><a id="more"></a>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><span id="0">简介</span></h3>网页浏览器（英语：web browser），常被简称为浏览器，是一种用于检索并展示万维网信息资源的应用程序。这些信息资源可为网页、图片、影音或其他内容，它们由统一资源标志符标志。信息资源中的超链接可使用户方便地浏览相关信息。</li>
 </ul>
-<a id="more"></a>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><span id="0">简介</span></h3><p>网页浏览器（英语：web browser），常被简称为浏览器，是一种用于检索并展示万维网信息资源的应用程序。这些信息资源可为网页、图片、影音或其他内容，它们由统一资源标志符标志。信息资源中的超链接可使用户方便地浏览相关信息。</p>
 <p>网页浏览器虽然主要用于使用万维网，但也可用于获取专用网络中网页服务器之信息或文件系统内之文件。</p>
 <p>主流网页浏览器(内核): Internet Explorer(Trident)、Firefox(Gecko)、Safari(WebKit)、Chrome(WebKit)、Opera(Blink)</p>
 <h3 id="浏览器内核-渲染引擎"><a href="#浏览器内核-渲染引擎" class="headerlink" title="浏览器内核(渲染引擎)"></a><span id="1"><a href="https://baike.baidu.com/item/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8/10602413?fr=aladdin" target="_blank" rel="external">浏览器内核(渲染引擎)</a></span></h3><p>浏览器最重要或者说核心的部分是<em><strong><em>浏览器内核</em></strong></em>，也称为排版引擎（layout engine）、页面渲染引擎（rendering engine）或样版引擎</p>
@@ -170,22 +169,22 @@
 </ul>
 <p><img src="broswer2.png" alt="呈现引擎的基本流程图"></p>
 <h3 id="浏览器处理脚本和样式表的顺序"><a href="#浏览器处理脚本和样式表的顺序" class="headerlink" title="浏览器处理脚本和样式表的顺序"></a><span id="5">浏览器处理脚本和样式表的顺序</span></h3><h4 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h4><p>WebKit 和 Firefox 都进行了这项优化。在执行脚本时，其他线程会解析文档的其余部分，找出并加载需要通过网络加载的其他资源。通过这种方式，资源可以在并行连接上加载，从而提高总体速度。请注意，预解析器不会修改 DOM 树，而是将这项工作交由主解析器处理；预解析器只会解析外部资源（例如外部脚本、样式表和图片）的引用。</p>
-<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><p>网络的模型是同步的。网页作者希望解析器遇到 script 标记时立即解析并执行脚本。文档的解析将停止，直到脚本执行完毕。如果脚本是外部的，那么解析过程会停止，直到从网络同步抓取资源完成后再继续。此模型已经使用了多年，也在 HTML4 和 HTML5 规范中进行了指定。作者也可以将脚本标注为“defer”，这样它就不会停止文档解析，而是等到解析结束才执行。HTML5 增加了一个选项，可将脚本标记为异步，以便由其他线程解析和执行。</p>
+<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><p>网络的模型是同步的。网页作者希望解析器遇到 &lt;script&gt; 标记时立即解析并执行脚本。文档的解析将停止，直到脚本执行完毕。如果脚本是外部的，那么解析过程会停止，直到从网络同步抓取资源完成后再继续。此模型已经使用了多年，也在 HTML4 和 HTML5 规范中进行了指定。作者也可以将脚本标注为“defer”，这样它就不会停止文档解析，而是等到解析结束才执行。HTML5 增加了一个选项，可将脚本标记为异步，以便由其他线程解析和执行。</p>
 <h4 id="样式表"><a href="#样式表" class="headerlink" title="样式表"></a>样式表</h4><p>另一方面，样式表有着不同的模型。理论上来说，应用样式表不会更改 DOM 树，因此似乎没有必要等待样式表并停止文档解析。但这涉及到一个问题，就是脚本在文档解析阶段会请求样式信息。如果当时还没有加载和解析样式，脚本就会获得错误的回复，这样显然会产生很多问题。这看上去是一个非典型案例，但事实上非常普遍。Firefox 在样式表加载和解析的过程中，会禁止所有脚本。而对于 WebKit 而言，仅当脚本尝试访问的样式属性可能受尚未加载的样式表影响时，它才会禁止该脚本。</p>
 <h3 id="浏览器如何干活的"><a href="#浏览器如何干活的" class="headerlink" title="浏览器如何干活的?"></a><span id="6">浏览器如何干活的?</span></h3><ol>
 <li>用户输入网址（假设是个html页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回html文件；</li>
-<li>浏览器开始载入html代码，发现<head>标签内有一个<link>标签引用外部CSS文件；</head></li>
+<li>浏览器开始载入html代码，发现 &lt;head&gt; 标签内有一个 &lt;link&gt; 标签引用外部CSS文件；</li>
 <li>浏览器又发出CSS文件的请求，服务器返回这个CSS文件；</li>
-<li>浏览器继续载入html中<body>部分的代码，并且CSS文件已经拿到手了，可以开始渲染页面了；</body></li>
-<li>浏览器在代码中发现一个<img>标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续渲染后面的代码；</li>
+<li>浏览器继续载入html中 &lt;body&gt; 部分的代码，并且CSS文件已经拿到手了，可以开始渲染页面了；</li>
+<li>浏览器在代码中发现一个 &lt;img&gt;标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续渲染后面的代码；</li>
 <li>服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；</li>
-<li>浏览器发现了一个包含一行Javascript代码的<script>标签，赶快运行它；</li>
-<li>Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个<div> （style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码；</li>
-<li>终于等到了</html>的到来，浏览器泪流满面……</li>
-<li>等等，还没完，用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下<link>标签的CSS路径；</li>
-<li>浏览器召集了在座的各位<div><span><ul><li>们，“大伙儿收拾收拾 行李，咱得重新来过……”，浏览器向服务器请求了新的CSS文件，重新渲染页面。</li>
+<li>浏览器发现了一个包含一行Javascript代码的 &lt;script&gt; 标签，赶快运行它；</li>
+<li>Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个 div （style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码；</li>
+<li>终于等到了/html 的到来，浏览器泪流满面……</li>
+<li>等等，还没完，用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下&lt;link&gt;标签的CSS路径；</li>
+<li>浏览器召集了在座的各位&lt;span&gt;&lt;ul&gt;&lt;li&gt;们，“大伙儿收拾收拾 行李，咱得重新来过……”，浏览器向服务器请求了新的CSS文件，重新渲染页面。</li>
 </ol>
-</script></li></ol>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
@@ -251,12 +250,12 @@
 <ul class="widget-bd">
     
     <li>
-        <a href="/categories/搭建博客/">搭建博客</a>
+        <a href="/categories/css3/">css3</a>
         <span class="badge">(1)</span>
     </li>
     
     <li>
-        <a href="/categories/css3/">css3</a>
+        <a href="/categories/搭建博客/">搭建博客</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -279,9 +278,9 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/博客/" title="博客">博客 (1)</a>
-  
     <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/博客/" title="博客">博客 (1)</a>
   
     <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
   
