@@ -88,9 +88,7 @@
                 </p>
                 <p class="sns">
                     
-                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
-                    
-                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                        <a href="http://weibo.com/u/6157738526/home?leftnav=1" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
@@ -122,7 +120,7 @@
         <h3 class="post-title"><span>探索浏览器</span></h3>
     </header>
     <p class="post-meta text-center">
-        Jelon 发表于
+        heqing 发表于
         <time datetime="2017-10-19T06:37:45.000Z">2017-10-19</time>
     </p>
     <div class="post-content">
@@ -152,22 +150,22 @@
 <li><strong>JavaScript 解释器</strong>。用于解析和执行 JavaScript 代码。</li>
 <li><strong>数据存储</strong>。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E5%BA%93/1717974?fr=aladdin" target="_blank" rel="external">网络数据库</a>”，这是一个完整（但是轻便）的浏览器内数据库。</li>
 </ul>
-<p><img src="broswer1.png" alt="浏览器的主要组件图" title="浏览器的主要组件"><br><em>值得注意的是，和大多数浏览器不同，Chrome 浏览器的每个标签页都分别对应一个呈现引擎实例。每个标签页都是一个独立的进程(即每个标签页面都在独立的“沙箱”内运行，在提高安全性的同时，一个标签页面的崩溃也不会导致其他标签页面被关闭)</em></p>
+<p><img src="/img/broswer1.png" alt="浏览器的主要组件图" title="浏览器的主要组件"><br><em>值得注意的是，和大多数浏览器不同，Chrome 浏览器的每个标签页都分别对应一个呈现引擎实例。每个标签页都是一个独立的进程(即每个标签页面都在独立的“沙箱”内运行，在提高安全性的同时，一个标签页面的崩溃也不会导致其他标签页面被关闭)</em></p>
 <h3 id="主流程"><a href="#主流程" class="headerlink" title="主流程"></a><span id="4">主流程</span></h3><p>呈现引擎一开始会从网络层获取请求文档的内容，内容的大小一般限制在 8000 个块以内。</p>
 <p>然后进行如下所示的基本流程</p>
-<p><img src="broswer2.png" alt="呈现引擎的基本流程图" title="呈现引擎的基本流程"></p>
+<p><img src="/img/broswer2.png" alt="呈现引擎的基本流程图" title="呈现引擎的基本流程"></p>
 <p>解析HTML来构造DOM树—–&gt;构造渲染树—–&gt;布局渲染树—–&gt;绘制渲染树</p>
 <p>呈现引擎将开始解析 HTML 文档，并将各标记逐个转化成“内容树”上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：呈现树。</p>
 <p>呈现树包含多个带有视觉属性（如颜色和尺寸）的矩形。这些矩形的排列顺序就是它们将在屏幕上显示的顺序。</p>
 <p>呈现树构建完毕之后，进入“布局”处理阶段，也就是为每个节点分配一个应出现在屏幕上的确切坐标。下一个阶段是绘制 - 呈现引擎会遍历呈现树，由用户界面后端层将每个节点绘制出来。</p>
 <p>需要着重指出的是，这是一个渐进的过程。为达到更好的用户体验，呈现引擎会力求尽快将内容显示在屏幕上。它不必等到整个 HTML 文档解析完毕之后，就会开始构建呈现树和设置布局。在不断接收和处理来自网络的其余内容的同时，呈现引擎会将部分内容解析并显示出来。</p>
 <h4 id="主流程示例"><a href="#主流程示例" class="headerlink" title="主流程示例"></a>主流程示例</h4><p>虽然 WebKit 和 Gecko 使用的术语略有不同，但整体流程是基本相同的。</p>
+<p><img src="/img/broswer3.png" alt="呈现引擎的基本流程图"></p>
 <ul>
 <li>Gecko将视觉格式化元素组成的树称为”框架树”(frame)。每个元素都是一个框架。Webkit使用的术语是”渲染树”(render)，它由”渲染对象”组成。</li>
 <li>对于元素的放置，Webkit 使用的术语是”布局”(layout)，而 Gecko 称之为”重排”(reflow)。</li>
 <li>Webkit称利用dom节点及样式信息去构建render树的过程为attachment，Gecko在html和dom树之间附加了一层，这层称为内容接收器，相当制造dom元素的工厂</li>
 </ul>
-<p><img src="broswer2.png" alt="呈现引擎的基本流程图"></p>
 <h3 id="浏览器处理脚本和样式表的顺序"><a href="#浏览器处理脚本和样式表的顺序" class="headerlink" title="浏览器处理脚本和样式表的顺序"></a><span id="5">浏览器处理脚本和样式表的顺序</span></h3><h4 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h4><p>WebKit 和 Firefox 都进行了这项优化。在执行脚本时，其他线程会解析文档的其余部分，找出并加载需要通过网络加载的其他资源。通过这种方式，资源可以在并行连接上加载，从而提高总体速度。请注意，预解析器不会修改 DOM 树，而是将这项工作交由主解析器处理；预解析器只会解析外部资源（例如外部脚本、样式表和图片）的引用。</p>
 <h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><p>网络的模型是同步的。网页作者希望解析器遇到 &lt;script&gt; 标记时立即解析并执行脚本。文档的解析将停止，直到脚本执行完毕。如果脚本是外部的，那么解析过程会停止，直到从网络同步抓取资源完成后再继续。此模型已经使用了多年，也在 HTML4 和 HTML5 规范中进行了指定。作者也可以将脚本标注为“defer”，这样它就不会停止文档解析，而是等到解析结束才执行。HTML5 增加了一个选项，可将脚本标记为异步，以便由其他线程解析和执行。</p>
 <h4 id="样式表"><a href="#样式表" class="headerlink" title="样式表"></a>样式表</h4><p>另一方面，样式表有着不同的模型。理论上来说，应用样式表不会更改 DOM 树，因此似乎没有必要等待样式表并停止文档解析。但这涉及到一个问题，就是脚本在文档解析阶段会请求样式信息。如果当时还没有加载和解析样式，脚本就会获得错误的回复，这样显然会产生很多问题。这看上去是一个非典型案例，但事实上非常普遍。Firefox 在样式表加载和解析的过程中，会禁止所有脚本。而对于 WebKit 而言，仅当脚本尝试访问的样式属性可能受尚未加载的样式表影响时，它才会禁止该脚本。</p>
