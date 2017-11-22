@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>创建型设计模式 | heqing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="heqing" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">heqing</span>
+                    <span class="description"></span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2017/11/20/javascript/创建型设计模式/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2017/11/20/javascript/创建型设计模式/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2017/11/20/javascript/创建型设计模式/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2017/11/20/javascript/创建型设计模式/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/u/6157738526/home?leftnav=1" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>创建型设计模式</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        heqing 发表于
+        <time datetime="2017-11-20T13:03:20.000Z">2017-11-20</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>创建型设计模式是一类处理对象创建的设计模式，通过某种方法控制对象的创建来避免基本对象创建时可能导致设计上的问题或增加设计上的复杂度。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="神奇的魔术师—简单工厂模式"><a href="#神奇的魔术师—简单工厂模式" class="headerlink" title="神奇的魔术师—简单工厂模式"></a>神奇的魔术师—简单工厂模式</h3><blockquote>
+<p>简单工厂模式，有叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例，主要用来创建同一类对象。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">//例子  用登录注册提示</div><div class="line">var LoginAlert = function(text) &#123;</div><div class="line">    this.content = text;</div><div class="line">&#125;</div><div class="line">LoginAlert.prototype.show = function() &#123;</div><div class="line">    alert(this.content)</div><div class="line">&#125;</div><div class="line">var userNameAlert = new LoginAlert(&apos;用户名不能多于16个字母数字&apos;)</div><div class="line">userNameAlert.show()</div><div class="line">var passWordAlert = new LoginAlert(&apos;输入的密码不正确&apos;)</div><div class="line">passWordAlert.show()</div><div class="line"></div><div class="line">var LoginConfirm = function(text) &#123;</div><div class="line">    this.content = text;</div><div class="line">&#125;</div><div class="line">LoginConfirm.prototype.show = function() &#123;</div><div class="line">    alert(this.content)</div><div class="line">&#125;</div><div class="line">var loginFailConfirm = new LoginConfirm(&apos;用户名不能多于16个字母数字&apos;)</div><div class="line">loginFailConfirm.show();</div><div class="line"></div><div class="line"></div><div class="line">var LoginPrompt = function(text) &#123;</div><div class="line">    this.content = text;</div><div class="line">&#125;</div><div class="line">LoginPrompt.prototype.show = function() &#123;</div><div class="line">    alert(this.content)</div><div class="line">&#125;</div><div class="line">// ...................</div></pre></td></tr></table></figure>
+<blockquote>
+<p>演变，如果类太多，那么提供一个。</p>
+</blockquote>
+<p>上面这种创建方式太多类，优化简单工厂模式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var PopFactory= function(name) &#123;</div><div class="line">    switch(name) &#123;</div><div class="line">        case &apos;alert&apos; :</div><div class="line">            return new LoginAlert()</div><div class="line">        case &apos;confirm&apos; :</div><div class="line">            return new LoginConfirm()</div><div class="line">        case &apos;prompt&apos; :</div><div class="line">            return new LoginPrompt()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 这三个类有很多地方是相同的，是可以抽象提取出来共用的，也可用简单工厂方式实现它们。</div></pre></td></tr></table></figure>
+<blockquote>
+<p>一个对象有时也可代替许多类</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function createPop(type, text) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.content = text;</div><div class="line">    o.show= function() &#123;</div><div class="line">        // 显示方法</div><div class="line">    &#125;;</div><div class="line">    if(type == &apos;alert&apos;) &#123;</div><div class="line">        // 差异部分</div><div class="line">    &#125;</div><div class="line">    if(type == &apos;prompt&apos;) &#123;</div><div class="line">        // 差异部分</div><div class="line">    &#125;</div><div class="line">    if(type == &apos;confirm&apos;) &#123;</div><div class="line">        // 差异部分</div><div class="line">    &#125;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line">// 调用，创建提示框</div><div class="line">var userNameAlert = createPop(&apos;alert&apos;, &apos;提示文字&apos;)</div></pre></td></tr></table></figure>
+<h3 id="给我一张名片—工厂方法模式"><a href="#给我一张名片—工厂方法模式" class="headerlink" title="给我一张名片—工厂方法模式"></a>给我一张名片—工厂方法模式</h3><blockquote>
+<p>通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 简单工厂</div><div class="line">var Java = function(content) &#123;</div><div class="line">    // .......</div><div class="line">&#125;</div><div class="line">var Php = function(content) &#123;</div><div class="line">    // .......</div><div class="line">&#125;</div><div class="line">var Javascript = function(content) &#123;</div><div class="line">    // .......</div><div class="line">&#125;</div><div class="line">// 学科工厂</div><div class="line">function JobFactory(type, content) &#123;</div><div class="line">    switch(type) &#123;</div><div class="line">        case &apos;java&apos; : </div><div class="line">            return new Java(content)</div><div class="line">        case &apos;php&apos; : </div><div class="line">            return new Php(content)</div><div class="line">        case &apos;Javascript&apos; : </div><div class="line">            return new Javascript(content)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 测试案例</div><div class="line">JobFactory(&apos;Javascript&apos;, &apos;content&apos;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>存在问题：若有新的需求，不仅要添加类，还要修改工厂函数。引申相互工厂方法模式，这样以后每需要一个类，只需要添加这个类。</p>
+<p>工厂方法模式本意是说将实际创建对象工作推迟到子类当中，这样核心类就成了抽象类，不过对应javascript不必这么深究，javascript没有像传统创建抽象类那样的方式轻易创建抽象了类，所以在javascript中实现工厂方法模式我们只需要参考它的核心思想即可，所以我们可以将工厂方法看做是一个实例化对象的工厂类，安全起见，我们采用安全模式类，而我们将创建对象的基类放在工厂方法类的原型中即可。</p>
+</blockquote>
+<h4 id="安全的工厂方法"><a href="#安全的工厂方法" class="headerlink" title="安全的工厂方法"></a>安全的工厂方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">// 安全模式创建的工厂类</div><div class="line">var Factory = function(type, content) &#123;</div><div class="line">    if(this instanceof Factory) &#123;</div><div class="line">        var a = new this[type] (content);</div><div class="line">        return s;</div><div class="line">    &#125; else &#123;</div><div class="line">        return new Factory(type, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 工厂原型中设置创建所用类型数据对象的基类</div><div class="line">Factory.prototype = &#123;</div><div class="line">    Java: function(content) &#123;</div><div class="line">        // ....</div><div class="line">    &#125;,</div><div class="line">    javascript: function(content) &#123;</div><div class="line">        // ....</div><div class="line">    &#125;,</div><div class="line">    UI: function(content) &#123;</div><div class="line">        this.content = content;</div><div class="line">        (function(content)) &#123;</div><div class="line">            var div = documnet.createElement(&apos;div&apos;);</div><div class="line">            div.innerHTML = content;</div><div class="line">            div.style.border = &apos;1pc solid #ccc&apos;;</div><div class="line">            document.getElementById(&apos;container&apos;).appendChild(div);</div><div class="line">        &#125;</div><div class="line">    &#125;(content)</div><div class="line">&#125;</div><div class="line">var data = [&#123;&#125;,&#123;&#125;,&#123;&#125;]</div><div class="line">data.map(function(item) &#123;</div><div class="line">    Factory(item.type, item.content);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>优点，如果添加类，只需在Factory.prototype中添加。</p>
+</blockquote>
+<h3 id="出现的都是幻觉—抽象工厂模式"><a href="#出现的都是幻觉—抽象工厂模式" class="headerlink" title="出现的都是幻觉—抽象工厂模式"></a>出现的都是幻觉—抽象工厂模式</h3><blockquote>
+<p>通过对类的工厂抽象使其业务用于对产品类簇的创建，而不负责创建每一类产品的实例。</p>
+</blockquote>
+<p>抽象工厂模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">// 抽象工厂方法</div><div class="line">var VericleFactory = function(subType, superType) &#123;</div><div class="line">    // 判断抽象工厂中是否有该抽象类</div><div class="line">    if(typeof VericleFactory[superType] === &apos;function&apos;) &#123;</div><div class="line">        function F() &#123;&#125;</div><div class="line">        // 继承父类属性方法</div><div class="line">        F.prototype = new VericleFactory[superType]();</div><div class="line">        // 将子类constructor指向子类</div><div class="line">        subType.constructor = superType;</div><div class="line">        // 子类原型继承父类</div><div class="line">        subType.prototype = new F();</div><div class="line">    &#125; else &#123;</div><div class="line">        // 不存在该抽象类抛出错误 </div><div class="line">        return new Error(&apos;未创建该抽象类&apos;)</div><div class="line">    &#125;   </div><div class="line">&#125;</div><div class="line">// 某一个车的抽象类</div><div class="line">VericleFactory.Truck = function() &#123;</div><div class="line">    this.type = &apos;truck&apos;</div><div class="line">&#125;</div><div class="line">VericleFactory.Truck.prototype = &#123;</div><div class="line">    getPrice: function() &#123;</div><div class="line">        return new Error(&apos;抽象方法不可调用&apos;)</div><div class="line">    &#125;,</div><div class="line">    getTrainload: function() &#123;</div><div class="line">        return new Error(&apos;抽象方法不可调用&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 奔驰汽车子类</div><div class="line">var BenzTruck = function(price, trainLoad) &#123;</div><div class="line">    this.price = price;</div><div class="line">    this.trainLoad = trainLoad;</div><div class="line">&#125;</div><div class="line">// 抽象方法实现对Truck抽象类的继承</div><div class="line">VericleFactory(BenzTruck, &quot;Truck&quot;);</div><div class="line">BenzTruck.prototype.getPrice = function() &#123;</div><div class="line">    return this.price;</div><div class="line">&#125;</div><div class="line">BenzTruck.prototype.getTrainload = function() &#123;</div><div class="line">    return this.getTrainload;</div><div class="line">&#125;</div><div class="line">// 测试</div><div class="line">var truck = new BenzTruck(100, 10000);</div><div class="line">console.log(truck.getPrice)   // 100</div><div class="line">console.log(truck.type)       // truck</div></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：抽象工厂模式是设计模式中最抽象的一种，也是创建模式中唯一一种抽象化创建模式，该模式创建出的结果不是一个真实的对象实例，而是一个类簇，它制定了类的结构，这也就区别于简单工厂模式创建单一对象，工厂方法模式创建多类对象，当然由于JavaScript中不支持抽象化创建与虚拟方法，所以导致这种模式不能像其他面向对象语言中应用的那么广泛。</p>
+</blockquote>
+<h3 id="分即是合—建造者模式"><a href="#分即是合—建造者模式" class="headerlink" title="分即是合—建造者模式"></a>分即是合—建造者模式</h3><blockquote>
+<p>将一个复杂对象的构建层与其表示层相互分离，同样的构建过程可采用不同的表示。</p>
+</blockquote>
+<p>创建对象的另一种新式：建造者模式</p>
+<p>建造者模式更注重的是创建的细节。</p>
+<h3 id="语言之魂—原型模式"><a href="#语言之魂—原型模式" class="headerlink" title="语言之魂—原型模式"></a>语言之魂—原型模式</h3><blockquote>
+<p>用原型实例指向创建对象的类，使用于创建新的对象的类共享原型对象的属性以及方法。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function prototypeExtend() &#123;</div><div class="line">  var F = function() &#123;&#125;,</div><div class="line">  args = arguments,</div><div class="line">    i = 0,</div><div class="line">    len = args.length;</div><div class="line">    // console.log(arguments)</div><div class="line">  for (; i &lt; len; i++) &#123;</div><div class="line">    for (var j in args[i]) &#123;</div><div class="line">      F.prototype[j] = args[i][j];</div><div class="line">      console.log(F.prototype)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return new F();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var penguin = prototypeExtend(</div><div class="line">  &#123;</div><div class="line">    speed: 20,</div><div class="line">    swim: function() &#123;</div><div class="line">      console.log(&quot;.......1&quot;);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    sd: 300,</div><div class="line">    run: function(speed) &#123;</div><div class="line">      console.log(&quot;......2&quot;+ speed);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    jump: function() &#123;</div><div class="line">      console.log(&quot;.........3&quot;);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">);</div><div class="line">penguin.swim()</div><div class="line">penguin.run(10)</div><div class="line">penguin.jump()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：原型模式可以让多个对象分享同一个原型对象的属性和方法，这也是一种继承方式，不过这种继承的实现是不需要创建的，而是将原型对象分享给那些继承的对象，当然有时需要让每个继承对象独立拥有一份原型对象，此时我们就需要对原型对象进行复制。</p>
+</blockquote>
+<p>由此可以看出，原型对象更适合在创建复杂的对象时，对于那些需求一直在变化而导致对象结构不停的改变时，将那些比较稳定的属性与方法共用而提取的继承的实现。</p>
+<h3 id="一个人的寂寞—单例模式"><a href="#一个人的寂寞—单例模式" class="headerlink" title="一个人的寂寞—单例模式"></a>一个人的寂寞—单例模式</h3><blockquote>
+<p>单例模式：有被称为单体模式，是只允许实例化一次的对象类，有时我们也用一个对象来规划一个命名空间，井井有条地管理对象上的属性个方法。</p>
+</blockquote>
+<p>JavaScript中最常见的一种模式，这种模式经常为我们提供一个命名空间，如我们使用过的jQuery库，单例模式就为它提供利润一个命名空间jQuery。</p>
+<blockquote>
+<p>命名空间？？？？</p>
+</blockquote>
+<p>就是nameSpace，解决一类问题：为了让代码更易懂，人们常常用单词或者拼音定义变量或者方法，但由于有限的单词量，所以不同的人定义的变量使用的单词名称很有可能重复，此时就需要用命名空间来约束每个人定义的变量来解决这类问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function g(id) &#123;</div><div class="line">    return document.getElementById(id)</div><div class="line">&#125;</div><div class="line">function css(id, key, value) &#123;</div><div class="line">    g(id).style[key] = value;</div><div class="line">&#125;</div><div class="line">function on(id ,type, fn) &#123;</div><div class="line">    g(id)[&apos;on&apos; + type] = fn;</div><div class="line">&#125;</div><div class="line">// ................</div><div class="line"></div><div class="line">// 命名空间</div><div class="line">var My = &#123;</div><div class="line">    g: function() &#123;</div><div class="line">        return document.getElementById(id)</div><div class="line">    &#125;,</div><div class="line">    css: function() &#123;</div><div class="line">        this.g(id).style[key] = value;</div><div class="line">    &#125;,</div><div class="line">    on: function() &#123;</div><div class="line">        this.g(id)[&apos;on&apos; + type] = fn;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>单例模式的其他作用：就是通过单例模式来控制自己的每个功能模块。</p>
+<p>创建一个小型代码库</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var A= &#123;</div><div class="line">    Util: &#123;</div><div class="line">        util_1: function() &#123;&#125;,</div><div class="line">         util_2: function() &#123;&#125;</div><div class="line">    &#125;,</div><div class="line">    Tool: &#123;</div><div class="line">        tool_1: function() &#123;&#125;,</div><div class="line">        tool_2: function() &#123;&#125;</div><div class="line">    &#125;,</div><div class="line">    Ajax: function () &#123;</div><div class="line">        ajax_1: function() &#123;&#125;,</div><div class="line">        ajax_2: function() &#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">A.Util.util_1();</div><div class="line">// ........</div></pre></td></tr></table></figure>
+<blockquote>
+<p>无法修改的静态变量</p>
+</blockquote>
+<p>用单例模式管理静态变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Conf = (function() &#123;</div><div class="line">    var conf = &#123;</div><div class="line">        MAX_NUM: 100,</div><div class="line">        MIN_NUM: 1,</div><div class="line">        COUNT: 1000</div><div class="line">    &#125;</div><div class="line">    return &#123;</div><div class="line">        get: function(name) &#123;</div><div class="line">            return conf[name] ? conf[name] : null</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)()</div><div class="line">var COUNT = Conf.get(&apos;COUNT&apos;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>惰性单例</p>
+</blockquote>
+<p>有时候对于单例对象需要延迟创建，所以在单例中还存在一种延迟创建的形式，有人也称之为‘惰性创建’。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 惰性载入单例</div><div class="line">var LazySingle = (function() &#123;</div><div class="line">    // 单例实例引用</div><div class="line">    var instance = null;</div><div class="line">    // 单例</div><div class="line">    function Single() &#123;</div><div class="line">        // 这里定义私有属性和方法</div><div class="line">        return &#123;</div><div class="line">            publicMethod: function() &#123;&#125;,</div><div class="line">            punlicProperty: &apos;1.0&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    // 获取单例对象接口</div><div class="line">    if(!instance) &#123;</div><div class="line">        instance = Single()</div><div class="line">    &#125;</div><div class="line">    // 返回单例</div><div class="line">    return instance;</div><div class="line">&#125; )()</div><div class="line"></div><div class="line">console.log(LazySingle().punlicProperty);  // 1.0</div></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/javascript设计模式/">javascript设计模式</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/11/05/javascript/js继承/">
+            
+                js继承
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/语法/">语法</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/css/">css</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/javascript设计模式/">javascript设计模式</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/浏览器/">浏览器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/服务器/">服务器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">heqing Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
