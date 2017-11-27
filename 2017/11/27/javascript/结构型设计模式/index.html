@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>结构型设计模式 | heqing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="heqing" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">heqing</span>
+                    <span class="description"></span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2017/11/27/javascript/结构型设计模式/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2017/11/27/javascript/结构型设计模式/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2017/11/27/javascript/结构型设计模式/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2017/11/27/javascript/结构型设计模式/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/u/6157738526/home?leftnav=1" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>结构型设计模式</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        heqing 发表于
+        <time datetime="2017-11-27T10:56:20.000Z">2017-11-27</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>结构型设计模式关注于如何将类或者对象组合成更大，更复杂的结构，以简化设计。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="套餐服务—外观模式"><a href="#套餐服务—外观模式" class="headerlink" title="套餐服务—外观模式"></a>套餐服务—外观模式</h3><blockquote>
+<p>外观模式（Facade）：为一组复杂的子系统接口提供一个更高级的统一接口，通过这个接口，使得对子系统接口的访问更容易，在Javascript中有时也会用于对底层结构兼容性做统一封装来简化用户使用。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// 外观模式实现</span><br><span class="line">//提供一个更简单的高级接口，简化了我们对复杂的底层接口不统一的使用要求</span><br><span class="line">function addEvent(dom, type, fn) &#123;</span><br><span class="line">    if(dom.addEventListener) &#123;</span><br><span class="line">        dom.addEventListener(type, fn, false)</span><br><span class="line">    &#125; else if(dom.attachEvent)&#123;</span><br><span class="line">        dom.attachEvent(&apos;on&apos;+type, fn)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        dom[&apos;on&apos;+type] = fn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用</span><br><span class="line">var DOM = document.getElementById(&apos;dom&apos;);</span><br><span class="line">addEvent(Dom, &apos;click&apos;, function() &#123;</span><br><span class="line">    // 绑定的第一个事件</span><br><span class="line">    console.log(&apos;绑定的第一个事件&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">addEvent(Dom, &apos;click&apos;, function() &#123;</span><br><span class="line">    // 绑定的第一个事件</span><br><span class="line">    console.log(&apos;绑定的第二个事件&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 获取事件对象</span><br><span class="line">var getEvent = function (event) &#123;</span><br><span class="line">    // 标准浏览器返回event  IE window.event</span><br><span class="line">    return event || window.event;</span><br><span class="line">&#125;</span><br><span class="line">// 获取元素</span><br><span class="line">var getTarget = function(event) &#123;</span><br><span class="line">    var event = getEvent(event);</span><br><span class="line">    // 标准浏览器下event.target  IE下event.srcElement</span><br><span class="line">    return event.target || event.srcElement;</span><br><span class="line">&#125;</span><br><span class="line">// 阻止默认行为</span><br><span class="line">var preventDefault = function (event) &#123;</span><br><span class="line">    var event = getEvent(event);</span><br><span class="line">    // 标准浏览器</span><br><span class="line">    if(event.preventDefault) &#123;</span><br><span class="line">        event.preventDefault</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // IE</span><br><span class="line">        event.returnValue = false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//使用</span><br><span class="line">document.onclick = function (e) &#123;</span><br><span class="line">    preventDefault(e);</span><br><span class="line">    if(getTarget(e) === Dom) &#123;</span><br><span class="line">        // do somethihng</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：外观模式是对接口方法的外层包装，以供上层代码调用以供上层代码使用，因此有时外观模式封装的接口方法不需要接口的具体实现，只需要按照接口使用规则使用即可，这也是对系统与使用者之间的一种松散耦合，使得系统与使用者之间不会因结构的变化而相互影响。</p>
+</blockquote>
+<h3 id="水管弯弯—适配器模式"><a href="#水管弯弯—适配器模式" class="headerlink" title="水管弯弯—适配器模式"></a>水管弯弯—适配器模式</h3><blockquote>
+<p>适配器模式(Adapter): 将一个类（对象）的接口（方法或属性）转化成另外一个接口，以满足用户需求，使类（对象）之间接口的不兼容问题通过适配器得以解决。</p>
+<p>生活中的适配器两根垂直相交的水管连接处的的直角弯管，使得两个不同方向的水管可以疏通流水，三角插头手机充电器对于两项插头是不可用的，此时需要一个三项转两项插头电源适配器等等，这些都是适配器。代码写适配器，其实就是为两个代码库所写的代码兼容运行而书写的额外代码，有了这样的适配器，你就不需要特意地重写以前的功能代码了。</p>
+<p>jQuery适配器</p>
+</blockquote>
+<p>某框架A和jQuery代码书写风格很像，加载完jQuery框架后写一个适配器，将我们已有的功能适配到jQuery，假如代码中有两个事件<br>，一个加载，一个点击，不过这两个事件与jQuery中的写法很像，所以做的改动不会太大，我们的适配器的主要任务是适配两种代码库中不兼容的代码，那么首当其冲的就是全局对象A与jQuery了，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.A = A = jQuery;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>适配异类框架</p>
+</blockquote>
+<p>如果两个框架直接相差太大，对于这种异类框架适配情况就复杂多了，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 定义框架</span><br><span class="line">var A = A|| &#123;&#125;</span><br><span class="line">A.g = function(id) &#123;</span><br><span class="line">    return document.getElementById(id)</span><br><span class="line">&#125;</span><br><span class="line">// 为元素绑定事件</span><br><span class="line">A.on= function(id, type, fn) &#123;</span><br><span class="line">    // 如果传递参数是字符串则以id处理，负责以元素对象处理，</span><br><span class="line">    var dom = typeof id === &apos;string&apos; ? this.g(id) : id;</span><br><span class="line">    // 标准dom2级添加事件方式</span><br><span class="line">    if(dom.addEventListener) &#123;</span><br><span class="line">        dom.addEventListener(type, fn, false)</span><br><span class="line">    &#125; else if(dom.attachEvent)&#123;</span><br><span class="line">        dom.attachEvent(&apos;on&apos;+type, fn)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        dom[&apos;on&apos;+type] = fn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 使用</span><br><span class="line">A.on(window, &apos;load&apos;, function() &#123;</span><br><span class="line">    A.on(&apos;dom&apos;, &apos;click&apos;, function() &#123;</span><br><span class="line">        // do something</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">// 引入jQuery来换A库</span><br><span class="line">A.g = function(id) &#123;</span><br><span class="line">    // 通过jQuery获取jQuery对象，然后返回第一个成员</span><br><span class="line">    return $(id).get(0)</span><br><span class="line">&#125;</span><br><span class="line">A.on = function(id, type, fn) &#123;</span><br><span class="line">    // 如果传递参数是字符串则以id处理，否则以元素对象处理，</span><br><span class="line">    var dom = typeof id === &apos;string&apos; ? $(&apos;#&apos; + id) : $(id);</span><br><span class="line">    dom.on(type, fn);</span><br><span class="line">&#125;</span><br><span class="line">// 通过适配器发现如果两种框架的比较相似，适配比较容易，否则写起来复杂很多，因此尽量引入相似框架。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参数适配器</p>
+</blockquote>
+<p>适配器还有很多用途，比如方法需要传递多个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(name, title, age, color, size, prize) &#123;</span><br><span class="line">    // 记住参数顺序是很困难的，因此我们经常以一个参数对象方式传入</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    title: title</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">function dosomething(obj) &#123;&#125;</span><br><span class="line">// 然而调用的时候不知道传递的参数是否完整，如有一些必须参数没有传入，一些参数是有默认值得等等，此时我们通常的做法是用适配器来适配传入的这个参数对象</span><br><span class="line"></span><br><span class="line">function doSomething(obj) &#123;</span><br><span class="line">    var _adapter = &#123;</span><br><span class="line">        name: &apos;me&apos;,</span><br><span class="line">        title: &apos;设计模式&apos;，</span><br><span class="line">        age: 24,</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    for(var i in _adapter) &#123;</span><br><span class="line">        _adapter[i] = obj[i] || _adapter[i];</span><br><span class="line">        // 或者 extend(_adapter, obj)   //  此时可能会多添加属性</span><br><span class="line">        // do something</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>数据适配</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;javascript&apos;,20,&apos;时间&apos;， ‘日期’]</span><br><span class="line">// 我们发现数组中的每个成员代表的意义不同，这种数据结构语义不好，我们通常会将其适配成对象形式，</span><br><span class="line">var obj = &#123;</span><br><span class="line">    name: &apos;&apos;,</span><br><span class="line">    age: &apos;&apos;,</span><br><span class="line">    time: &apos;&apos;,</span><br><span class="line">    data: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line">function arrToObjAdapter() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        name: arr[0],</span><br><span class="line">        age: arr[1]</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 使用</span><br><span class="line">var adapterData = arrToObjAdapter(arr);</span><br><span class="line">console.log(adapterData)  // &#123;name: &apos;javascript&apos;, age: 20, ...&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>服务器端数据适配</p>
+</blockquote>
+<p>它解决了前后端的数据依赖，前端程序不在为后端传递的数据所束缚，如果后端因为架构改变导致传递的数据结构发生变化，我们只需要写个适配器就可以放心了，如果后端的数据经常变化，无法控制数据的格式，那么我们在dosomething时最好不要直接调用，最好先将传递过来的数据适配成对我们可用的数据在使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 为简化模型这里使用jQuery的ajax方法，理想数据是一个一维数组</span><br><span class="line">function ajaxAdapter(data) &#123;</span><br><span class="line">    // 处理数据并返回新数据</span><br><span class="line">    return [data[&apos;key1&apos;], data[&apos;key2&apos;], ...]</span><br><span class="line">&#125;</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &apos;...&apos;,</span><br><span class="line">    // ...</span><br><span class="line">    success: function(data) &#123;</span><br><span class="line">        if(data) &#123;</span><br><span class="line">            doSomethin(ajaxAdapter(data))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">// 如果以后后端数据有任何变化我们只需相应的更改ajaxAdapter适配器转换格式</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：传统设计模式中，适配器模式往往是适配两个类接口不兼容的问题，然而在JavaScript中，适配器的应用范围更广，比如适配两个代码库，适配前后端数据等等。JavaScript中的适配器的应用，更多应用在对象之间，为了使对象可用，通常我们会将对象拆分并重新包装，这样我们就要了解适配对象的内部结构，这也是与外观模式的区别所在，当然适配器模式同样解决了对象之间的耦合度。包装的适配器代码增加了一些资源开销，当然这是微乎其微的。</p>
+</blockquote>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/javascript设计模式/">javascript设计模式</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/结构型设计模式/" title="结构型设计模式">结构型设计模式</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/11/20/javascript/创建型设计模式/">
+            
+                创建型设计模式
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/语法/">语法</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/javascript设计模式/">javascript设计模式</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/css/">css</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/服务器/">服务器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/浏览器/">浏览器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+    <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
+  
+    <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/结构型设计模式/" title="结构型设计模式">结构型设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">heqing Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -128,18 +128,18 @@
 <p>零基础浅显易懂的Git教程,一步步从创建本地到远程仓库, git指令清晰明了</p>
 </blockquote>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li><a href="https://git-scm.com/downloads" target="_blank" rel="external">官网下载</a><a id="more"></a>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网下载</a><a id="more"></a>
 <h4 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h4></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir learngit</div><div class="line">cd learngit</div></pre></td></tr></table></figure>
-<h4 id="将目录变成Git可以管理的仓库"><a href="#将目录变成Git可以管理的仓库" class="headerlink" title="将目录变成Git可以管理的仓库"></a>将目录变成Git可以管理的仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">ls -ah                //查看.git文件, 看仓库是否建成功</div></pre></td></tr></table></figure>
-<h4 id="新建分支"><a href="#新建分支" class="headerlink" title="新建分支"></a>新建分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git checkout -b dev   //创建dev分支兵切换到dev 等价于</div><div class="line"></div><div class="line">git branch dev        //创建dev分支</div><div class="line">git checkout dev      //切换到dev分支</div><div class="line"></div><div class="line">git branch            //查看当前分支</div><div class="line">git branch -d dev     //删除dev分支</div><div class="line">git merge master      //合并分支到当前分支, 在当前分支</div></pre></td></tr></table></figure>
-<h4 id="提交文件到暂存区"><a href="#提交文件到暂存区" class="headerlink" title="提交文件到暂存区"></a>提交文件到暂存区</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add readme.txt    //提交指定文件</div><div class="line">git add .             //提交所有文件</div><div class="line">git status            //查看发生了哪些变化</div></pre></td></tr></table></figure>
-<h4 id="暂存区内容提交到当前分支"><a href="#暂存区内容提交到当前分支" class="headerlink" title="暂存区内容提交到当前分支"></a>暂存区内容提交到当前分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m   &apos;提交的提示语&apos;</div><div class="line">git status           //  查看发生了哪些变化</div></pre></td></tr></table></figure>
-<h4 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;  //获取秘钥</div><div class="line"></div><div class="line">用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人</div><div class="line"></div><div class="line">登陆GitHub，打开“Account settings”，“SSH Keys”页面：</div><div class="line"></div><div class="line">点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容</div></pre></td></tr></table></figure>
-<h4 id="本地与远程库关联"><a href="#本地与远程库关联" class="headerlink" title="本地与远程库关联"></a>本地与远程库关联</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:myname/learngit.git</div></pre></td></tr></table></figure>
-<h4 id="将本地仓库推送到远程"><a href="#将本地仓库推送到远程" class="headerlink" title="将本地仓库推送到远程"></a>将本地仓库推送到远程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push -u origin master    </div><div class="line">//远程仓库默叫origin, 第一个推送加-u, Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的//master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</div></pre></td></tr></table></figure>
-<h4 id="从远程仓库克隆"><a href="#从远程仓库克隆" class="headerlink" title="从远程仓库克隆"></a>从远程仓库克隆</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone &apos;远程仓库地址&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir learngit</span><br><span class="line">cd learngit</span><br></pre></td></tr></table></figure>
+<h4 id="将目录变成Git可以管理的仓库"><a href="#将目录变成Git可以管理的仓库" class="headerlink" title="将目录变成Git可以管理的仓库"></a>将目录变成Git可以管理的仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">ls -ah                //查看.git文件, 看仓库是否建成功</span><br></pre></td></tr></table></figure>
+<h4 id="新建分支"><a href="#新建分支" class="headerlink" title="新建分支"></a>新建分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev   //创建dev分支兵切换到dev 等价于</span><br><span class="line"></span><br><span class="line">git branch dev        //创建dev分支</span><br><span class="line">git checkout dev      //切换到dev分支</span><br><span class="line"></span><br><span class="line">git branch            //查看当前分支</span><br><span class="line">git branch -d dev     //删除dev分支</span><br><span class="line">git merge master      //合并分支到当前分支, 在当前分支</span><br></pre></td></tr></table></figure>
+<h4 id="提交文件到暂存区"><a href="#提交文件到暂存区" class="headerlink" title="提交文件到暂存区"></a>提交文件到暂存区</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt    //提交指定文件</span><br><span class="line">git add .             //提交所有文件</span><br><span class="line">git status            //查看发生了哪些变化</span><br></pre></td></tr></table></figure>
+<h4 id="暂存区内容提交到当前分支"><a href="#暂存区内容提交到当前分支" class="headerlink" title="暂存区内容提交到当前分支"></a>暂存区内容提交到当前分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m   &apos;提交的提示语&apos;</span><br><span class="line">git status           //  查看发生了哪些变化</span><br></pre></td></tr></table></figure>
+<h4 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;  //获取秘钥</span><br><span class="line"></span><br><span class="line">用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人</span><br><span class="line"></span><br><span class="line">登陆GitHub，打开“Account settings”，“SSH Keys”页面：</span><br><span class="line"></span><br><span class="line">点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容</span><br></pre></td></tr></table></figure>
+<h4 id="本地与远程库关联"><a href="#本地与远程库关联" class="headerlink" title="本地与远程库关联"></a>本地与远程库关联</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:myname/learngit.git</span><br></pre></td></tr></table></figure>
+<h4 id="将本地仓库推送到远程"><a href="#将本地仓库推送到远程" class="headerlink" title="将本地仓库推送到远程"></a>将本地仓库推送到远程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master    </span><br><span class="line">//远程仓库默叫origin, 第一个推送加-u, Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的//master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</span><br></pre></td></tr></table></figure>
+<h4 id="从远程仓库克隆"><a href="#从远程仓库克隆" class="headerlink" title="从远程仓库克隆"></a>从远程仓库克隆</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &apos;远程仓库地址&apos;</span><br></pre></td></tr></table></figure>
 <h4 id="推荐可视化工具-TortoiseGit、SourceTree、GitGUI等等"><a href="#推荐可视化工具-TortoiseGit、SourceTree、GitGUI等等" class="headerlink" title="推荐可视化工具(TortoiseGit、SourceTree、GitGUI等等)"></a>推荐可视化工具(TortoiseGit、SourceTree、GitGUI等等)</h4>
     </div>
     <p class="post-meta">
@@ -215,13 +215,13 @@
     </li>
     
     <li>
-        <a href="/categories/css/">css</a>
-        <span class="badge">(1)</span>
+        <a href="/categories/javascript设计模式/">javascript设计模式</a>
+        <span class="badge">(3)</span>
     </li>
     
     <li>
-        <a href="/categories/javascript设计模式/">javascript设计模式</a>
-        <span class="badge">(2)</span>
+        <a href="/categories/css/">css</a>
+        <span class="badge">(1)</span>
     </li>
     
     <li>
@@ -230,12 +230,12 @@
     </li>
     
     <li>
-        <a href="/categories/浏览器/">浏览器</a>
+        <a href="/categories/服务器/">服务器</a>
         <span class="badge">(1)</span>
     </li>
     
     <li>
-        <a href="/categories/服务器/">服务器</a>
+        <a href="/categories/浏览器/">浏览器</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -250,19 +250,21 @@
   
     <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
   
-    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+    <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
   
     <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
   
-    <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/结构型设计模式/" title="结构型设计模式">结构型设计模式 (1)</a>
   
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
     <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
-  
-    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
   
 </div>
     </section>
