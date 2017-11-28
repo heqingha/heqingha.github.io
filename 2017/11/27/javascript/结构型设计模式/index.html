@@ -163,6 +163,31 @@
 <blockquote>
 <p>总结：传统设计模式中，适配器模式往往是适配两个类接口不兼容的问题，然而在JavaScript中，适配器的应用范围更广，比如适配两个代码库，适配前后端数据等等。JavaScript中的适配器的应用，更多应用在对象之间，为了使对象可用，通常我们会将对象拆分并重新包装，这样我们就要了解适配对象的内部结构，这也是与外观模式的区别所在，当然适配器模式同样解决了对象之间的耦合度。包装的适配器代码增加了一些资源开销，当然这是微乎其微的。</p>
 </blockquote>
+<h3 id="牛郎织女—代理模式"><a href="#牛郎织女—代理模式" class="headerlink" title="牛郎织女—代理模式"></a>牛郎织女—代理模式</h3><blockquote>
+<p>代理模式（Proxy）:由于一个对象不能直接应用另一个对象，所以需要通过代理对象在这两个对象之间起到代理作用。</p>
+</blockquote>
+<p>由于用户相册模块上传的照片量越来越大，导致服务器端需要将图片上传模块重新部署到另外一个域，这样对于前端来说，用户上传图片的请求路径发生变化，指向其他服务器，这就导致了跨域问题。</p>
+<blockquote>
+<p>跨域</p>
+<p>站长统计</p>
+<p>JSONP</p>
+<p>代理模板</p>
+</blockquote>
+<h3 id="房子装饰—装饰者模式"><a href="#房子装饰—装饰者模式" class="headerlink" title="房子装饰—装饰者模式"></a>房子装饰—装饰者模式</h3><blockquote>
+<p>装饰者模式（Decorator）:在不改变原对象的基础上，通过对其进行包装扩展（添加属性或者方法）使原有对象可以满足用户的更复杂需求。</p>
+</blockquote>
+<p>静止是相对的，运动是绝对的，所以没有一成不变的需求。</p>
+<p>？？ 情景：给页面所以input添加一个点击隐藏文案提示，注意不要覆盖原有的事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var input1 = doucument.getElementById(&apos;input1&apos;)</span><br><span class="line">input1.onclick = function() &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br><span class="line">var input2 = doucument.getElementById(&apos;input2&apos;)</span><br><span class="line">input2.onclick = function() &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br><span class="line">...很多的input</span><br></pre></td></tr></table></figure>
+<p>以上这种解决方法，由于输入框太多，寻找与修改麻烦,所以试试装饰者模式吧！</p>
+<blockquote>
+<p>装饰已有的功能对象</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var decorator = function(input, fn) &#123;</span><br><span class="line">    // 获取事件源</span><br><span class="line">    var input = doucument.getElementById(input);</span><br><span class="line">    // 若事件源已经绑定事件</span><br><span class="line">    if(typeof input.onclick === &apos;function&apos;) &#123;</span><br><span class="line">        // 缓存事件源原有事件函数</span><br><span class="line">        var oldClickFn = input.onclick;</span><br><span class="line">        input.onclick = function() &#123;</span><br><span class="line">            // 事件源原有回调函数</span><br><span class="line">            oldClickFn();</span><br><span class="line">            // 执行事件源添加新增回调函数</span><br><span class="line">            fn();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        input.onclick = fn;</span><br><span class="line">    &#125;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br><span class="line">// 使用</span><br><span class="line">decorator（‘input1’, function() &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;）</span><br><span class="line">decorator（‘input2’, function() &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;）</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>装饰者模式和适配器模式都是对一个对象的修饰来适配其他对象，二者不同，适配器模式是对原有对象适配，添加的方法与原有方法功能上大致相似，装饰者模式提供的方法与原来的方法是有一定区别的，还有最重要的一点是适配器模式新增的方法要调用原来的方法，要了解原有方法具体的细节，而装饰者模式不需要了解对象原有的功能，原方法原封不动的使用。</p>
+<p>总结：装饰模式是一种可以在不了解原有功能的基础上对功能拓展，装饰者模式对对象的拓展是一种良性拓展，不用了解其具体实现，只是在外部进行了一次封装拓展，是对原有功能完整性的一种保护。</p>
+</blockquote>
 
     </div>
     <p class="post-meta">
