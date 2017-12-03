@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>vsCode插件 | heqing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="heqing" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">heqing</span>
+                    <span class="description"></span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2017/12/03/工具/vsCode/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2017/12/03/工具/vsCode/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2017/12/03/工具/vsCode/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2017/12/03/工具/vsCode/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/u/6157738526/home?leftnav=1" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>vsCode插件</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        heqing 发表于
+        <time datetime="2017-12-03T05:38:50.000Z">2017-12-03</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>Microsoft在2015年4月30日Build 开发者大会上正式宣布了 Visual Studio Code 项目：一个运行于 Mac OS X、Windows和 Linux 之上的，针对于编写现代 Web 和云应用的跨平台源代码编辑器,一款轻量，采取了和VS相同的UI界面，搭配合适的插件可以优化前端开发的体验</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">vscode官网</a></p>
+<p>VScode 中文设置</p>
+<ol>
+<li>快捷键F1</li>
+<li>输入Configure Language 回车</li>
+<li>“locale”:  “zh-CN”，locale设置为zh-CNK</li>
+<li>保存, 重启vscode</li>
+</ol>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><ul>
+<li><p>左侧是用于展示所要编辑的所有文件和文件夹的文件管理器，依次是<code>资源管理器</code>，<code>搜索</code>，<code>GIT</code>，<code>调试</code>，<code>插件</code>，</p>
+</li>
+<li><p>右侧是打开文件的编辑区域，最多可同时打开三个编辑区域到侧边。</p>
+</li>
+<li><p>底栏：依次是<code>Git Branch</code>，<code>error&amp;warning</code>，<code>编码格式</code>等。</p>
+</li>
+</ul>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>vscode-icon</li>
+</ul>
+<p>F1-&gt;icon–&gt;icon Theme–&gt;选择(安装自己喜欢的主题)</p>
+<blockquote>
+<p>这款必须要推荐，明显提升效率的小插件，在项目文件多类型多的情况下，找到制定文件会大大缩短时间；</p>
+</blockquote>
+<ul>
+<li>fileheader</li>
+</ul>
+<p>修改作者 文件—&gt;首选项—&gt;设置—&gt;fileheader—&gt;修改</p>
+<blockquote>
+<p>顶部注释模板，可定义作者、时间等信息，并会自动更新最后修改时间, 快捷键 Ctrl+Alt+i</p>
+</blockquote>
+<ul>
+<li>HTML Snippets </li>
+</ul>
+<p>Ctrl+Shift+P–&gt;输入snippets–&gt;选择语言–&gt;打开.json文件–&gt;配置–&gt;使用</p>
+<blockquote>
+<p>超级实用且初级的 H5代码片段以及提示</p>
+</blockquote>
+<ul>
+<li>JavaScript Snippet Pack</li>
+</ul>
+<blockquote>
+<p>针对js的插件，包含了js的常用语法关键字，很实用, 代码片段(Tab或者Enter补全)</p>
+</blockquote>
+<ul>
+<li>JavaScript Snippets</li>
+</ul>
+<blockquote>
+<p>此扩展包含Visual Studio代码编辑器（支持JavaScript和TypeScript）的ES6语法中的JavaScript代码片段。</p>
+</blockquote>
+<ul>
+<li>HTML CSS Support</li>
+</ul>
+<blockquote>
+<p>在编写样式表的时候，自动补全功能大大缩减了编写时间，推荐！让 html 标签上写class 智能提示当前项目所支持的样式新版已经支持scss文件检索   (提示已有的class名)</p>
+</blockquote>
+<ul>
+<li>Auto Close Tag</li>
+</ul>
+<blockquote>
+<p>编写html代码的时候，写完开始标签，这款插件会自动补全结束标签，其实上面所说的html自动补全插件一个Tab就搞定了，不过有时也需要这款插件；</p>
+</blockquote>
+<ul>
+<li>Auto Rename Tag</li>
+</ul>
+<blockquote>
+<p>非常实用！要修改标签名称的时候自动修改结束标签，节省一半时间，提升效率，非常棒！</p>
+</blockquote>
+<ul>
+<li>Document this</li>
+</ul>
+<blockquote>
+<p>js 的注释模板 （注意：新版的vscode已经原生支持,在function上输入/** tab） Ctrl+Alt+D 快捷键, 光标放在关键字上</p>
+</blockquote>
+<ul>
+<li>Change Case</li>
+</ul>
+<p>下划线命名  &lt;–&gt;   驼峰命名    大小写转换   </p>
+<blockquote>
+<p>虽然 VSCode 内置了开箱即用的文本转换选项，但其只能进行文本大小写的转换。而此插件则添加了用于修改文本的更多命名格式，包括驼峰命名、下划线分隔命名，snake_case 命名以及 CONST_CAS 命名等</p>
+</blockquote>
+<ul>
+<li>jQuery Code Snippets</li>
+</ul>
+<blockquote>
+<p>jquery提示插件</p>
+</blockquote>
+<ul>
+<li>Path Intellisense</li>
+</ul>
+<blockquote>
+<p>自动路劲补全，默认不带这个功能的，赶紧装</p>
+</blockquote>
+<ul>
+<li>Emoji  </li>
+</ul>
+<p>F1–&gt;emo–&gt;选择插入</p>
+<blockquote>
+<p>很好玩的一款插件，可以在代码中插入emoji了，也许是程序猿的娱乐方式吧；</p>
+</blockquote>
+<ul>
+<li>Open-In-Browser</li>
+</ul>
+<blockquote>
+<p>由于 VSCode 没有提供直接在浏览器中打开文件的内置界面，所以此插件在快捷菜单中添加了在默认浏览器查看文件选项，以及在客户端（Firefox，Chrome，IE）中打开命令面板选项</p>
+</blockquote>
+<ul>
+<li>Code Runner</li>
+</ul>
+<blockquote>
+<p>非常强大的一款插件，能够运行多种语言的代码片段或代码文件：C，C ++，Java，JavaScript，PHP，Python，Perl，Ruby，Go等等，安装完成后，右上角出现一个三角形，点击这个按钮就可以运行你的文件了（必备）。</p>
+</blockquote>
+<ul>
+<li>Dash</li>
+</ul>
+<blockquote>
+<p>查文档必备，搭配 dash（不过似乎只有 mac 版）,快捷键 ctrl + h 它根据你当前选中的语言查找 dash 里面的文档</p>
+</blockquote>
+<ul>
+<li>Debugger for Chrome</li>
+</ul>
+<blockquote>
+<p>让 vscode 映射 chrome 的 debug功能，使静态页面都可以用 vscode 来打断点调试</p>
+</blockquote>
+<ul>
+<li>CSS Peek(窥视)</li>
+</ul>
+<blockquote>
+<p>使用此插件，你可以追踪至样式表中 CSS 类和 ids 定义的地方。当你在 HTML 文件中右键单击选择器时，选择“ Go to Definition 和 Peek definition ”选项，它便会给你发送样式设置的 CSS 代码。</p>
+</blockquote>
+<ul>
+<li>HTML Boilerplate(样板)</li>
+</ul>
+<blockquote>
+<p>通过使用 HTML 模版插件，你就摆脱了为 HTML 新文件重新编写头部和正文标签的苦恼。你只需在空文件中输入 html，并按 Tab 键，即可生成干净的文档结构。</p>
+</blockquote>
+<ul>
+<li>Prettier(格式化)</li>
+</ul>
+<p>快捷键 Shift+Alt+F /////  Ctrl+Shift+P(F1)–&gt;键入format–&gt;格式化代码</p>
+<blockquote>
+<p>Prettier 是目前 Web 开发中最受欢迎的代码格式化程序。安装了这个插件，它就能够自动应用 Prettier，并将整个 JS 和 CSS 文档快速格式化为统一的代码样式。如果你还想使用 ESLint，那么还有个 Prettier – Eslint 插件，你可不要错过咯！</p>
+</blockquote>
+<ul>
+<li>Color Info</li>
+</ul>
+<blockquote>
+<p>这个便捷的插件，将为你提供你在 CSS 中使用颜色的相关信息。你只需在颜色上悬停光标，就可以预览色块中色彩模型的（HEX、 RGB、HSL 和 CMYK）相关信息了</p>
+</blockquote>
+<ul>
+<li>SVG Viewer</li>
+</ul>
+<blockquote>
+<p>此插件在 Visual Studio 代码中添加了许多实用的 SVG 程序，你无需离开编辑器，便可以打开 SVG 文件并查看它们。同时，它还包含了用于转换为 PNG 格式和生成数据 URI 模式的选项。</p>
+</blockquote>
+<ul>
+<li>Minify</li>
+</ul>
+<p>F1–&gt;minify</p>
+<blockquote>
+<p>这是一款用于压缩合并 JavaScript 和 CSS 文件的应用程序。它提供了大量自定义的设置，以及自动压缩保存并导出为.min文件的选项。它能够分别通过 uglify-js、clean-css 和 html-minifier，与 JavaScript、CSS 和 HTML 协同工作。</p>
+</blockquote>
+<ul>
+<li>Quokka(调试工具插件)</li>
+</ul>
+<blockquote>
+<p>Quokka 是一个调试工具插件，能够根据你正在编写的代码提供实时反馈。它易于配置，并能够预览变量的函数和计算值结果。另外，在使用 JSX 或 TypeScript 项目中，它能够开箱即用</p>
+</blockquote>
+<ul>
+<li>ESLint</li>
+</ul>
+<blockquote>
+<p>EsLint可以帮助我们检查Javascript编程时的语法错误。比如：在Javascript应用中，你很难找到你漏泄的变量或者方法。EsLint能够帮助我们分析JS代码，找到bug并确保一定程度的JS语法书写的正确性。</p>
+</blockquote>
+<ul>
+<li>Font-awesome</li>
+</ul>
+<blockquote>
+<p>用于 html 的Font-awesome代码片段</p>
+</blockquote>
+<ul>
+<li>filesize</li>
+</ul>
+<blockquote>
+<p>在底部状态栏显示当前文件大小，点击后还可以看到详细创建、修改时间</p>
+</blockquote>
+<ul>
+<li>Git History</li>
+</ul>
+<blockquote>
+<p>使用 command+shift+p（Ctrl+shift+p） 输入git log就可以看到了</p>
+</blockquote>
+<ul>
+<li>htmltagwrap</li>
+</ul>
+<blockquote>
+<p>可以在选中HTML标签中外面套一层标签</p>
+</blockquote>
+<p>使用：选择一大段代码，然后按“Alt + W”</p>
+<ul>
+<li>Image Preview</li>
+</ul>
+<blockquote>
+<p>鼠标移到路径里显示图像预览</p>
+</blockquote>
+<ul>
+<li>Live Sass Compiler</li>
+</ul>
+<blockquote>
+<p>实时编译 sass ,不过需要配置，附上我的配置</p>
+</blockquote>
+<ul>
+<li>markdownlint</li>
+</ul>
+<blockquote>
+<p>markdown 语法检查</p>
+</blockquote>
+<ul>
+<li>npm Intellisense</li>
+</ul>
+<blockquote>
+<p>在导入语句中自动填充npm模块,跟Node.js Modules Intellisense差不多</p>
+</blockquote>
+<ul>
+<li>Project Manager</li>
+</ul>
+<blockquote>
+<p>工程项目过多时，shift+cmd+p(shift+ctrl+p) 然后输入project，第一次选择edit Project编辑自己的工程项目，之后就可以直接选择open打开你的项目</p>
+</blockquote>
+<ul>
+<li>vscode-faker</li>
+</ul>
+<blockquote>
+<p>生成假数据，地址，电话，图片等等</p>
+</blockquote>
+<ul>
+<li>Regex Previewer</li>
+</ul>
+<blockquote>
+<p>测试正则的插件v</p>
+</blockquote>
+<ul>
+<li>React-Native/React/Redux snippets for es6/es7</li>
+</ul>
+<blockquote>
+<p>react代码片段，下载人数超多</p>
+</blockquote>
+<ul>
+<li>react-beautify</li>
+</ul>
+<blockquote>
+<p>格式化 javascript, JSX, typescript, TSX 文件</p>
+</blockquote>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/工具/">工具</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/vsCode插件/" title="vsCode插件">vsCode插件</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/11/27/javascript/结构型设计模式/">
+            
+                结构型设计模式
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/语法/">语法</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/javascript设计模式/">javascript设计模式</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/css/">css</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/浏览器/">浏览器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/服务器/">服务器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+    <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
+  
+    <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/结构型设计模式/" title="结构型设计模式">结构型设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">heqing Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
