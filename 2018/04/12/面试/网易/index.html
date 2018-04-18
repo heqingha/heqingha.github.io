@@ -209,7 +209,11 @@
 4. 已知容器高度， 利用display: table-cell;
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: pink;</span><br><span class="line">    <span class="attribute">display</span>:table-cell;</span><br><span class="line">    <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.in</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px"><a href="#6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px" class="headerlink" title="6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px"></a><span id="5">6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px</span></h3>
+</code></pre><h3 id="6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px"><a href="#6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px" class="headerlink" title="6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px"></a><span id="5">6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px</span></h3><blockquote>
+<p>word-spacing 对中文没有作用， 对字母有作用，从空格隔那开始起作用，而letter-spacing对两者都有作用，是字间的距离，包括空格哪里的也会隔开</p>
+</blockquote>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">0</span> <span class="number">15px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="7-扩展Date的format方法"><a href="#7-扩展Date的format方法" class="headerlink" title="7. 扩展Date的format方法"></a><span id="6">7. 扩展Date的format方法</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.format = <span class="function"><span class="keyword">function</span> (<span class="params">format</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = &#123;</span><br><span class="line">        <span class="string">"M+"</span>: <span class="keyword">this</span>.getMonth() + <span class="number">1</span>,</span><br><span class="line">        <span class="string">"d+"</span>: <span class="keyword">this</span>.getDate(),</span><br><span class="line">        <span class="string">"h+"</span>: <span class="keyword">this</span>.getHours(),</span><br><span class="line">        <span class="string">"m+"</span>: <span class="keyword">this</span>.getMinutes(),</span><br><span class="line">        <span class="string">"s+"</span>: <span class="keyword">this</span>.getSeconds(),</span><br><span class="line">        <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth() + <span class="number">3</span>) / <span class="number">3</span>),</span><br><span class="line">        <span class="string">"S"</span>: <span class="keyword">this</span>.getMilliseconds()</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(format)) &#123;</span><br><span class="line">        format = format.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(format)) &#123;</span><br><span class="line">            format = format.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, <span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span> ? o[k] : (<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> format;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
@@ -310,31 +314,31 @@
   
     <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
   
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
     <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
   
-    <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
-  
     <a class="tag-item" href="/tags/js正则/" title="js正则">js正则 (1)</a>
+  
+    <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
   
     <a class="tag-item" href="/tags/结构型设计模式/" title="结构型设计模式">结构型设计模式 (1)</a>
   
     <a class="tag-item" href="/tags/行为型设计模式/" title="行为型设计模式">行为型设计模式 (1)</a>
   
-    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
-  
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
-  
     <a class="tag-item" href="/tags/名人名言/" title="名人名言">名人名言 (1)</a>
   
     <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (1)</a>
   
-    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
+    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
   
     <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+  
+    <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
   
     <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
   
