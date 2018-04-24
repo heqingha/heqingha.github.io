@@ -128,28 +128,50 @@
 <p>总结网易前端面试的一些题目，做准备， I will go to work in big wangyi company next year，Wish myself good luck.</p>
 </blockquote>
 <ul>
-<li><a href="#0">=＝和===的区别？＝＝怎么进行类型转换的，说说有哪几种情况？</a></li>
-<li><a href="#1">布局：一个 div(200px*200px)在左侧，另一个 div 自适应在右侧</a></li>
-<li><a href="#2">给 Object 扩展一个方法 clone，实现深度克隆对象</a></li>
-<li><a href="#3">px、em、rem</a></li>
-<li><a href="#4">用 html,css 实现一个 div 居中在窗口</a></li>
-<li><a href="#5">浏览器处理脚本和样式表的顺序</a></li>
-<li><a href="#6">浏览器如何干活的</a></li>
+<li><p><a href="#0">=＝和===的区别？＝＝怎么进行类型转换的，说说有哪几种情况？</a></p>
+</li>
+<li><p><a href="#1">布局：一个 div(200px*200px)在左侧，另一个 div 自适应在右侧</a></p>
+</li>
+<li><p><a href="#2">给 Object 扩展一个方法 clone，实现深度克隆对象</a></p>
+</li>
+<li><p><a href="#3">px、em、rem</a></p>
+</li>
+<li><p><a href="#4">用 html,css 实现一个 div 居中在窗口</a></p>
+</li>
+<li><p><a href="#5">用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px</a></p>
+</li>
+<li><p><a href="#6">扩展Date的format方法</a></p>
+</li>
+<li><p><a href="#7">写出下面结果</a></p>
+</li>
+<li><p><a href="#8">alert(1&amp;&amp;2),alert(1||0)</a></p>
+</li>
+<li><p><a href="#9">mouseenter和mouseover的区别</a></p>
+</li>
+<li><p><a href="#10">js字符串两边截取空白的trim的原型方法的实现</a></p>
+</li>
+<li><p><a href="#11">三道判断输出的题都是经典的题</a></p>
+</li>
+<li><p><a href="#12">position不同值和区别</a></p>
+</li>
+<li><p><a href="#13">讲述你对reflow和repaint的理解</a></p>
+</li>
+<li><p><a href="#14">讲述你对reflow和repaint的理解</a></p>
+</li>
 </ul>
 <a id="more"></a>
 <h3 id="1-＝和-的区别？＝＝怎么进行类型转换的，说说有哪几种情况？"><a href="#1-＝和-的区别？＝＝怎么进行类型转换的，说说有哪几种情况？" class="headerlink" title="1. =＝和===的区别？＝＝怎么进行类型转换的，说说有哪几种情况？"></a><span id="0">1. =＝和===的区别？＝＝怎么进行类型转换的，说说有哪几种情况？</span></h3><pre><code>==匹配两个变量的的值，如果类型不匹配，会强制类型转换，
 ===不但匹配两个变量的值，还会匹配两个变量的数据类型是否相同，如果其中有一项不相同，匹配失败。
 ===不会类型转换，执行效率高。
 </code></pre><h3 id="2-布局：一个-div-200px-200px-在左侧，另一个-div-自适应在右侧"><a href="#2-布局：一个-div-200px-200px-在左侧，另一个-div-自适应在右侧" class="headerlink" title="2. 布局：一个 div(200px*200px)在左侧，另一个 div 自适应在右侧"></a><span id="1">2. 布局：一个 div(200px*200px)在左侧，另一个 div 自适应在右侧</span></h3><ol>
-<li>如果不考虑浏览器的兼容问题的话，可以使用 css3 的新增属性 calc();calc 是 calculate 的简写，汉语为计算的意思。</li>
-</ol>
+<li><p>如果不考虑浏览器的兼容问题的话，可以使用 css3 的新增属性 calc();calc 是 calculate 的简写，汉语为计算的意思。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(100% - 200px);</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>可以使用百分比进行布局，该方法不需考虑浏览器的兼容性.但与第一种进行比较， 右侧 div 的宽度百分比需要自己去进行计算。</li>
-</ol>
+</li>
+<li><p>可以使用百分比进行布局，该方法不需考虑浏览器的兼容性.但与第一种进行比较， 右侧 div 的宽度百分比需要自己去进行计算。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 要依赖父元素</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">85%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>使用绝对元素进行定位</li>
+</li>
+<li><p>使用绝对元素进行定位</p>
+</li>
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">background</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
@@ -165,9 +187,9 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">  <span class="attribute">display</span>: table; <span class="comment">/*table布局*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: gray;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: green;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
-<li>BFC(块级格式化上下文)</li>
+<li>BFC(块级格式化上下文)<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: gray;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.rigth</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">/* 触发bfc */</span></span><br><span class="line">  <span class="attribute">background</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: gray;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.rigth</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">/* 触发bfc */</span></span><br><span class="line">  <span class="attribute">background</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-给-Object-扩展一个方法-clone，实现深度克隆对象"><a href="#3-给-Object-扩展一个方法-clone，实现深度克隆对象" class="headerlink" title="3. 给 Object 扩展一个方法 clone，实现深度克隆对象"></a><span id="2">3. 给 Object 扩展一个方法 clone，实现深度克隆对象</span></h3><p><a href="javaScript中浅拷贝和深拷贝的实现">javaScript 中浅拷贝和深拷贝的实现</a></p>
 <h3 id="4-px、em、rem"><a href="#4-px、em、rem" class="headerlink" title="4. px、em、rem"></a><span id="3">4. px、em、rem</span></h3><blockquote>
 <p>有何区别</p>
@@ -194,26 +216,65 @@
 <blockquote>
 <p>需要注意的是，为了兼容不支持 rem 的浏览器，我们需要在各个使用了 rem 地方前面写上对应的 px 值，这样不支持的浏览器可以优雅降级。</p>
 </blockquote>
-<h3 id="5-用-html-css-实现一个-div-居中在窗口"><a href="#5-用-html-css-实现一个-div-居中在窗口" class="headerlink" title="5. 用 html,css 实现一个 div 居中在窗口"></a><span id="4">5. 用 html,css 实现一个 div 居中在窗口</span></h3><pre><code>1. Flex 布局, 不考虑兼容老式浏览器的话，用Flex布局简单直观一劳永逸
-
+<h3 id="5-用-html-css-实现一个-div-居中在窗口"><a href="#5-用-html-css-实现一个-div-居中在窗口" class="headerlink" title="5. 用 html,css 实现一个 div 居中在窗口"></a><span id="4">5. 用 html,css 实现一个 div 居中在窗口</span></h3><ol>
+<li><p>Flex 布局, 不考虑兼容老式浏览器的话，用Flex布局简单直观一劳永逸</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: pink;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-flex; <span class="comment">/* Safari */</span></span><br><span class="line">    <span class="comment">/*align-items:center;    /* 处理垂直居中 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.in</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">margin</span>: auto;           <span class="comment">/* 水平垂直居中 */</span></span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;  <span class="comment">/*如果是字母数字， 处理换行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-2. 不知道自己高度的情况下, 利用绝对定位，结合transform: translate（）属性。
-
+</li>
+<li><p>不知道自己高度的情况下, 利用绝对定位，结合transform: translate（）属性。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">200px</span>; </span><br><span class="line"><span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line"><span class="attribute">background</span>: pink;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.in</span> &#123;</span><br><span class="line"><span class="attribute">background</span>: blue;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-3. 已知容器高度的情况下，利用定位
-
+</li>
+<li><p>已知容器高度的情况下，利用定位</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: pink;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.in</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="comment">/*第一种*/</span></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>:-<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">50px</span>;</span><br><span class="line">    <span class="comment">/*第二种*/</span></span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-4. 已知容器高度， 利用display: table-cell;
-
+</li>
+<li><p>已知容器高度， 利用display: table-cell;</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: pink;</span><br><span class="line">    <span class="attribute">display</span>:table-cell;</span><br><span class="line">    <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.in</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px"><a href="#6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px" class="headerlink" title="6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px"></a><span id="5">6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px</span></h3><blockquote>
+</li>
+</ol>
+<h3 id="6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px"><a href="#6-用css实现，两行文本，间距10px-字体是14px-距顶端和底端15px-拒左边10px" class="headerlink" title="6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px"></a><span id="5">6. 用css实现，两行文本，间距10px,字体是14px,距顶端和底端15px,拒左边10px</span></h3><blockquote>
 <p>word-spacing 对中文没有作用， 对字母有作用，从空格隔那开始起作用，而letter-spacing对两者都有作用，是字间的距离，包括空格哪里的也会隔开</p>
 </blockquote>
 <pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.out</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">0</span> <span class="number">15px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><h3 id="7-扩展Date的format方法"><a href="#7-扩展Date的format方法" class="headerlink" title="7. 扩展Date的format方法"></a><span id="6">7. 扩展Date的format方法</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.format = <span class="function"><span class="keyword">function</span> (<span class="params">format</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = &#123;</span><br><span class="line">        <span class="string">"M+"</span>: <span class="keyword">this</span>.getMonth() + <span class="number">1</span>,</span><br><span class="line">        <span class="string">"d+"</span>: <span class="keyword">this</span>.getDate(),</span><br><span class="line">        <span class="string">"h+"</span>: <span class="keyword">this</span>.getHours(),</span><br><span class="line">        <span class="string">"m+"</span>: <span class="keyword">this</span>.getMinutes(),</span><br><span class="line">        <span class="string">"s+"</span>: <span class="keyword">this</span>.getSeconds(),</span><br><span class="line">        <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth() + <span class="number">3</span>) / <span class="number">3</span>),</span><br><span class="line">        <span class="string">"S"</span>: <span class="keyword">this</span>.getMilliseconds()</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(format)) &#123;</span><br><span class="line">        format = format.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(format)) &#123;</span><br><span class="line">            format = format.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, <span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span> ? o[k] : (<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> format;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="8-写出下面结果"><a href="#8-写出下面结果" class="headerlink" title="8. 写出下面结果"></a><span id="7">8. 写出下面结果</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">c</span>)</span>&#123;</span><br><span class="line">　　　　<span class="built_in">console</span>.log(c);</span><br><span class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　　<span class="built_in">console</span>.log(<span class="string">"d"</span>);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　b(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果 function c()&#123; console.log("d"); &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-alert-1-amp-amp-2-alert-1-0"><a href="#9-alert-1-amp-amp-2-alert-1-0" class="headerlink" title="9. alert(1&amp;&amp;2),alert(1||0) "></a><span id="8">9. alert(1&amp;&amp;2),alert(1||0) </span></h3><pre><code>alert(1&amp;&amp;2)的结果是2
+只要“&amp;&amp;”前面是false，无论“&amp;&amp;”后面是true还是false，结果都将返“&amp;&amp;”前面的值;
+只要“&amp;&amp;”前面是true，无论“&amp;&amp;”后面是true还是false，结果都将返“&amp;&amp;”后面的值;
+alert(0||1)的结果是1
+只要“||”前面为false,不管“||”后面是true还是false，都返回“||”后面的值。
+只要“||”前面为true,不管“||”后面是true还是false，都返回“||”前面的值。
+</code></pre><h3 id="10-mouseenter和mouseover的区别"><a href="#10-mouseenter和mouseover的区别" class="headerlink" title="10. mouseenter和mouseover的区别"></a><span id="9">10. mouseenter和mouseover的区别</span></h3><pre><code>mouseover事件：不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。
+mouseenter事件：只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。
+mouseout事件：不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。
+mouseleave事件：只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。
+</code></pre><h3 id="11-js字符串两边截取空白的trim的原型方法的实现"><a href="#11-js字符串两边截取空白的trim的原型方法的实现" class="headerlink" title=" 11. js字符串两边截取空白的trim的原型方法的实现"></a><span id="10"> 11. js字符串两边截取空白的trim的原型方法的实现</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我的笨方法，当时还想错了一些，回来后实现了一下，思路是这样</span></span><br><span class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr=<span class="keyword">this</span>.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">       <span class="keyword">if</span>(arr[<span class="number">0</span>]==<span class="string">" "</span>) &#123;</span><br><span class="line">           arr.shift();</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[arr.length<span class="number">-1</span>]==<span class="string">" "</span>) &#123;</span><br><span class="line">            arr.pop();</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//后来面试官跟我说一句话就解决了，然而我正则都忘了，平时没怎么用</span></span><br><span class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/(^\s*)|(\s*$)/g</span>,<span class="string">''</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="12-三道判断输出的题都是经典的题"><a href="#12-三道判断输出的题都是经典的题" class="headerlink" title=" 12. 三道判断输出的题都是经典的题"></a><span id="11"> 12. 三道判断输出的题都是经典的题</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5.1</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">4</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  a=<span class="number">3</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="comment">//明显输出是3，因为里面修改了a这个全局变量，那个function a()&#123;&#125;是用来干扰的，虽然函数声明会提升，就被a给覆盖掉了，这是我的理解</span></span><br><span class="line"><span class="comment">//5.2</span></span><br><span class="line"><span class="comment">//不记得具体的就类似如下</span></span><br><span class="line"><span class="keyword">var</span> baz=<span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> bazz=&#123;</span><br><span class="line">  baz: <span class="number">2</span>,</span><br><span class="line">  getbaz: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.baz</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(bazz.getbaz())</span><br><span class="line"><span class="keyword">var</span> g=bazz.getbaz;</span><br><span class="line"><span class="built_in">console</span>.log(g());</span><br><span class="line"><span class="comment">//第一个输出是2，第二个输出是3，这题考察的就是this的指向，函数作为对象本身属性调用的时候this指向对象，作为普通函数调用的时候就指向全局了</span></span><br><span class="line"><span class="comment">//5.3</span></span><br><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)</span><br><span class="line">&#123; </span><br><span class="line">  arr[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(i)&#125;</span><br><span class="line">&#125;</span><br><span class="line">arr[<span class="number">3</span>]();</span><br><span class="line"><span class="comment">//典型的闭包啊，看都不用看，肯定弹出5啊</span></span><br></pre></td></tr></table></figure>
+<h3 id="13-position不同值和区别"><a href="#13-position不同值和区别" class="headerlink" title="13. position不同值和区别"></a><span id="12">13. position不同值和区别</span></h3><pre><code>1.absolute: 生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
+元素的位置通过 “left”, “top”, “right” 以及 “bottom” 属性进行规定。(不占位)
+2.relative: 生成相对定位的元素，相对于其正常位置进行定位。因此，”left:20” 会向元素的 LEFT 位置添加 20 像素。（占位）
+3.static：默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）
+4.inherit：规定应该从父元素继承 position 属性的值。
+5.fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 “left”, “top”, “right” 以及 “bottom” 属性进行规定。
+</code></pre><h3 id="14-讲述你对reflow和repaint的理解"><a href="#14-讲述你对reflow和repaint的理解" class="headerlink" title="14. 讲述你对reflow和repaint的理解"></a><span id="13">14. 讲述你对reflow和repaint的理解</span></h3><blockquote>
+<p>repaint就是重绘，reflow就是回流。repaint主要是针对某一个DOM元素进行的重绘，reflow则是回流，针对整个页面的重排</p>
+</blockquote>
+<h3 id="严重性："><a href="#严重性：" class="headerlink" title="严重性："></a>严重性：</h3><p>在性能优先的前提下，性能消耗 reflow大于repaint。</p>
+<h3 id="体现："><a href="#体现：" class="headerlink" title="体现："></a>体现：</h3><p>repaint是某个DOM元素进行重绘；reflow是整个页面进行重排，也就是页面所有DOM元素渲染。</p>
+<h4 id="如何触发："><a href="#如何触发：" class="headerlink" title="如何触发："></a>如何触发：</h4><p>style变动造成repaint和reflow。<br>不涉及任何DOM元素的排版问题的变动为repaint，例如元素的color/text-align/text-decoration等等属性的变动。<br>除上面所提到的DOM元素style的修改基本为reflow。例如元素的任何涉及长、宽、行高、边框、display等style的修改。</p>
+<h3 id="常见触发场景："><a href="#常见触发场景：" class="headerlink" title="常见触发场景："></a>常见触发场景：</h3><h4 id="触发repaint："><a href="#触发repaint：" class="headerlink" title="触发repaint："></a>触发repaint：</h4><pre><code>color的修改，如color=#ddd；
+text-align的修改，如text-align=center；
+a:hover也会造成重绘。
+:hover引起的颜色等不导致页面回流的style变动。
+</code></pre><h4 id="触发reflow："><a href="#触发reflow：" class="headerlink" title="触发reflow："></a>触发reflow：</h4><pre><code>width/height/border/margin/padding的修改，如width=778px；
+动画，:hover等伪类引起的元素表现改动，display=none等造成页面回流；
+appendChild等DOM元素操作；
+font类style的修改；
+background的修改，注意着字面上可能以为是重绘，但是浏览器确实回流了，经过浏览器厂家的优化，部分background的修改只触发repaint，当然IE不用考虑；
+scroll页面，这个不可避免；
+resize页面，桌面版本的进行浏览器大小的缩放，移动端的话，还没玩过能拖动程序，resize程序窗口大小的多窗口操作系统。
+读取元素的属性（这个无法理解，但是技术达人是这么说的，那就把它当做定理吧）：读取元素的某些属性（offsetLeft、offsetTop、offsetHeight、offsetWidth、scrollTop/Left/Width/Height、clientTop/Left/Width/Height、getComputedStyle()、currentStyle(in IE))；
+</code></pre><h4 id="如何避免："><a href="#如何避免：" class="headerlink" title="如何避免："></a>如何避免：</h4><p>尽可能在DOM末梢通过改变class来修改元素的style属性：尽可能的减少受影响的DOM元素。<br>避免设置多项内联样式：使用常用的class的方式进行设置样式，以避免设置样式时访问DOM的低效率。<br>设置动画元素position属性为fixed或者absolute：由于当前元素从DOM流中独立出来，因此受影响的只有当前元素，元素repaint。<br>牺牲平滑度满足性能：动画精度太强，会造成更多次的repaint/reflow，牺牲精度，能满足性能的损耗，获取性能和平滑度的平衡。<br>避免使用table进行布局：table的每个元素的大小以及内容的改动，都会导致整个table进行重新计算，造成大幅度的repaint或者reflow。改用div则可以进行针对性的repaint和避免不必要的reflow。<br>避免在CSS中使用运算式：学习CSS的时候就知道，这个应该避免，不应该加深到这一层再去了解，因为这个的后果确实非常严重，一旦存在动画性的repaint/reflow，那么每一帧动画都会进行计算，性能消耗不容小觑。</p>
+<p><a href="https://segmentfault.com/a/1190000002629708" target="_blank" rel="noopener"></a></p>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
@@ -249,16 +310,20 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="javascript: void(0);">没有上一篇了</a>
+        <a href="/2018/04/12/javascript/正则/">
+            
+                js正则
+            
+        </a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br >
-        <a href="/2018/04/12/javascript/正则/">
+        <a href="/2018/01/04/英语/4-unit-2/">
             
-                js正则
+                4-unit-2
             
         </a>
     </span>
@@ -289,12 +354,12 @@
     </li>
     
     <li>
-        <a href="/categories/收藏/">收藏</a>
+        <a href="/categories/生活小常识/">生活小常识</a>
         <span class="badge">(1)</span>
     </li>
     
     <li>
-        <a href="/categories/生活小常识/">生活小常识</a>
+        <a href="/categories/收藏/">收藏</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -318,43 +383,43 @@
   
     <a class="tag-item" href="/tags/js继承/" title="js继承">js继承 (1)</a>
   
-    <a class="tag-item" href="/tags/js正则/" title="js正则">js正则 (1)</a>
-  
     <a class="tag-item" href="/tags/创建型设计模式/" title="创建型设计模式">创建型设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/js正则/" title="js正则">js正则 (1)</a>
   
     <a class="tag-item" href="/tags/结构型设计模式/" title="结构型设计模式">结构型设计模式 (1)</a>
   
     <a class="tag-item" href="/tags/行为型设计模式/" title="行为型设计模式">行为型设计模式 (1)</a>
   
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
     <a class="tag-item" href="/tags/名人名言/" title="名人名言">名人名言 (1)</a>
   
     <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (1)</a>
   
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
-  
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
+    <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
   
-    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
   
     <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
   
     <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
   
-    <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
   
     <a class="tag-item" href="/tags/英孚英语汇总/" title="英孚英语汇总">英孚英语汇总 (3)</a>
   
     <a class="tag-item" href="/tags/定语/" title="定语">定语 (1)</a>
   
-    <a class="tag-item" href="/tags/英语语法/" title="英语语法">英语语法 (1)</a>
+    <a class="tag-item" href="/tags/前端面试/" title="前端面试">前端面试 (1)</a>
   
     <a class="tag-item" href="/tags/音标/" title="音标">音标 (1)</a>
   
     <a class="tag-item" href="/tags/预习/" title="预习">预习 (1)</a>
   
-    <a class="tag-item" href="/tags/前端面试/" title="前端面试">前端面试 (1)</a>
+    <a class="tag-item" href="/tags/英语语法/" title="英语语法">英语语法 (1)</a>
   
 </div>
     </section>
