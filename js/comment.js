@@ -3,7 +3,7 @@ if (!window['String']['prototype']['trim']) {
     return this.replace(/^\s+|\s+$/g, '');
   };
 }
-var JELON = window.JELON || {};
+var HeQing = window.HeQing || {};
 ;(function (JL) {
   var constants = {
     ACCESS_TOKEN_KEY: 'xups-github-comments-token', // access_token key
@@ -202,18 +202,18 @@ var JELON = window.JELON || {};
   JL.Renders = {
     box: {
       tpl: [
-        '<section class="box" id="JELON__commentBox">',
-          '<div class="com-avatar"><img id="JELON__loginAvatar" src="/img/unsigned_avatar.jpg" alt="avatar"></div>',
+        '<section class="box" id="HeQing__commentBox">',
+          '<div class="com-avatar"><img id="HeQing__loginAvatar" src="/img/unsigned_avatar.jpg" alt="avatar"></div>',
           '<div class="com-text">',
             '<div class="main">',
-              '<textarea class="text-area-edited show" id="JELON__editBox" placeholder="欢迎评论！"></textarea>',
-              '<div class="text-area-preview" id="JELON__previewBox"></div>',
+              '<textarea class="text-area-edited show" id="HeQing__editBox" placeholder="欢迎评论！"></textarea>',
+              '<div class="text-area-preview" id="HeQing__previewBox"></div>',
             '</div>',
             '<div class="switch">',
-              '<div class="switch-item on" id="JELON__editSwitcher" onclick="JELON.Actions.editPreviewSwitch(\'edit\')">编辑</div>',
-              '<div class="switch-item" id="JELON__previewSwitcher" onclick="JELON.Actions.editPreviewSwitch(\'preview\')">预览</div>',
+              '<div class="switch-item on" id="HeQing__editSwitcher" onclick="HeQing.Actions.editPreviewSwitch(\'edit\')">编辑</div>',
+              '<div class="switch-item" id="HeQing__previewSwitcher" onclick="HeQing.Actions.editPreviewSwitch(\'preview\')">预览</div>',
             '</div>',
-            '<div class="button" onclick="JELON.Actions.postComment()">提交</div>',
+            '<div class="button" onclick="HeQing.Actions.postComment()">提交</div>',
           '</div>',
         '</section>'
       ].join(''),
@@ -224,13 +224,13 @@ var JELON = window.JELON || {};
         } else {
           userInfo = {};
         }
-        // 默认头像路径 /img/jelon.jpg
-        $('JELON__loginAvatar').src = userInfo.avatar_url || '/img/unsigned_avatar.jpg';
+        // 默认头像路径 /img/HeQing.jpg
+        $('HeQing__loginAvatar').src = userInfo.avatar_url || '/img/unsigned_avatar.jpg';
       }
     },
     list: {
       tpl: [
-        '<section class="list-wrap" id="JELON__commentList">',
+        '<section class="list-wrap" id="HeQing__commentList">',
           '<div class="text-center">正在加载评论</div>',
         '</section>'
       ].join(''),
@@ -262,10 +262,10 @@ var JELON = window.JELON || {};
                   '</a>',
                 '</div>',
                 '<div class="user-comment">',
-                  '<div class="user-comment-header" id="JELON__comment_' + list[i].id + '_reactions">',
+                  '<div class="user-comment-header" id="HeQing__comment_' + list[i].id + '_reactions">',
                     '<span class="post-name">' + list[i].user.login +  '</span>',
                     '<span class="post-time">' + formatDate('yyyy-MM-dd hh:mm', new Date(list[i].created_at)) + '</span>',
-                    '<span class="like" onclick="JELON.Actions.like(' + list[i].id + ')">点赞</span>',
+                    '<span class="like" onclick="HeQing.Actions.like(' + list[i].id + ')">点赞</span>',
                     '<span class="like-num">' + list[i].reactions.heart + '</span>',
                   '</div>',
                   '<div class="user-comment-body">' + (list[i].body_html || list[i].body) + '</div>',
@@ -282,15 +282,15 @@ var JELON = window.JELON || {};
               if (i === page) {
                 pageItem = '<a href="javascript: void(0);" class="item current">' + page + '</a>';
               } else {
-                pageItem = '<a href="javascript: JELON.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
+                pageItem = '<a href="javascript: HeQing.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
               }
               pageList.push(pageItem);
             }
             if (page !== 1) {
-              pageList.unshift('<a href="javascript: JELON.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
+              pageList.unshift('<a href="javascript: HeQing.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
             }
             if (page !== allPages) {
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
             }
           } else if (allPages > perNavPageMaxSize) {
             if (page <= perNavPageMaxSize) {
@@ -298,51 +298,51 @@ var JELON = window.JELON || {};
                 if (i === page) {
                   pageItem = '<a href="javascript: void(0);" class="item current">' + page + '</a>';
                 } else {
-                  pageItem = '<a href="javascript: JELON.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
+                  pageItem = '<a href="javascript: HeQing.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
                 }
                 pageList.push(pageItem);
               }
               if (page !== 1) {
-                pageList.unshift('<a href="javascript: JELON.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
+                pageList.unshift('<a href="javascript: HeQing.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
               }
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + allPages + ');" class="item">末页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + allPages + ');" class="item">末页</a>');
             } else if (page > perNavPageMaxSize && page <= allPages - perNavPageMaxSize) {
               var mod = page % perNavPageMaxSize;
               var start = Math.floor(page / perNavPageMaxSize) * perNavPageMaxSize + 1;
               var end = Math.ceil(page / perNavPageMaxSize) * perNavPageMaxSize;
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(1);" class="item">首页</a>');
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(1);" class="item">首页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
               for (var i = start; i <= end; i++) {
                 if (i === page) {
                   pageItem = '<a href="javascript: void(0);" class="item current">' + page + '</a>';
                 } else {
-                  pageItem = '<a href="javascript: JELON.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
+                  pageItem = '<a href="javascript: HeQing.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
                 }
                 pageList.push(pageItem);
               }
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + allPages + ');" class="item">末页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + allPages + ');" class="item">末页</a>');
             } else if (page > perNavPageMaxSize && page > allPages - perNavPageMaxSize) {
               var start = allPages - perNavPageMaxSize + 1;
               var end = allPages;
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(1);" class="item">首页</a>');
-              pageList.push('<a href="javascript: JELON.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(1);" class="item">首页</a>');
+              pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + (page - 1) + ');" class="item">上一页</a>');
               for (var i = start; i <= end; i++) {
                 if (i === page) {
                   pageItem = '<a href="javascript: void(0);" class="item current">' + page + '</a>';
                 } else {
-                  pageItem = '<a href="javascript: JELON.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
+                  pageItem = '<a href="javascript: HeQing.Actions.pageJump(' + i + ');" class="item">' + i + '</a>';
                 }
                 pageList.push(pageItem);
               }
               if (page !== allPages) {
-                pageList.push('<a href="javascript: JELON.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
+                pageList.push('<a href="javascript: HeQing.Actions.pageJump(' + (page + 1) + ');" class="item">下一页</a>');
               }
             }
           }
           html = [
-            '<header class="list-header">总共 <span class="comments-num" id="JELON__commentsNum">' + JL.issueComments + '</span> 条评论</header>',
+            '<header class="list-header">总共 <span class="comments-num" id="HeQing__commentsNum">' + JL.issueComments + '</span> 条评论</header>',
             '<ul class="list">',
               htmlList.join(''),
             '</ul>',
@@ -351,7 +351,7 @@ var JELON = window.JELON || {};
             '</div>'
           ].join('');
         }
-        $('JELON__commentList').innerHTML = html;
+        $('HeQing__commentList').innerHTML = html;
         if (localStorage.getItem(constants.USER_INFO_KEY)) {
           callback && callback();
         }
@@ -367,8 +367,8 @@ var JELON = window.JELON || {};
         for (var i = 0, len = reactions.length; i < len; i++) {
           if (userId === reactions[i].user.id) {
             console.log(userId, reactions[i].user.id);
-            addClass($('JELON__comment_' + commentId + '_reactions').getElementsByClassName('like')[0], 'liked');
-            $('JELON__comment_' + commentId + '_reactions').getElementsByClassName('like')[0].innerHTML = '已赞';
+            addClass($('HeQing__comment_' + commentId + '_reactions').getElementsByClassName('like')[0], 'liked');
+            $('HeQing__comment_' + commentId + '_reactions').getElementsByClassName('like')[0].innerHTML = '已赞';
             break;
           }
         }
@@ -383,23 +383,23 @@ var JELON = window.JELON || {};
             '</a>',
           '</div>',
           '<div class="user-comment">',
-            '<div class="user-comment-header" id="JELON__comment_' + data.id + '_reactions">',
+            '<div class="user-comment-header" id="HeQing__comment_' + data.id + '_reactions">',
               '<span class="post-name">' + data.user.login +  '</span>',
               '<span class="post-time">' + formatDate('yyyy-MM-dd hh:mm', new Date(data.created_at)) + '</span>',
-              '<span class="like" onclick="JELON.Actions.like(' + data.reactions.heart + ')">点赞</span>',
+              '<span class="like" onclick="HeQing.Actions.like(' + data.reactions.heart + ')">点赞</span>',
               '<span class="like-num">' + data.reactions.heart + '</span>',
             '</div>',
             '<div class="user-comment-body">' + (data.body_html || data.body) + '</div>',
           '</div>'
         ].join('');
         oLi.innerHTML = item;
-        var oUl = $('JELON__commentList').getElementsByTagName('ul')[0];
+        var oUl = $('HeQing__commentList').getElementsByTagName('ul')[0];
         if (oUl) {
           oUl.insertBefore(oLi, oUl.firstChild);
-          $('JELON__commentsNum').innerHTML = JL.issueComments + 1;
+          $('HeQing__commentsNum').innerHTML = JL.issueComments + 1;
         } else {
-          $('JELON__commentList').innerHTML = [
-            '<header class="list-header">总共 <span class="comments-num" id="JELON__commentsNum">' + (JL.issueComments + 1) + '</span> 条评论</header>',
+          $('HeQing__commentList').innerHTML = [
+            '<header class="list-header">总共 <span class="comments-num" id="HeQing__commentsNum">' + (JL.issueComments + 1) + '</span> 条评论</header>',
             '<ul class="list">',
               '<li class="item">',
                 item,
@@ -411,7 +411,7 @@ var JELON = window.JELON || {};
     },
     signBar: {
       tpl: [
-        '<div class="sign-bar" id="JELON__commentSignBar">',
+        '<div class="sign-bar" id="HeQing__commentSignBar">',
         '</div>'
       ].join(''),
       update: function () {
@@ -422,7 +422,7 @@ var JELON = window.JELON || {};
           userInfo = JSON.parse(userInfo);
           html = [
             '<span class="sign-txt" title="' + userInfo.login + '">GitHub 已登录!</span>',
-            '<span class="sign-link" onclick="JELON.Actions.signOut()">退出</span>'
+            '<span class="sign-link" onclick="HeQing.Actions.signOut()">退出</span>'
           ].join('');
         } else {
           html = [
@@ -434,19 +434,19 @@ var JELON = window.JELON || {};
             '</a>'
           ].join('');
         }
-        $('JELON__commentSignBar').innerHTML = html;
+        $('HeQing__commentSignBar').innerHTML = html;
       }
     },
     tips: {
-      tpl: '<section class="tips clearfix" id="JELON__comment_tips">注：评论支持 markdown 语法！</section>',
+      tpl: '<section class="tips clearfix" id="HeQing__comment_tips">注：评论支持 markdown 语法！</section>',
       update: function () {
         var userInfo = localStorage.getItem(constants.USER_INFO_KEY);
         var handler = '';
         // 如果文章还没关联 issue 并且登录账号是自己时
         if (userInfo && JSON.parse(userInfo).login === JL.options.owner && JL.issueNumber === 0) {
-          handler = '<a href="javascript: JELON.Actions.createIssue();" class="init" title="文章关联 issue">初始化评论</a>';
+          handler = '<a href="javascript: HeQing.Actions.createIssue();" class="init" title="文章关联 issue">初始化评论</a>';
         }
-        $('JELON__comment_tips').innerHTML = handler + '注：评论支持 markdown 语法！';
+        $('HeQing__comment_tips').innerHTML = handler + '注：评论支持 markdown 语法！';
       }
     },
     flashTitle: function (title) {
@@ -468,12 +468,12 @@ var JELON = window.JELON || {};
         oParent = oParent || document.body;
         var oLoading = document.createElement('div');
         oLoading.className = 'loading-mask';
-        oLoading.id = 'JELON__loadingMask';
+        oLoading.id = 'HeQing__loadingMask';
         oLoading.innerHTML = '<div class="loading-icon"><img src="/img/loading.gif" width="50" height="50" alt="加载中" ></div>';
         oParent.appendChild(oLoading);
       },
       remove: function () {
-        var oLoading = $('JELON__loadingMask');
+        var oLoading = $('HeQing__loadingMask');
         oLoading.parentNode.removeChild(oLoading);
       }
     }
@@ -568,26 +568,26 @@ var JELON = window.JELON || {};
     },
     editPreviewSwitch: function (flag) {
       if (flag === 'edit') {
-        removeClass('JELON__previewSwitcher', 'on');
-        addClass('JELON__editSwitcher', 'on');
-        removeClass('JELON__previewBox', 'show');
-        addClass('JELON__editBox', 'show');
+        removeClass('HeQing__previewSwitcher', 'on');
+        addClass('HeQing__editSwitcher', 'on');
+        removeClass('HeQing__previewBox', 'show');
+        addClass('HeQing__editBox', 'show');
       } else {
-        removeClass('JELON__editSwitcher', 'on');
-        addClass('JELON__previewSwitcher', 'on');
-        removeClass('JELON__editBox', 'show');
-        addClass('JELON__previewBox', 'show');
-        var text = $('JELON__editBox').value.trim();
+        removeClass('HeQing__editSwitcher', 'on');
+        addClass('HeQing__previewSwitcher', 'on');
+        removeClass('HeQing__editBox', 'show');
+        addClass('HeQing__previewBox', 'show');
+        var text = $('HeQing__editBox').value.trim();
         if (text) {
           JL.Requests.markdown({
             text: text,
             mode: 'markdown',
             context: 'github/gollum'
           }, function (res) {
-            $('JELON__previewBox').innerHTML = res;
+            $('HeQing__previewBox').innerHTML = res;
           });
         } else {
-          $('JELON__previewBox').innerHTML = '';
+          $('HeQing__previewBox').innerHTML = '';
         }
       }
     },
@@ -598,7 +598,7 @@ var JELON = window.JELON || {};
         alert('请先登录哦..!^_^');
         return;
       }
-      var body = $('JELON__editBox').value.trim();
+      var body = $('HeQing__editBox').value.trim();
       if (body) {
         JL.Renders.loading.create();
         if (JL.issueNumber !== 0) {
@@ -608,8 +608,8 @@ var JELON = window.JELON || {};
             if (res.id) {
               JL.Renders.list.addOne(res);
               JL.issueComments++;
-              $('JELON__editBox').value = '';
-              $('JELON__previewBox').innerHTML = '';
+              $('HeQing__editBox').value = '';
+              $('HeQing__previewBox').innerHTML = '';
             }
             JL.Renders.loading.remove();
           });
@@ -628,8 +628,8 @@ var JELON = window.JELON || {};
                 if (res.id) {
                   JL.Renders.list.addOne(json);
                   JL.issueComments++;
-                  $('JELON__editBox').value = '';
-                  $('JELON__previewBox').innerHTML = '';
+                  $('HeQing__editBox').value = '';
+                  $('HeQing__previewBox').innerHTML = '';
                 }
                 JL.Renders.loading.remove();
               });
@@ -639,9 +639,9 @@ var JELON = window.JELON || {};
       }
     },
     like: function (commentId) {
-      var oLiked = $('JELON__comment_' + commentId + '_reactions').getElementsByClassName('liked');
-      var oLike = $('JELON__comment_' + commentId + '_reactions').getElementsByClassName('like')[0];
-      var oNum = $('JELON__comment_' + commentId + '_reactions').getElementsByClassName('like-num')[0];
+      var oLiked = $('HeQing__comment_' + commentId + '_reactions').getElementsByClassName('liked');
+      var oLike = $('HeQing__comment_' + commentId + '_reactions').getElementsByClassName('like')[0];
+      var oNum = $('HeQing__comment_' + commentId + '_reactions').getElementsByClassName('like-num')[0];
       var accessToken = localStorage.getItem(constants.ACCESS_TOKEN_KEY);
       var userInfo = localStorage.getItem(constants.USER_INFO_KEY);
       if (oLiked.length) {
@@ -898,4 +898,4 @@ var JELON = window.JELON || {};
     ].join('');
     JL.Actions.init();
   };
-})(JELON);
+})(HeQing);

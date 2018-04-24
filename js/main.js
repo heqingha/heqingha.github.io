@@ -144,12 +144,12 @@ function deepCopy(c, p) {
 }
 /**
  * 网站js
- * @author Jelon
+ * @author HeQing
  * @type {{init, toggleMenu}}
  */
-var JELON = window.JELON || {};
-JELON = deepCopy(JELON, {
-  name: 'JELON',
+var HeQing = window.HeQing || {};
+HeQing = deepCopy(HeQing, {
+  name: 'HeQing',
   version: '0.0.2',
   init: function() {
     this.toggleMenu();
@@ -207,4 +207,4 @@ JELON = deepCopy(JELON, {
 /**
  * 程序入口
  */
-JELON.init();
+HeQing.init();
