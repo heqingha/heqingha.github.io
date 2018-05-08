@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>js数组 | 青</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Sophie" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="青" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">青</span>
+                    <span class="description">Sophie</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
+        <ul class="menu hidden" id="HeQing__menu">
+            
+            <li rel="/2018/05/07/javascript/js数组/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/05/07/javascript/js数组/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/05/07/javascript/js数组/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/05/07/javascript/js数组/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/u/6157738526/home?leftnav=1" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <!-- <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a> -->
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="HeQing" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>js数组</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        HeQing 发表于
+        <time datetime="2018-05-07T03:03:28.000Z">2018-05-07</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>javascript数组的方法，包含es6，Array 对象用于在单个的变量中存储多个值。</p>
+</blockquote>
+<a id="more"></a>
+<p>创建 Array 对象的语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(size);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(element0, element1, ..., elementn);</span><br></pre></td></tr></table></figure>
+<p><img src="/img/js/array1.png" alt="for example">;</p>
+<h3 id="1-concat-方法用于连接两个或多个数组"><a href="#1-concat-方法用于连接两个或多个数组" class="headerlink" title="1. concat() 方法用于连接两个或多个数组"></a>1. concat() 方法用于连接两个或多个数组</h3><p>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">a.concat(b)</span><br><span class="line"></span><br><span class="line">result: 返回新数组 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  b = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="2-join-方法用于把数组中的所有元素放入一个字符串。"><a href="#2-join-方法用于把数组中的所有元素放入一个字符串。" class="headerlink" title="2. join() 方法用于把数组中的所有元素放入一个字符串。"></a>2. join() 方法用于把数组中的所有元素放入一个字符串。</h3><p>元素是通过指定的分隔符进行分隔的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.join(<span class="string">'-'</span>)</span><br><span class="line"></span><br><span class="line">result: 返回新string <span class="string">'1-2-3'</span>   a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="3-pop-方法用于删除并返回数组的最后一个元素。"><a href="#3-pop-方法用于删除并返回数组的最后一个元素。" class="headerlink" title="3. pop() 方法用于删除并返回数组的最后一个元素。"></a>3. pop() 方法用于删除并返回数组的最后一个元素。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.pop()</span><br><span class="line"></span><br><span class="line">result: [<span class="number">1</span>,<span class="number">2</span>]    a = [<span class="number">1</span>,<span class="number">2</span>] (被改变) 返回被删除的值</span><br></pre></td></tr></table></figure>
+<h3 id="4-push-方法用于添加元素，返回push的最后一个值。"><a href="#4-push-方法用于添加元素，返回push的最后一个值。" class="headerlink" title="4. push() 方法用于添加元素，返回push的最后一个值。"></a>4. push() 方法用于添加元素，返回push的最后一个值。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.push(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">result: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] (被改变) 返回push的最后一个值</span><br></pre></td></tr></table></figure>
+<h3 id="5-reverse-方法用于颠倒数组中元素的顺序。"><a href="#5-reverse-方法用于颠倒数组中元素的顺序。" class="headerlink" title="5. reverse() 方法用于颠倒数组中元素的顺序。"></a>5. reverse() 方法用于颠倒数组中元素的顺序。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.reverse()</span><br><span class="line"></span><br><span class="line">result: [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]    a = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>] (被改变) 返回颠倒数组</span><br></pre></td></tr></table></figure>
+<h3 id="6-shift-方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。"><a href="#6-shift-方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。" class="headerlink" title="6. shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。"></a>6. shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.shift()</span><br><span class="line"></span><br><span class="line">result: [<span class="number">2</span>,<span class="number">3</span>]    a = [<span class="number">2</span>,<span class="number">3</span>] (被改变) 返回第一个元素的值 <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-unshift-方法可向数组的开头添加一个或更多元素，并返回新的长度。"><a href="#7-unshift-方法可向数组的开头添加一个或更多元素，并返回新的长度。" class="headerlink" title="7. unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。"></a>7. unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.unshift(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">result [<span class="number">0</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  a = [<span class="number">0</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] (被改变) 返回数组的长度 <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-slice-方法可从已有的数组中返回选定的元素。"><a href="#8-slice-方法可从已有的数组中返回选定的元素。" class="headerlink" title="8. slice() 方法可从已有的数组中返回选定的元素。"></a>8. slice() 方法可从已有的数组中返回选定的元素。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.slice(<span class="number">0</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">result [<span class="number">1</span>,<span class="number">2</span>]  a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] 返回截取的数组 [<span class="number">1</span>,<span class="number">2</span>], 和splice()不同，splice会改变原数组</span><br></pre></td></tr></table></figure>
+<h3 id="9-sort-方法用于对数组的元素进行排序。"><a href="#9-sort-方法用于对数组的元素进行排序。" class="headerlink" title="9. sort() 方法用于对数组的元素进行排序。"></a>9. sort() 方法用于对数组的元素进行排序。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">6</span>,<span class="number">9</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">40</span>, <span class="number">1000</span>]</span><br><span class="line">a.sort()</span><br><span class="line">b.sort()  <span class="comment">// 1, 10, 1000, 25, 40, 5(说明)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortNumber</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line">    &#125;</span><br><span class="line">b.sort(sortNumber) <span class="comment">//right</span></span><br><span class="line"></span><br><span class="line">result [<span class="number">1</span>,<span class="number">6</span>,<span class="number">9</span>]  a = [<span class="number">1</span>,<span class="number">6</span>,<span class="number">9</span>] (被改变) 返回排序后的数组</span><br></pre></td></tr></table></figure>
+<p>ps : 说明</p>
+<p>如果调用该方法时没有使用参数，将按 <strong>字母</strong> 顺序对数组中的元素进行排序，说得更精确点，是按照字符编码的顺序进行排序。要实现这一点，首先应把数组的元素都转换成字符串（如有必要），以便进行比较。</p>
+<p>如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：</p>
+<p>若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。<br>若 a 等于 b，则返回 0。<br>若 a 大于 b，则返回一个大于 0 的值。</p>
+<h3 id="10-splice-方法向-从数组中添加-删除项目，然后返回被删除的项目。该方法会改变原始数组"><a href="#10-splice-方法向-从数组中添加-删除项目，然后返回被删除的项目。该方法会改变原始数组" class="headerlink" title="10. splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。该方法会改变原始数组"></a>10. splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。该方法会改变原始数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.splice(<span class="number">0</span>,<span class="number">0</span>,<span class="number">4</span>)  </span><br><span class="line"><span class="comment">//1.规定添加/删除项目的位置，使用负数可从数组结尾处规定位置</span></span><br><span class="line"><span class="comment">//2.要删除的项目数量。如果设置为 0，则不会删除项目</span></span><br><span class="line"><span class="comment">//3.可选。向数组添加的新项目。</span></span><br><span class="line">result [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  a = [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] (被改变) 返回选取的数组</span><br></pre></td></tr></table></figure>
+<h3 id="11-splice-方法向-从数组中添加-删除项目，然后返回被删除的项目。该方法会改变原始数组"><a href="#11-splice-方法向-从数组中添加-删除项目，然后返回被删除的项目。该方法会改变原始数组" class="headerlink" title="11. splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。该方法会改变原始数组"></a>11. splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。该方法会改变原始数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.splice(<span class="number">0</span>,<span class="number">0</span>,<span class="number">4</span>)  </span><br><span class="line"><span class="comment">//1.规定添加/删除项目的位置，使用负数可从数组结尾处规定位置</span></span><br><span class="line"><span class="comment">//2.要删除的项目数量。如果设置为 0，则不会删除项目</span></span><br><span class="line"><span class="comment">//3.可选。向数组添加的新项目。</span></span><br><span class="line">result [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  a = [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] (被改变) 返回选取的数组</span><br></pre></td></tr></table></figure>
+<h3 id="11-toSource-方法表示对象的源代码"><a href="#11-toSource-方法表示对象的源代码" class="headerlink" title="11. toSource()方法表示对象的源代码"></a>11. toSource()方法表示对象的源代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">employee</span>(<span class="params">name,job,born</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.job=job;</span><br><span class="line">    <span class="keyword">this</span>.born=born;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bill=<span class="keyword">new</span> employee(<span class="string">"Bill Gates"</span>,<span class="string">"Engineer"</span>,<span class="number">1985</span>);</span><br><span class="line"><span class="built_in">document</span>.write(bill.toSource());</span><br><span class="line"><span class="comment">//只有 Gecko 核心的浏览器（比如 Firefox）支持该方法，也就是说 IE、Safari、Chrome、Opera 等浏览器均不支持该方法。</span></span><br></pre></td></tr></table></figure>
+<h3 id="12-toString-方法可把数组转换为字符串，并返回结果。"><a href="#12-toString-方法可把数组转换为字符串，并返回结果。" class="headerlink" title="12. toString() 方法可把数组转换为字符串，并返回结果。"></a>12. toString() 方法可把数组转换为字符串，并返回结果。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.toString()  <span class="comment">// 1,2,3 不接受参数，带, 不同于join,'1-2-3'</span></span><br><span class="line"></span><br><span class="line">result: <span class="string">'1,2,3'</span> 不改变原数组， 返回字符串</span><br></pre></td></tr></table></figure>
+<h3 id="13-valueOf-方法返回-Array-对象的原始值。"><a href="#13-valueOf-方法返回-Array-对象的原始值。" class="headerlink" title="13. valueOf() 方法返回 Array 对象的原始值。"></a>13. valueOf() 方法返回 Array 对象的原始值。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>]</span><br><span class="line">a.valueOf() </span><br><span class="line"></span><br><span class="line">result: [<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="14-toLocaleString-把数组转换为本地字符串"><a href="#14-toLocaleString-把数组转换为本地字符串" class="headerlink" title="14. toLocaleString() 把数组转换为本地字符串."></a>14. toLocaleString() 把数组转换为本地字符串.</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'a'</span>]</span><br><span class="line">a.toLocaleString() </span><br><span class="line"></span><br><span class="line">result: <span class="string">"1,2,3,a"</span>  不改变原数组</span><br></pre></td></tr></table></figure>
+<h3 id="15-indexOf-从数组开头开始查找所在项的位置-lastIndexOf-从数组末尾开始向前查找"><a href="#15-indexOf-从数组开头开始查找所在项的位置-lastIndexOf-从数组末尾开始向前查找" class="headerlink" title="15. indexOf()从数组开头开始查找所在项的位置,lastIndexOf() 从数组末尾开始向前查找"></a>15. indexOf()从数组开头开始查找所在项的位置,lastIndexOf() 从数组末尾开始向前查找</h3><blockquote>
+<p>比较参数和数组中每一项时，使用全等操作符。=== 没有找到时返回-1</p>
+</blockquote>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">MDN Array</a></p>
+<p><a href="https://segmentfault.com/a/1190000005029014" target="_blank" rel="noopener">SegmentFault</a></p>
+<p><a href="http://es6.ruanyifeng.com/#docs/array" target="_blank" rel="noopener">阮一峰 ECMAScript 6 入门 Array</a></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/前端技术/">前端技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/js/" title="js">js</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=HeQing个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2018/04/12/面试/网易/">
+            
+                前端面试
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/前端技术/">前端技术</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/小领悟/">小领悟</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/收藏/">收藏</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活小常识/">生活小常识</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/英语/">英语</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
+  
+    <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
+  
+    <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
+  
+    <a class="tag-item" href="/tags/英语/" title="英语">英语 (7)</a>
+  
+    <a class="tag-item" href="/tags/前端面试/" title="前端面试">前端面试 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2018
+    
+
+    <a href="/">Sophie Loves You</a>
+</footer>
+<div class="back-to-top" id="HeQing__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
