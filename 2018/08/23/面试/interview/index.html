@@ -141,7 +141,9 @@
 </li>
 <li><p><a href="#6">实现 es5reduce 的方法</a></p>
 </li>
-<li><p><a href="#6">使用 es5 实现 Promise</a></p>
+<li><p><a href="#7">使用 es5 实现 Promise</a></p>
+</li>
+<li><p><a href="#8">什么是单线程和异步有何关系</a></p>
 </li>
 </ul>
 <h3 id="1-请写出一种实现深拷贝的方法？"><a href="#1-请写出一种实现深拷贝的方法？" class="headerlink" title="1. 请写出一种实现深拷贝的方法？"></a><span id="1">1. 请写出一种实现深拷贝的方法？</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objDeepCopy = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sourceCopy = source <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> source) &#123;</span><br><span class="line">    sourceCopy[item] =</span><br><span class="line">      <span class="keyword">typeof</span> source[item] === <span class="string">"object"</span></span><br><span class="line">        ? objDeepCopy(source[item])</span><br><span class="line">        : source[item];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sourceCopy;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -150,8 +152,8 @@
 <h3 id="4-Javascript-垃圾收集方法？"><a href="#4-Javascript-垃圾收集方法？" class="headerlink" title="4. Javascript 垃圾收集方法？"></a><span id="4">4. Javascript 垃圾收集方法？</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">回收机制方式</span><br><span class="line">1、定义和用法：垃圾回收机制(GC:Garbage Collection),执行环境负责管理代码执行过程中使用的内存。</span><br><span class="line"></span><br><span class="line">2、原理：垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。但是这个过程不是实时的，因为其开销比较大，所以垃圾回收器会按照固定的时间间隔周期性的执行。</span><br><span class="line"></span><br><span class="line">3. 垃圾回收策略：标记清除(较为常用)和引用计数。</span><br><span class="line"></span><br><span class="line">标记清除：</span><br><span class="line"></span><br><span class="line">　　定义和用法：当变量进入环境时，将变量标记&quot;进入环境&quot;，当变量离开环境时，标记为：&quot;离开环境&quot;。某一个时刻，垃圾回收器会过滤掉环境中的变量，以及被环境变量引用的变量，剩下的就是被视为准备回收的变量。</span><br><span class="line"></span><br><span class="line">　　到目前为止，IE、Firefox、Opera、Chrome、Safari的js实现使用的都是标记清除的垃圾回收策略或类似的策略，只不过垃圾收集的时间间隔互不相同。</span><br><span class="line"></span><br><span class="line">引用计数：</span><br><span class="line"></span><br><span class="line">　　定义和用法：引用计数是跟踪记录每个值被引用的次数。</span><br><span class="line"></span><br><span class="line">　　基本原理：就是变量的引用次数，被引用一次则加1，当这个引用计数为0时，被视为准备回收的对象。</span><br></pre></td></tr></table></figure>
 <h3 id="5-简单写出-vue-的-MVVM-实现原理"><a href="#5-简单写出-vue-的-MVVM-实现原理" class="headerlink" title="5. 简单写出 vue 的 MVVM 实现原理"></a><span id="5">5. 简单写出 vue 的 MVVM 实现原理</span></h3><p><a href="https://juejin.im/entry/5923973da22b9d005893805a" target="_blank" rel="noopener">vue 双向绑定原理</a></p>
 <h3 id="6-实现-es5reduce-的方法"><a href="#6-实现-es5reduce-的方法" class="headerlink" title="6. 实现 es5reduce 的方法"></a><span id="6">6. 实现 es5reduce 的方法</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reduce() 从数组第一项开始，逐个遍历到最后</span></span><br><span class="line"><span class="comment">// reduceRight() 从数组的最后一项开始，向前遍历到第一项</span></span><br><span class="line"><span class="comment">// 都支持4个参数。(prev【前一个值】,cur【当前值】,index【项的索引】,array【数组对象】)</span></span><br><span class="line"><span class="comment">// reduce()和reduceRight()的差别在于从哪头开始遍历数组。除此之外都一样。</span></span><br><span class="line"><span class="comment">// 【兼容性】IE9+,Chrome,Firefox 3+,Safari 4+,Opera 10.5支持</span></span><br><span class="line"><span class="comment">// 这个函数返回的任何值都会作为第一个参数自动传给下一项。第一次迭代从数组的第二项开始。</span></span><br><span class="line"><span class="comment">//利用reduce求数组中所有值的和</span></span><br><span class="line"><span class="keyword">var</span> values = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> sum = values.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//sum的值为15;</span></span><br></pre></td></tr></table></figure>
-<h3 id="7-使用-es5-实现-Promise"><a href="#7-使用-es5-实现-Promise" class="headerlink" title="7. 使用 es5 实现 Promise"></a><span id="7">7. 使用 es5 实现 Promise</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/yibingxiong1/article/details/68075416" target="_blank" rel="noopener">实现一个自己的 promise</a><br><a href="https://blog.csdn.net/wdlhao/article/details/79079660" target="_blank" rel="noopener">2018 最新 Web 前端经典面试试题及答案</a></p>
+<h3 id="7-使用-es5-实现-Promise"><a href="#7-使用-es5-实现-Promise" class="headerlink" title="7. 使用 es5 实现 Promise"></a><span id="7">7. 使用 es5 实现 Promise</span></h3><p><a href="https://blog.csdn.net/yibingxiong1/article/details/68075416" target="_blank" rel="noopener">实现一个自己的 promise</a></p>
+<h3 id="8-什么是单线程-和异步有何关系"><a href="#8-什么是单线程-和异步有何关系" class="headerlink" title="8. 什么是单线程,和异步有何关系"></a><span id="8">8. 什么是单线程,和异步有何关系</span></h3><p><a href="https://blog.csdn.net/ll_0801xyz/article/details/78232621" target="_blank" rel="noopener">异步和单线程</a><br><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">JavaScript 运行机制详解：再谈 Event Loop</a><br><a href="https://blog.csdn.net/wdlhao/article/details/79079660" target="_blank" rel="noopener">2018 最新 Web 前端经典面试试题及答案</a></p>
 
     </div>
     <p class="post-meta">
@@ -223,16 +225,6 @@
     </li>
     
     <li>
-        <a href="/categories/生活小常识/">生活小常识</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/英语/">英语</a>
-        <span class="badge">(8)</span>
-    </li>
-    
-    <li>
         <a href="/categories/小领悟/">小领悟</a>
         <span class="badge">(2)</span>
     </li>
@@ -240,6 +232,16 @@
     <li>
         <a href="/categories/收藏/">收藏</a>
         <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活小常识/">生活小常识</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/英语/">英语</a>
+        <span class="badge">(8)</span>
     </li>
     
 </ul>
@@ -257,25 +259,25 @@
   
     <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
   
+    <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
+  
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
     <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
-  
-    <a class="tag-item" href="/tags/英语/" title="英语">英语 (8)</a>
+    <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
   
     <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
   
     <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
   
-    <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
+    <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
+  
+    <a class="tag-item" href="/tags/英语/" title="英语">英语 (8)</a>
   
     <a class="tag-item" href="/tags/前端面试/" title="前端面试">前端面试 (2)</a>
-  
-    <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
   
 </div>
     </section>
