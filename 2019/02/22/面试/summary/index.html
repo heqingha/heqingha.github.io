@@ -128,7 +128,7 @@
 <p>前端知识点 summarize</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="JavaScript-运行机制详解：谈-Event-Loop"><a href="#JavaScript-运行机制详解：谈-Event-Loop" class="headerlink" title="JavaScript 运行机制详解：谈 Event Loop"></a>JavaScript 运行机制详解：谈 Event Loop</h3><p> js 特点单线程，作为浏览器脚本语言，用途是与用户交互操作 dom，若有多个线程，一个线程在某个 dom 添加内容，另一个在删除内容，浏览器不知以哪个为准，所以单线程，为了利用多核 cpu 的计算能力，HTML5 提出 Web Worker 标准，允许 js 脚本创建多个线程，但子线程完全受主线程控制，且不得操作 DOM。因此新标准并未改变 js 单线程的本质。</p>
+<h3 id="一、JavaScript-运行机制详解：谈-Event-Loop"><a href="#一、JavaScript-运行机制详解：谈-Event-Loop" class="headerlink" title="一、JavaScript 运行机制详解：谈 Event Loop"></a>一、JavaScript 运行机制详解：谈 Event Loop</h3><p> js 特点单线程，作为浏览器脚本语言，用途是与用户交互操作 dom，若有多个线程，一个线程在某个 dom 添加内容，另一个在删除内容，浏览器不知以哪个为准，所以单线程，为了利用多核 cpu 的计算能力，HTML5 提出 Web Worker 标准，允许 js 脚本创建多个线程，但子线程完全受主线程控制，且不得操作 DOM。因此新标准并未改变 js 单线程的本质。</p>
 <p>单线程必须前一个任务完成才能执行下一个，出现等待很长的问题，很多时候 cpu 是空着的，由于 IO 设备（ajax 网络读数据）很慢，js 语言的设计者意识到，这时主线程完全可以不管 IO 设备，挂起处于等待中的任务，先运行排在后面的任务。等到 IO 设备返回了结果，再回过头把挂起的任务继续执行下去。</p>
 <p>任务分为 同步任务（在主线程执行）和异步任务（挂起，进入任务队列），只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行</p>
 <hr>
@@ -145,7 +145,7 @@
 </code></pre><p>所谓”回调函数”（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。</p>
 <p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为 Event Loop（事件循环）。</p>
 <h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>除了放置异步任务的事件，”任务队列”还可以放置定时事件，即指定某些代码在多少时间之后执行。这叫做”定时器”（timer）功能，也就是定时执行的代码。</p>
-<h3 id="浏览器多进程到-JS-单线程"><a href="#浏览器多进程到-JS-单线程" class="headerlink" title="浏览器多进程到 JS 单线程"></a>浏览器多进程到 JS 单线程</h3><ol>
+<h3 id="二、浏览器多进程到-JS-单线程"><a href="#二、浏览器多进程到-JS-单线程" class="headerlink" title="二、浏览器多进程到 JS 单线程"></a>二、浏览器多进程到 JS 单线程</h3><ol>
 <li>浏览器是多进程的</li>
 <li>各个进程之间相互独立（可通讯，代价大）</li>
 <li>一个进程由一个或多个线程组成，多个线程在进程中协作完成任务</li>
@@ -308,9 +308,11 @@
   
     <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
   
+    <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
+  
     <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
   
-    <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
+    <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
   
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
@@ -318,15 +320,13 @@
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
-  
     <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
   
     <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
   
-    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
-  
     <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
   
     <a class="tag-item" href="/tags/英语/" title="英语">英语 (8)</a>
   
