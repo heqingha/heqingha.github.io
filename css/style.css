@@ -403,7 +403,7 @@ th {
   background: rgba(0,0,0,0.06);
 }
 body {
-  font: 16px/1.5 "Microsoft Yahei", "微软雅黑", Arial, "宋体";
+  font: 14px/1.5 "Microsoft Yahei", "微软雅黑", Arial, "宋体";
   color: #666;
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
