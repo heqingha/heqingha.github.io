@@ -128,21 +128,86 @@
 <p>前端知识点 summarize</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="JavaScript-运行机制详解：谈Event-Loop"><a href="#JavaScript-运行机制详解：谈Event-Loop" class="headerlink" title="JavaScript 运行机制详解：谈Event Loop"></a>JavaScript 运行机制详解：谈Event Loop</h3><p>js 特点单线程，作为浏览器脚本语言，用途是与用户交互操作dom，若有多个线程，一个线程在某个dom添加内容，另一个在删除内容，浏览器不知以哪个为准，所以单线程，为了利用多核cpu的计算能力，HTML5提出Web Worker标准，允许js脚本创建多个线程，但子线程完全受主线程控制，且不得操作DOM。因此新标准并未改变js单线程的本质。</p>
-<p>单线程必须前一个任务完成才能执行下一个，出现等待很长的问题，很多时候cpu是空着的，由于IO设备（ajax网络读数据）很慢，js语言的设计者意识到，这时主线程完全可以不管IO设备，挂起处于等待中的任务，先运行排在后面的任务。等到IO设备返回了结果，再回过头把挂起的任务继续执行下去。</p>
+<h3 id="JavaScript-运行机制详解：谈-Event-Loop"><a href="#JavaScript-运行机制详解：谈-Event-Loop" class="headerlink" title="JavaScript 运行机制详解：谈 Event Loop"></a>JavaScript 运行机制详解：谈 Event Loop</h3><p> js 特点单线程，作为浏览器脚本语言，用途是与用户交互操作 dom，若有多个线程，一个线程在某个 dom 添加内容，另一个在删除内容，浏览器不知以哪个为准，所以单线程，为了利用多核 cpu 的计算能力，HTML5 提出 Web Worker 标准，允许 js 脚本创建多个线程，但子线程完全受主线程控制，且不得操作 DOM。因此新标准并未改变 js 单线程的本质。</p>
+<p>单线程必须前一个任务完成才能执行下一个，出现等待很长的问题，很多时候 cpu 是空着的，由于 IO 设备（ajax 网络读数据）很慢，js 语言的设计者意识到，这时主线程完全可以不管 IO 设备，挂起处于等待中的任务，先运行排在后面的任务。等到 IO 设备返回了结果，再回过头把挂起的任务继续执行下去。</p>
 <p>任务分为 同步任务（在主线程执行）和异步任务（挂起，进入任务队列），只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行</p>
-<p>异步执行的运行机制<br>1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。</p>
-<p>2）主线程之外，还存在一个”任务队列”（task queue）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。</p>
-<p>3）一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</p>
+<hr>
+<p><strong>异步执行的运行机制</strong></p>
+<pre><code>1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。
+
+2）主线程之外，还存在一个&quot;任务队列&quot;（task queue）。只要异步任务有了运行结果，就在&quot;任务队列&quot;之中放置一个事件。
+
+3）一旦&quot;执行栈&quot;中的所有同步任务执行完毕，系统就会读取&quot;任务队列&quot;，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。
+
+   除了 IO 设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等等）。只要指定过回调函数，这些事件发生时就会进入&quot;任务队列&quot;，等待主线程读取。
+
+4）主线程不断重复上面的第三步。
+</code></pre><p>所谓”回调函数”（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。</p>
+<p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为 Event Loop（事件循环）。</p>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>除了放置异步任务的事件，”任务队列”还可以放置定时事件，即指定某些代码在多少时间之后执行。这叫做”定时器”（timer）功能，也就是定时执行的代码。</p>
+<h3 id="浏览器多进程到-JS-单线程"><a href="#浏览器多进程到-JS-单线程" class="headerlink" title="浏览器多进程到 JS 单线程"></a>浏览器多进程到 JS 单线程</h3><ol>
+<li>浏览器是多进程的</li>
+<li>各个进程之间相互独立（可通讯，代价大）</li>
+<li>一个进程由一个或多个线程组成，多个线程在进程中协作完成任务</li>
+<li>同一进程下的各个线程之间共享程序的内存空间（包括代码段、数据集、堆等）</li>
+</ol>
+<hr>
 <blockquote>
-<p>除了IO设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等等）。只要指定过回调函数，这些事件发生时就会进入”任务队列”，等待主线程读取。</p>
+<p>浏览器之所以能够运行，是因为系统给它的进程分配了资源（cpu、内存（独立的））</p>
 </blockquote>
-<p>4）主线程不断重复上面的第三步。</p>
-<p>所谓”回调函数”（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。</p>
-<p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。</p>
-<p>定时器</p>
-<p>除了放置异步任务的事件，”任务队列”还可以放置定时事件，即指定某些代码在多少时间之后执行。这叫做”定时器”（timer）功能，也就是定时执行的代码。</p>
-<h3 id="浏览器多进程到JS单线程"><a href="#浏览器多进程到JS单线程" class="headerlink" title="浏览器多进程到JS单线程"></a>浏览器多进程到JS单线程</h3>
+<ul>
+<li><p>. Browser 进程：浏览器的主进程（负责协调、主控），只有一个</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负责浏览器界面显示，与用户交互。如前进，后退等</span><br><span class="line">负责各个页面的管理，创建和销毁其他进程</span><br><span class="line">将 Renderer 进程得到的内存中的 Bitmap，绘制到用户界面上</span><br><span class="line">网络资源的管理，下载等</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>. 浏览器渲染进程（浏览器内核）（Renderer 进程，内部多线程）</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">默认每个 Tab 页面一个进程，互不影响（有时打开多个 tab 页后，可在 Chrome 任务管理器中看到，有些进程被合并了 （所以每一个 Tab 标签对应一个进程并不一定是绝对的，浏览器优化机制））</span><br><span class="line">主要作用为页面渲染，脚本执行，事件处理等</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>. 第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建</p>
+</li>
+<li>. GPU 进程：最多一个，用于 3D 绘制等</li>
+</ul>
+<p><strong><em>进程是 cpu 资源分配的最小单位（是能拥有资源和独立运行的最小单位）</em></strong><br><strong><em>线程是 cpu 调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程）</em></strong></p>
+<h4 id="浏览器多进程的优势"><a href="#浏览器多进程的优势" class="headerlink" title="浏览器多进程的优势"></a>浏览器多进程的优势</h4><ol>
+<li>避免单个 page crash 影响整个浏览器</li>
+<li>避免第三方插件 crash 影响整个浏览器</li>
+<li>多进程充分利用多核优势</li>
+<li>方便使用沙盒模型隔离插件等进程，提高浏览器稳定性</li>
+</ol>
+<p><strong>内存等资源消耗也会更大，有点空间换时间的意思。</strong></p>
+<h4 id="重点renderer，Browser进程，以及相互之间的通讯"><a href="#重点renderer，Browser进程，以及相互之间的通讯" class="headerlink" title="重点renderer，Browser进程，以及相互之间的通讯"></a>重点renderer，Browser进程，以及相互之间的通讯</h4><p><strong><em>GUI渲染线程与JS引擎线程互斥，JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞</em></strong></p>
+<blockquote>
+<p>为了防止渲染出现不可预期的结果，浏览器设置GUI渲染线程与JS引擎为互斥的关系，当JS引擎执行时GUI线程会被挂起， GUI更新则会被保存在一个队列中等到JS引擎线程空闲时立即被执行。</p>
+</blockquote>
+<ol>
+<li><p>GUI渲染线程</p>
+<p>   负责渲染浏览器界面，解析HTML，CSS，构建DOM树和RenderObject树，布局和绘制等。<br>   当页面Repaint或reflow，该线程就会执行</p>
+</li>
+<li><p>JS引擎线程（JS内核）</p>
+<p>   负责解析Javascript脚本，运行代码，一个renderer进程只有一个js线程</p>
+</li>
+<li><p>事件触发线程</p>
+<p>   属于浏览器而不是JS引擎，来控制事件循环（需浏览器另开线程协助），将异步任务添至任务队列</p>
+</li>
+<li><p>定时触发器线程（setInterval与setTimeout所在线程）</p>
+<p>   浏览器定时计数器并不是由JavaScript引擎计数的,（因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确）<br>   因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）</p>
+</li>
+<li><p>异步http请求线程</p>
+<p>   在XMLHttpRequest在连接后是通过浏览器新开一个线程请求<br>   将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中。再由JavaScript引擎执行。</p>
+</li>
+</ol>
+<h5 id="过程：首先Browser进程收到用户请求，通过RendererHost接口传递给render进程，render进程交给GUI渲染线程，GUI加载并渲染网页（可能有JS线程操作DOM，会造成回流并重绘），最后-Render进程将结果传递给Browser进程，Browser进程接收到结果并将结果绘制出来"><a href="#过程：首先Browser进程收到用户请求，通过RendererHost接口传递给render进程，render进程交给GUI渲染线程，GUI加载并渲染网页（可能有JS线程操作DOM，会造成回流并重绘），最后-Render进程将结果传递给Browser进程，Browser进程接收到结果并将结果绘制出来" class="headerlink" title="过程：首先Browser进程收到用户请求，通过RendererHost接口传递给render进程，render进程交给GUI渲染线程，GUI加载并渲染网页（可能有JS线程操作DOM，会造成回流并重绘），最后 Render进程将结果传递给Browser进程，Browser进程接收到结果并将结果绘制出来"></a>过程：首先Browser进程收到用户请求，通过RendererHost接口传递给render进程，render进程交给GUI渲染线程，GUI加载并渲染网页（可能有JS线程操作DOM，会造成回流并重绘），最后 Render进程将结果传递给Browser进程，Browser进程接收到结果并将结果绘制出来</h5><h5 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h5><pre><code>1. 浏览器输入url，浏览器主进程接管，开一个下载线程，
+2. 然后进行 http请求（略去DNS查询，IP寻址等等操作），然后等待响应，获取内容，
+3. 随后将内容通过RendererHost接口转交给Renderer进程
+4. 浏览器渲染流程开始
+
+    * 解析html建立dom树
+    * 解析css构建render树（将CSS代码解析成树形的数据结构，然后结合DOM合并成render树）
+    * 布局render树（Layout/reflow），负责各元素尺寸、位置的计算
+    * 绘制render树（paint），绘制页面像素信息
+    * 浏览器会将各层的信息发送给GPU，GPU会将各层合成（composite），显示在屏幕上。
+    * 渲染完毕后就是load事件，之后就是自己的JS逻辑处理了，当 DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片。当 onload 事件触发时，页面上所有的DOM，样式表，脚本，图片都已经加载完成了。 （渲染完毕了）
+</code></pre><p>注： css加载不会阻塞DOM树解析，但会阻塞render树渲染</p>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
@@ -243,9 +308,9 @@
   
     <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
   
-    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
-  
     <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
   
     <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
   
