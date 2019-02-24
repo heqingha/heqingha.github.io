@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>前端框架 | 青</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="青" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">青</span>
+                    <span class="description">Hope</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
+        <ul class="menu hidden" id="HeQing__menu">
+            
+            <li rel="/2019/02/24/面试/react-redux-dva-antd/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2019/02/24/面试/react-redux-dva-antd/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2019/02/24/面试/react-redux-dva-antd/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2019/02/24/面试/react-redux-dva-antd/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/u/6157738526/home?leftnav=1" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <!-- <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a> -->
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="HeQing" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>前端框架</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        HeQing 发表于
+        <time datetime="2019-02-24T10:51:20.000Z">2019-02-24</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>前端三大框架概念区别简总结（angular,react,vue）</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>MVX 框架模式：MVC+MVP+MVVM</strong></p>
+<ol>
+<li><p>MVC：Model+View+controller（M 和 V 的协调者），主要是基于分层的目的，让彼此的职责分开。</p>
+<p>用户 User 通过控制器 Controller 来操作模板 Model 从而达到视图 View 的变化。数据直接从数据库读取</p>
+</li>
+<li><p>MVP：是从 MVC 模式演变而来的，都是通过 Controller/Presenter 负责逻辑的处理+Model 提供数据+View 负责显示。</p>
+<p>在 MVP 中，Presenter 完全把 View 和 Model 进行了分离，主要的程序逻辑在 Presenter 里实现。<br>并且，Presenter 和 View 是没有直接关联的，是通过定义好的接口进行交互，从而使得在变更 View 的时候可以保持 Presenter 不变。</p>
+</li>
+<li><p>MVVM：MVVM 是把 MVC 里的 Controller 和 MVP 里的 Presenter 改成了 ViewModel。Model+View+ViewModel。</p>
+<p>MVVM 的界面与 viewmodel 是松耦合，界面数据从 viewmodel 中获取<br>View 的变化会自动更新到 ViewModel,ViewModel 的变化也会自动同步到 View 上显示。<br>这种自动同步是因为 ViewModel 中的属性实现了 Observer，当属性变更时都能触发对应的操作。</p>
+</li>
+</ol>
+<h3 id="三大框架概述"><a href="#三大框架概述" class="headerlink" title="三大框架概述"></a>三大框架概述</h3><ul>
+<li><p>vue: 构建用户界面的渐进式、轻量级框架,插件化, 倾向于（html+css+js）,易上手，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染，开发者不需要考虑组件是否需要重新渲染之类的优化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//&lt;div id="app"&gt;</span></span><br><span class="line">  <span class="comment">//    &lt;!--html中修改的--&gt;</span></span><br><span class="line">  <span class="comment">//  &lt;h1&gt;&#123;&#123;message + '这是在outer HTML中的'&#125;&#125;&lt;/h1&gt;</span></span><br><span class="line">  <span class="comment">//&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">el: <span class="string">'#app'</span>,</span><br><span class="line">template: <span class="string">"&lt;h1&gt;&#123;&#123;message +'这是在template中的'&#125;&#125;&lt;/h1&gt;"</span>,</span><br><span class="line"><span class="comment">//有template 作为模板编译成render函数，优先级高于外部HTML，页面显示</span></span><br><span class="line">render: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> createElement(<span class="string">'h1'</span>, <span class="string">'this is createElement'</span>)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 它是以createElement作为参数，然后做渲染操作，而且我们可以直接嵌入JSX</span></span><br><span class="line"><span class="comment">// render函数选项 &gt; template选项 &gt; outer HTML.</span></span><br><span class="line">data: &#123;</span><br><span class="line">  message: <span class="string">'Vue的生命周期'</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//  this.$el   this.$data(数据双向绑定的表示)   this.message</span></span><br><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// vm实例 创建前状态</span></span><br><span class="line">    <span class="comment">// 初始化事件，进行数据的观测</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   undefined</span></span><br><span class="line">    <span class="comment">// this.message undefined</span></span><br><span class="line">&#125;,</span><br><span class="line">created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建完毕状态(已进行数据绑定)</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object] 已进行数据绑定</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">&#125;,</span><br><span class="line">beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 挂载前状态</span></span><br><span class="line">    <span class="comment">// 首先判断对象是否有el选项。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上调用vm.$mount(el)。</span></span><br><span class="line">    <span class="comment">//可以看到此时是给vue实例对象添加$el成员，并且替换掉挂在的DOM元素.此时是虚拟dom的形式</span></span><br><span class="line">    <span class="comment">// this.$el     </span></span><br><span class="line">    <span class="comment">// [object HTMLDivElement]  &lt;div id='app'&gt;&lt;h1&gt;&#123;&#123;message&#125;&#125;用此占位&lt;/h1&gt;&lt;/div&gt;</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">&#125;,</span><br><span class="line">mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vm.message = <span class="string">'触发组件更新'</span></span><br><span class="line">    <span class="comment">// 挂载结束状态</span></span><br><span class="line">    <span class="comment">// this.$el     </span></span><br><span class="line">    <span class="comment">// [object HTMLDivElement]  &lt;div id='app'&gt;&lt;h1&gt;Vue的生命周期&lt;/h1&gt;&lt;/div&gt;</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">&#125;,</span><br><span class="line">beforeUpdate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新前状态 当vue发现data中的数据发生了改变，会触发对应组件的重新渲染</span></span><br><span class="line">    <span class="comment">// this.$el     [object HTMLDivElement]</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期(此时view层还未改变，但课监听到data的变化)</span></span><br><span class="line">&#125;,</span><br><span class="line">updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新完成状态</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object] 已进行数据绑定</span></span><br><span class="line">    <span class="comment">// this.message 触发组件更新</span></span><br><span class="line">&#125;,</span><br><span class="line">beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 销毁前状态</span></span><br><span class="line">    <span class="comment">// 实例销毁之前调用。在这一步，实例仍然完全可用</span></span><br><span class="line">&#125;,</span><br><span class="line">destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 销毁完成状态</span></span><br><span class="line">    <span class="comment">// Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>总结： </p>
+<ol>
+<li><strong>首先创建一个实例，new vue过程中执行init（vue组件默认执行），init过程中调beforeCreate</strong></li>
+<li><strong>然后在injections（注射）和reactivity（反应性）的时候，调用created，created完成之后，去判断实例里面是否含有“el”选项，若无，调用vm.$mount(el)方法，执行下一步；若有，直接执行下一步。紧接着会判断是否含有“template”这个选项，如果有的话，它会把template解析成一个render function</strong></li>
+<li><strong>然后在beforeMount中，相关的render函数被调用，$el还只是我们在HTML里面写的节点，</strong></li>
+<li><strong>之后mounted，就把渲染出来的内容挂载到了DOM节点上</strong></li>
+<li><strong>当数据变化的时候，调用beforeUpdate，经过Virtual DOM，之后调用updated更新dom，</strong></li>
+<li><strong>beforeDestroy，实例销毁之前，这个hook实例仍可用</strong></li>
+<li><strong>destroyed 实例销毁后调用。实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</strong></li>
+</ol>
+</li>
+<li><p>react(UI 库): 构建用户界面的 Js 库，JSX 语法，无指令，组件化（state,props），某个组件的状态发生变化时，以该组件为根，重新渲染整个组件子树</p>
+</li>
+<li><p>react &amp; vue: 组件化，钩子函数（生命周期），使用 Virtual DOM,不内置 ajax，route 核心包，以插件形式加载</p>
+</li>
+<li><p>vue &amp; angular(MVVM): 双向数据绑定,支持指令（内置和自定义指令），内置过滤器和自定义过滤器,不支持低端浏览器</p>
+</li>
+</ul>
+<p><img src="/img/interview/react-ag-vue.png" alt="三大框架" title="三大框架"></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/前端技术/">前端技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/前端框架/" title="前端框架">前端框架</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=HeQing个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2019/02/22/面试/summary/">
+            
+                前端面试
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/前端技术/">前端技术</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/小领悟/">小领悟</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/收藏/">收藏</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活小常识/">生活小常识</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/英语/">英语</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/语法/" title="语法">语法 (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
+  
+    <a class="tag-item" href="/tags/健康/" title="健康">健康 (1)</a>
+  
+    <a class="tag-item" href="/tags/英语/" title="英语">英语 (8)</a>
+  
+    <a class="tag-item" href="/tags/前端面试/" title="前端面试">前端面试 (3)</a>
+  
+    <a class="tag-item" href="/tags/前端框架/" title="前端框架">前端框架 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Hope Loves You</a>
+</footer>
+<div class="back-to-top" id="HeQing__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
