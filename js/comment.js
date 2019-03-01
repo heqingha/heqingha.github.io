@@ -594,10 +594,10 @@ var HeQing = window.HeQing || {};
     postComment: function () {
       var accessToken = localStorage.getItem(constants.ACCESS_TOKEN_KEY);
       var userInfo = localStorage.getItem(constants.USER_INFO_KEY);
-      if (!accessToken || !userInfo) {
-        alert('请先登录哦..!^_^');
-        return;
-      }
+      // if (!accessToken || !userInfo) {
+      //   alert('请先登录哦..!^_^');
+      //   return;
+      // }
       var body = $('HeQing__editBox').value.trim();
       if (body) {
         JL.Renders.loading.create();
