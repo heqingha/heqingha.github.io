@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>前端框架 | 青</title>
+    <title>web framework | 青</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
     <meta name="description" content="贺青个人前端小站" >
@@ -117,7 +117,7 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>前端框架</span></h3>
+        <h3 class="post-title"><span>web framework</span></h3>
     </header>
     <p class="post-meta text-center">
         HeQing 发表于
@@ -125,7 +125,7 @@
     </p>
     <div class="post-content">
         <blockquote>
-<p>前端三大框架概念区别简总（angular,react,vue）</p>
+<p>Summary of the three framework concepts of the front end</p>
 </blockquote>
 <a id="more"></a>
 <p><strong>MVX 框架模式：MVC+MVP+MVVM</strong></p>
@@ -144,14 +144,15 @@
 </ol>
 <h3 id="三大框架概述"><a href="#三大框架概述" class="headerlink" title="三大框架概述"></a>三大框架概述</h3><ul>
 <li><p>vue: 构建用户界面的渐进式、轻量级框架,插件化, 倾向于（html+css+js）,易上手，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染，开发者不需要考虑组件是否需要重新渲染之类的优化。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;div id="app"&gt;</span></span><br><span class="line"><span class="comment">//    &lt;!--html中修改的--&gt;</span></span><br><span class="line"><span class="comment">//  &lt;h1&gt;&#123;&#123;message + '这是在outer HTML中的'&#125;&#125;&lt;/h1&gt;</span></span><br><span class="line"><span class="comment">//&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  template: <span class="string">"&lt;h1&gt;&#123;&#123;message +'这是在template中的'&#125;&#125;&lt;/h1&gt;"</span>,</span><br><span class="line">  <span class="comment">//有template 作为模板编译成render函数，优先级高于外部HTML，页面显示</span></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">"h1"</span>, <span class="string">"this is createElement"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 它是以createElement作为参数，然后做渲染操作，而且我们可以直接嵌入JSX</span></span><br><span class="line">  <span class="comment">// render函数选项 &gt; template选项 &gt; outer HTML.</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">"Vue的生命周期"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//  this.$el   this.$data(数据双向绑定的表示)   this.message</span></span><br><span class="line">  beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// vm实例 创建前状态</span></span><br><span class="line">    <span class="comment">// 初始化事件，进行数据的观测</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   undefined</span></span><br><span class="line">    <span class="comment">// this.message undefined</span></span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建完毕状态(已进行数据绑定)</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object] 已进行数据绑定</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 挂载前状态</span></span><br><span class="line">    <span class="comment">// 首先判断对象是否有el选项。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上调用vm.$mount(el)。</span></span><br><span class="line">    <span class="comment">//可以看到此时是给vue实例对象添加$el成员，并且替换掉挂在的DOM元素.此时是虚拟dom的形式</span></span><br><span class="line">    <span class="comment">// this.$el</span></span><br><span class="line">    <span class="comment">// [object HTMLDivElement]  &lt;div id='app'&gt;&lt;h1&gt;&#123;&#123;message&#125;&#125;用此占位&lt;/h1&gt;&lt;/div&gt;</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vm.message = <span class="string">"触发组件更新"</span>;</span><br><span class="line">    <span class="comment">// 挂载结束状态</span></span><br><span class="line">    <span class="comment">// this.$el</span></span><br><span class="line">    <span class="comment">// [object HTMLDivElement]  &lt;div id='app'&gt;&lt;h1&gt;Vue的生命周期&lt;/h1&gt;&lt;/div&gt;</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeUpdate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新前状态 当vue发现data中的数据发生了改变，会触发对应组件的重新渲染</span></span><br><span class="line">    <span class="comment">// this.$el     [object HTMLDivElement]</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期(此时view层还未改变，但课监听到data的变化)</span></span><br><span class="line">  &#125;,</span><br><span class="line">  updated: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新完成状态</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object] 已进行数据绑定</span></span><br><span class="line">    <span class="comment">// this.message 触发组件更新</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 销毁前状态</span></span><br><span class="line">    <span class="comment">// 实例销毁之前调用。在这一步，实例仍然完全可用</span></span><br><span class="line">  &#125;,</span><br><span class="line">  destroyed: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 销毁完成状态</span></span><br><span class="line">    <span class="comment">// Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>总结：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;div id="app"&gt;</span></span><br><span class="line"><span class="comment">//    &lt;!--html中修改的--&gt;</span></span><br><span class="line"><span class="comment">//  &lt;h1&gt;&#123;&#123;message + '这是在outer HTML中的'&#125;&#125;&lt;/h1&gt;</span></span><br><span class="line"><span class="comment">//&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  template: <span class="string">"&lt;h1&gt;&#123;&#123;message +'这是在template中的'&#125;&#125;&lt;/h1&gt;"</span>,</span><br><span class="line">  <span class="comment">//有template 作为模板编译成render函数，优先级高于外部HTML，页面显示</span></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">"h1"</span>, <span class="string">"this is createElement"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 它是以createElement作为参数，然后做渲染操作，而且我们可以直接嵌入JSX</span></span><br><span class="line">  <span class="comment">// render函数选项 &gt; template选项 &gt; outer HTML.</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">"Vue的生命周期"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//  this.$el   this.$data(数据双向绑定的表示)   this.message</span></span><br><span class="line">  beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// vm实例 创建前状态</span></span><br><span class="line">    <span class="comment">// 初始化事件，进行数据的观测</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   undefined</span></span><br><span class="line">    <span class="comment">// this.message undefined</span></span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建完毕状态(已进行数据绑定)</span></span><br><span class="line">    <span class="comment">// this.$el     undefined</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object] 已进行数据绑定</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 挂载前状态</span></span><br><span class="line">    <span class="comment">// 首先判断对象是否有el选项。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上调用vm.$mount(el)。</span></span><br><span class="line">    <span class="comment">//可以看到此时是给vue实例对象添加$el成员，并且替换掉挂在的DOM元素.此时是虚拟dom的形式</span></span><br><span class="line">    <span class="comment">// this.$el</span></span><br><span class="line">    <span class="comment">// [object HTMLDivElement]  &lt;div id='app'&gt;&lt;h1&gt;&#123;&#123;message&#125;&#125;用此占位&lt;/h1&gt;&lt;/div&gt;</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vm.message = <span class="string">"触发组件更新"</span>;</span><br><span class="line">    <span class="comment">// 挂载结束状态</span></span><br><span class="line">    <span class="comment">// this.$el</span></span><br><span class="line">    <span class="comment">// [object HTMLDivElement]  &lt;div id='app'&gt;&lt;h1&gt;Vue的生命周期&lt;/h1&gt;&lt;/div&gt;</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeUpdate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新前状态 当vue发现data中的数据发生了改变，会触发对应组件的重新渲染</span></span><br><span class="line">    <span class="comment">// this.$el     [object HTMLDivElement]</span></span><br><span class="line">    <span class="comment">// this.$data   [obiect object]</span></span><br><span class="line">    <span class="comment">// this.message Vue的生命周期(此时view层还未改变，但课监听到data的变化)</span></span><br><span class="line">  &#125;,</span><br><span class="line">  updated: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新完成状态</span></span><br><span class="line">    <span class="comment">// ..........</span></span><br><span class="line">    <span class="comment">// this.message 触发组件更新</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 销毁前状态</span></span><br><span class="line">    <span class="comment">// 实例销毁之前调用。在这一步，实例仍然完全可用</span></span><br><span class="line">  &#125;,</span><br><span class="line">  destroyed: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 销毁完成状态</span></span><br><span class="line">    <span class="comment">// Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>总结</strong>：</p>
 <ol>
 <li><strong>首先创建一个实例，new vue 过程中执行 init（vue 组件默认执行），init 过程中调用 beforeCreate</strong></li>
-<li><strong>后在 injections（注射）和 reactivity（反应性）的时候，调用 created，created 完成之后，此时已经完成了双向数据绑定</strong></li>
-<li><strong>beforeMount 中，去判断实例里面是否含有“el”选项，若无，调用 vm.$mount(el)方法，若有，去判断是否有“template”，若有，它会把template解析成一个render function，(其实这个hook function中就是相关的render函数被调用，此时$el 还只是我们在 HTML 里面写的节点)，</strong><br><code>render函数选项 &gt; template选项 &gt; outer HTML.（render函数优先级）</code></li>
+<li><strong>后在 injections（注射）和 reactivity（反应性）的时候，调用 created，此时已经完成了双向数据绑定</strong></li>
+<li><strong>beforeMount 中，去判断实例里面是否含有“el”选项，若无，调用 vm.$mount(el)方法，若有，去判断是否有“template”，若有，它会把template解析成一个render function，(其实这个hook function中就是相关的render函数被调用，此时$el 还只是我们在 HTML 里面写的节点)，</strong><br><code>render函数选项 &gt; template选项 &gt; outer HTML.（render函数优先级）</code><br><code>el 的判断要在template，因为vue要通过el找到对应的 outer HTML</code></li>
 <li><strong>之后 mounted，就把渲染出来的内容挂载到了 DOM 节点上</strong></li>
-<li><strong>当数据变化的时候，调用 beforeUpdate，经过 Virtual DOM，之后调用 updated 更新 dom，</strong></li>
+<li><strong>当数据变化时，调用beforeUpdate，此时可以监听到data的变化，但是view还未被重新渲染，经过 Virtual DOM</strong></li>
+<li><strong>updated 中，更新 dom， view改变，</strong></li>
 <li><strong>beforeDestroy，实例销毁之前，这个 hook 实例仍可用</strong></li>
 <li><strong>destroyed 实例销毁后调用。实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</strong></li>
 </ol>
@@ -159,7 +160,12 @@
 <li><p>react(UI 库): 构建用户界面的 Js 库，JSX 语法，无指令，组件化（state,props），某个组件的状态发生变化时，以该组件为根，重新渲染整个组件子树</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 类的构造方法( constructor() )，继承了react Component这个基类，也就继承这个react的基类，才能有render(),生命周期等方法可以使用，这也说明为什么函数组件不能使用这些方法的原因。</span></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="comment">//   super(props)用来调用基类的构造方法( constructor() ), 也将父组件的props注入给子组件</span></span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">    <span class="comment">// 在组件挂载到DOM前调用，且只会被调用一次，在这边调用this.setState不会引起组件重新渲染，也可以把写在这边的内容提前到constructor()中，所以项目中很少用。</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">//   组件挂载到DOM后调用，且只会被调用一次</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//   父组件重新render引起子组件重新render的情况有两种，</span></span><br><span class="line">  <span class="comment">//   1.  每当父组件重新render导致的重传props，子组件将直接跟着重新渲染，无论props是否有变化。可通过shouldComponentUpdate方法优化。</span></span><br><span class="line">  <span class="comment">// 2. 在componentWillReceiveProps方法中，将props转换成自己的state</span></span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="comment">//   此方法只调用于props引起的组件更新过程中，参数nextProps是父组件传给当前组件的新props。但父组件render方法的调用不能保证重传给当前组件的props是有变化的，所以在此方法中根据nextProps和this.props来查明重传的props是否改变，以及如果改变了要执行啥，比如根据新的props调用this.setState出发当前组件的重新render</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="comment">// 应该使用这个方法，否则无论props是否有变化都将会导致组件跟着重新渲染</span></span><br><span class="line">    <span class="comment">// 此方法通过比较nextProps，nextState及当前组件的this.props，this.state，返回true时当前组件将继续执行更新过程，返回false则当前组件更新停止，以此可用来减少组件的不必要渲染，优化组件性能。</span></span><br><span class="line">    <span class="keyword">if</span> (nextProps.someThings === <span class="keyword">this</span>.props.someThings) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="comment">//   此方法在调用render方法前执行，在这边可执行一些组件更新发生前的工作，一般较少用。</span></span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="comment">//   此方法在组件更新后被调用，可以操作组件更新的DOM，prevProps和prevState这两个参数指的是组件更新前的props和state</span></span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">//   根据组件的props和state，return 一个React元素，不负责组件实际渲染工作，之后由React自身根据此元素去渲染出页面DOM。render是纯函数，不能在里面执行this.setState，会有改变组件状态的副作用。</span></span><br><span class="line">    <span class="comment">// 反复调用</span></span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    <span class="comment">//   此方法在组件被卸载前调用，可以在这里执行一些清理工作，比如清楚组件中使用的定时器，清楚componentDidMount中手动创建的DOM元素等，以避免引起内存泄漏。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 类的构造方法( constructor() )，继承了react Component这个基类，也就继承这个react的基类，才能有render(),生命周期等方法可以使用，这也说明为什么函数组件不能使用这些方法的原因。</span></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="comment">//   super(props)用来调用基类的构造方法( constructor() ), 也将父组件的props注入给子组件</span></span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">    <span class="comment">// 在组件挂载到DOM前调用，且只会被调用一次，在这边调用this.setState不会引起组件重新渲染，也可以把写在这边的内容提前到constructor()中，所以项目中很少用。</span></span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">//  多次被执行的render，第一个render 页面首次加载，根据组件的props和state，return 一个React元素，不负责组件实际渲染工作，之后由React自身根据此元素去渲染出页面DOM。render是纯函数，不能在里面执行this.setState，会有改变组件状态的副作用。</span></span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">//   组件挂载到DOM后调用，且只会被调用一次</span></span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="comment">//   此方法只调用于props引起的组件更新过程中，参数nextProps是父组件传给当前组件的新props。但父组件render方法的调用不能保证重传给当前组件的props是有变化的，所以在此方法中根据nextProps和this.props来查明重传的props是否改变，以及如果改变了要执行啥，比如根据新的props调用this.setState出发当前组件的重新render</span></span><br><span class="line">  &#125;</span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="comment">// 此方法通过比较nextProps，nextState及当前组件的this.props，this.state，返回true时当前组件将继续执行更新过程，返回false则当前组件更新停止，以此可用来减少组件的不必要渲染，优化组件性能。</span></span><br><span class="line">    <span class="keyword">if</span> (nextProps.someThings === <span class="keyword">this</span>.props.someThings) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="comment">//   此方法在调用render方法前执行，在这边可执行一些组件更新发生前的工作，一般较少用。</span></span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// 当用户操作页面 数据改变时，在componentWillUpdate 之后执行render函数</span></span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="comment">//   此方法在组件更新后被调用，可以操作组件更新的DOM，prevProps和prevState这两个参数指的是组件更新前的props和state</span></span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    <span class="comment">//   此方法在组件被卸载前调用，可以在这里执行一些清理工作，比如清楚组件中使用的定时器，清楚componentDidMount中手动创建的DOM元素等，以避免引起内存泄漏。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 造成组件更新的情况，</p>
+<ol>
+<li>父组件重新渲染，父组件重新render导致重传props，子组件将直接跟着重新渲染，无论props是否有变化。可通过shouldComponentUpdate方法优化。（二种情况，子组件直接使用props，子组件将props作为state使用）</li>
+<li>组件本事本身调用 setState</li>
+</ol>
 <p>只执行一次： constructor、componentWillMount、componentDidMount</p>
 <p>执行多次：render 、子组件的 componentWillReceiveProps、componentWillUpdate、componentDidUpdate</p>
 <p>有条件的执行：componentWillUnmount（页面离开，组件销毁时）</p>
@@ -175,13 +181,13 @@
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/前端技术/">前端技术</a>
+            <a class="cat-link" href="/categories/web-framework/">web framework</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/前端框架/" title="前端框架">前端框架</a>
+        <a href="/tags/web-framework/" title="web framework">web framework</a>
     
 
         </span>
@@ -207,7 +213,11 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="javascript: void(0);">没有上一篇了</a>
+        <a href="/2019/03/01/面试/redux/">
+            
+                web frame
+            
+        </a>
     </span>
     
 
@@ -216,7 +226,7 @@
         下一篇<br >
         <a href="/2019/02/22/面试/summary/">
             
-                前端面试
+                browser &amp; js
             
         </a>
     </span>
@@ -238,7 +248,7 @@
     
     <li>
         <a href="/categories/前端技术/">前端技术</a>
-        <span class="badge">(17)</span>
+        <span class="badge">(13)</span>
     </li>
     
     <li>
@@ -261,6 +271,26 @@
         <span class="badge">(8)</span>
     </li>
     
+    <li>
+        <a href="/categories/Interview/">Interview</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/web-framework/">web framework</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/web-frame/">web frame</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/web-skill/">web skill</a>
+        <span class="badge">(1)</span>
+    </li>
+    
 </ul>
     </section>
 
@@ -276,17 +306,17 @@
   
     <a class="tag-item" href="/tags/js/" title="js">js (6)</a>
   
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
-  
     <a class="tag-item" href="/tags/领悟/" title="领悟">领悟 (2)</a>
   
-    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
     <a class="tag-item" href="/tags/vsCode插件/" title="vsCode插件">vsCode插件 (1)</a>
   
-    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
     <a class="tag-item" href="/tags/书籍收藏/" title="书籍收藏">书籍收藏 (1)</a>
+  
+    <a class="tag-item" href="/tags/服务器区别/" title="服务器区别">服务器区别 (1)</a>
   
     <a class="tag-item" href="/tags/浏览器/" title="浏览器">浏览器 (1)</a>
   
@@ -294,9 +324,13 @@
   
     <a class="tag-item" href="/tags/英语/" title="英语">英语 (8)</a>
   
-    <a class="tag-item" href="/tags/前端框架/" title="前端框架">前端框架 (1)</a>
+    <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
   
-    <a class="tag-item" href="/tags/前端面试/" title="前端面试">前端面试 (3)</a>
+    <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (1)</a>
+  
+    <a class="tag-item" href="/tags/web-frame/" title="web frame">web frame (1)</a>
+  
+    <a class="tag-item" href="/tags/web-skill/" title="web skill">web skill (1)</a>
   
 </div>
     </section>
