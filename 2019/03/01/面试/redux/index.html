@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>web frame | 青</title>
+    <title>web framework | 青</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
     <meta name="description" content="贺青个人前端小站" >
@@ -115,7 +115,7 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>web frame</span></h3>
+        <h3 class="post-title"><span>web framework</span></h3>
     </header>
     <p class="post-meta text-center">
         HeQing 发表于
@@ -126,17 +126,28 @@
 <p>redux dva vuex</p>
 </blockquote>
 <a id="more"></a>
+<h1 id="1-use-react-with-redux-and-react-router"><a href="#1-use-react-with-redux-and-react-router" class="headerlink" title="1. use react with redux and react-router"></a>1. use react with redux and react-router</h1><h3 id="Redux-→-Store-nbsp-Action-nbsp-Reducer"><a href="#Redux-→-Store-nbsp-Action-nbsp-Reducer" class="headerlink" title="Redux → Store &nbsp; Action &nbsp; Reducer"></a>Redux → Store &nbsp; Action &nbsp; Reducer</h3><h3 id="Store（一个应用只有一个-store，将-action-和-reducer-联系在一起）"><a href="#Store（一个应用只有一个-store，将-action-和-reducer-联系在一起）" class="headerlink" title="Store（一个应用只有一个 store，将 action 和 reducer 联系在一起）"></a>Store（一个应用只有一个 store，将 action 和 reducer 联系在一起）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store.js</span></span><br><span class="line"><span class="comment">//  创建store,接受两个参数</span></span><br><span class="line"><span class="keyword">import</span> &#123; applyMiddleware, compose, createStore, combineReducers &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"><span class="keyword">const</span> store = createStore(createRootReducer(), initialState);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建store,接受两个参数,reducer 是所有reducer结合为一个总reducer</span></span><br><span class="line"><span class="comment">// 创建完成之后 store提供四个方法</span></span><br><span class="line"><span class="comment">// getState： 获取应用当前State。</span></span><br><span class="line"><span class="comment">// subscribe：添加一个变化监听器。</span></span><br><span class="line"><span class="comment">// dispatch：分发 action。修改State。</span></span><br><span class="line"><span class="comment">// replaceReducer：替换 store 当前用来处理 state 的 reducer。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createRootReducer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> combineReducers(&#123;</span><br><span class="line">    ...reducers <span class="comment">// 各个模块 页面的 小reducer</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Action-改变-state-的唯一途径-通过-store-dispatch-action-此时-action-type-‘mark’，payload-newstate"><a href="#Action-改变-state-的唯一途径-通过-store-dispatch-action-此时-action-type-‘mark’，payload-newstate" class="headerlink" title="Action(改变 state 的唯一途径), 通过 store.dispatch(action), 此时 action = {type: ‘mark’，payload: {newstate}}"></a>Action(改变 state 的唯一途径), 通过 store.dispatch(action), 此时 action = {type: ‘mark’，payload: {newstate}}</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// action.js</span></span><br><span class="line"><span class="keyword">const</span> action = <span class="function"><span class="params">data</span> =&gt;</span> dispatch =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> serverAjax(data).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (res.result === <span class="string">"success"</span>) &#123;</span><br><span class="line">      dispatch(&#123; <span class="attr">type</span>: <span class="string">"mark"</span>, <span class="attr">payload</span>: res &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      dispatch(&#123; <span class="attr">type</span>: <span class="string">"mark"</span>, <span class="attr">payload</span>: &#123;&#125; &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Reducer-state-action-，接受两个参数，返回新的-state，"><a href="#Reducer-state-action-，接受两个参数，返回新的-state，" class="headerlink" title="Reducer(state, action)，接受两个参数，返回新的 state，"></a>Reducer(state, action)，接受两个参数，返回新的 state，</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reducer.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ACTION_HANDLERS = &#123;</span><br><span class="line">  [<span class="string">"mark"</span>]: <span class="function">(<span class="params">state, &#123; payload: res &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (res) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        data: res.data</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这边考虑每个页面 模块都有个初始的initstate，封装一个函数用来创建 reducer，这样就可以分开定义每个页面initstate，写起来清晰</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createReducer</span>(<span class="params">initState, handlers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state = initState, action</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> handler = handlers[action.type]</span><br><span class="line">    <span class="keyword">return</span> handler ? handler(state, action) : state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;ACTION_HANDLERS&#125; <span class="keyword">from</span> <span class="string">'action.js'</span></span><br><span class="line"><span class="keyword">const</span> initialState = &#123;</span><br><span class="line">  data1: [],</span><br><span class="line">  data2: &#123;&#125;,</span><br><span class="line">  loading: <span class="literal">false</span></span><br><span class="line">  <span class="comment">// ...一个页面的initstate</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createReducer(initialState, ACTION_HANDLERS); <span class="comment">// 这边暴露出去 会在react 组件中用到</span></span><br></pre></td></tr></table></figure>
+<h3 id="React-Redux-redux独立，需使用-react-redux（提供两个接口，Provider-connect）库来将react-redux-连接起来"><a href="#React-Redux-redux独立，需使用-react-redux（提供两个接口，Provider-connect）库来将react-redux-连接起来" class="headerlink" title="React-Redux ,redux独立，需使用 react-redux（提供两个接口，Provider, connect）库来将react redux 连接起来"></a>React-Redux ,redux独立，需使用 react-redux（提供两个接口，Provider, connect）库来将react redux 连接起来</h3><ol>
+<li>Provider是一个React组件，它的作用是保存store给子组件中的connect使用。</li>
+<li>connect(将state 和 改变state的方法（action）转化成props 传递给组件)</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// component.js </span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actionCreators <span class="keyword">from</span> <span class="string">'reducer.js'</span></span><br><span class="line"><span class="keyword">import</span> &#123; bindActionCreators &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="comment">// bindActionCreators 的作用就是将 Actions 和 dispatch 组合起来生成 mapDispatchToProps 需要生成的内容。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">one</span>: state.one &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapDispatchToProps</span>(<span class="params">dispatch</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">actions</span>: bindActionCreators(actionCreators, dispatch) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@connect(</span><br><span class="line">    (&#123; stateone &#125;) =&gt; (&#123; stateone &#125;),</span><br><span class="line">    mapDispatchToProps</span><br><span class="line">)</span><br><span class="line"><span class="comment">// 两种connect的方法 both ok</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(Component)</span><br></pre></td></tr></table></figure>
+<p>last attach a pic of react-redux</p>
+<p><img src="/img/webframe/react-redux.png" alt="react-redux" title="react-redux"></p>
+<p>来源： <a href="https://www.w3ctech.com/topic/1561" target="_blank" rel="noopener">https://www.w3ctech.com/topic/1561</a></p>
 
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/web-frame/">web frame</a>
+            <a class="cat-link" href="/categories/web-framework/">web framework</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/web-frame/" title="web frame">web frame</a>
+        <a href="/tags/web-framework/" title="web framework">web framework</a>
     
 
         </span>
@@ -217,13 +228,8 @@
     </li>
     
     <li>
-        <a href="/categories/web-frame/">web frame</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
         <a href="/categories/web-framework/">web framework</a>
-        <span class="badge">(1)</span>
+        <span class="badge">(2)</span>
     </li>
     
 </ul>
@@ -259,9 +265,7 @@
   
     <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
   
-    <a class="tag-item" href="/tags/web-frame/" title="web frame">web frame (1)</a>
-  
-    <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (1)</a>
+    <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (2)</a>
   
 </div>
     </section>
