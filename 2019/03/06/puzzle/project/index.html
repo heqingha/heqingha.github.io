@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>`English`标签下的文章 | 青</title>
+    <title>puzzle in the project | 青</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
     <meta name="description" content="贺青个人前端小站" >
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
         <ul class="menu hidden" id="HeQing__menu">
             
-            <li rel="/tags/English/index.html" class="item ">
+            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
                 <a href="/" title="home" class="icon-home">&nbsp;home</a>
             </li>
             
-            <li rel="/tags/English/index.html" class="item ">
+            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
                 <a href="/lab/" title="lab" class="icon-lab">&nbsp;lab</a>
             </li>
             
-            <li rel="/tags/English/index.html" class="item ">
+            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
                 <a href="/about/" title="about" class="icon-about">&nbsp;about</a>
             </li>
             
-            <li rel="/tags/English/index.html" class="item ">
+            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
                 <a href="/comment/" title="words" class="icon-comment">&nbsp;words</a>
             </li>
             
@@ -111,281 +111,77 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 按标签分类 -->
-
-    <h3 class="widget-hd">
-        <strong>
-            
-                `English`标签下的文章
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/English/">English</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2018/05/31/英语/word/">
-    		English
-    	</a>
-    </h3>
-
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>puzzle in the project</span></h3>
     </header>
-    <p class="post-meta">
-        Hope 发表于
-        <time datetime="2018-05-31T07:03:58.000Z">2018-05-31</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/English/" title="English">English</a>
-    
-
-        </span>
+    <p class="post-meta text-center">
+        HeQing 发表于
+        <time datetime="2019-03-06T07:54:12.000Z">2019-03-06</time>
     </p>
-
     <div class="post-content">
-        <div class="post-excerpt">
-            
-                <blockquote>
-<p>word<br>
-            
-            <p class="more">
-                <a href="/2018/05/31/英语/word/">read more</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="/2018/05/31/英语/word/" title="English">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/English/">English</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2018/01/04/英语/4-unit-2/">
-    		4-unit-2
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Hope 发表于
-        <time datetime="2018-01-04T11:06:58.000Z">2018-01-04</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/English/" title="English">English</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <blockquote>
-<p>4-unit-2，加入英孚，整理每个单元所学的重点词汇，语法，句子，以及各种阅读技巧和英语听力，汇总各个场合的口语。</p>
+        <blockquote>
+<p>clear up puzzle that met in the project and find a solution about them.</p>
 </blockquote>
-            
-            <p class="more">
-                <a href="/2018/01/04/英语/4-unit-2/">read more</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="/2018/01/04/英语/4-unit-2/" title="4-unit-2">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/4.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
+<a id="more"></a>
+<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><blockquote>
+<p><strong>describe（react）</strong>：页面新增、修改、复制新增是同一个路由，同一个组件，仅仅根据query来区分，导致的问题，页面之间切换的时候，componentDidMount 只触发一次，在之中根据不同的query做的一系列判断加载fetch，不能实现<br><strong>solution</strong>: 每个页面加不同的路由，组件共用，根据 hook componentWillReceiveProps，当props 变化是，判断不同的pathname，处理原本要在componentDidMount执行的</p>
+</blockquote>
+
     </div>
-</article>
-
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/English/">English</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/12/29/英语/预习face-to-face/">
-    		face-to-face预习
-    	</a>
-    </h3>
-
-    </header>
     <p class="post-meta">
-        Hope 发表于
-        <time datetime="2017-12-29T14:47:58.000Z">2017-12-29</time>
-        &nbsp;&nbsp;
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/puzzle/">puzzle</a>
+        </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/English/" title="English">English</a>
+        <a href="/tags/puzzle/" title="puzzle">puzzle</a>
     
 
         </span>
     </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <blockquote>
-<p>小班面授课，face-to-face</p>
-</blockquote>
-            
-            <p class="more">
-                <a href="/2017/12/29/英语/预习face-to-face/">read more</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="/2017/12/29/英语/预习face-to-face/" title="face-to-face预习">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/9.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
 </article>
+<!-- 分享按钮 -->
 
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/English/">English</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/12/28/英语/4-unit-1/">
-    		4-unit-1
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Hope 发表于
-        <time datetime="2017-12-28T03:04:58.000Z">2017-12-28</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/English/" title="English">English</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <blockquote>
-<p>4-unit-1，加入英孚，整理每个单元所学的重点词汇，语法，句子，以及各种阅读技巧和英语听力，汇总各个场合的口语。</p>
-</blockquote>
-            
-            <p class="more">
-                <a href="/2017/12/28/英语/4-unit-1/">read more</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="/2017/12/28/英语/4-unit-1/" title="4-unit-1">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=HeQing个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
-</article>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
 
     
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/English/">English</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/12/26/英语/定语/">
-    		定语
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Hope 发表于
-        <time datetime="2017-12-26T06:55:58.000Z">2017-12-26</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2019/03/01/面试/redux-dva-vuex/">
             
-    
-        <a href="/tags/English/" title="English">English</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
+                web framework
             
-                <blockquote>
-<p>定语是用来修饰、限定、说明名词或代词的品质与特征的。 主要有形容词，此外还有名词、代词、数词、介词短语、动词不定式（短语）、分词、定语从句或相当于形容词的词、短语或句子都可以作定语。</p>
-</blockquote>
-            
-            <p class="more">
-                <a href="/2017/12/26/英语/定语/">read more</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="/2017/12/26/英语/定语/" title="定语">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/6.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
+        </a>
+    </span>
+    
+</div>
 
-    
-
-    
-    <nav class="page-navigator">
-        <span class="page-number current">1</span><a class="page-number" href="/tags/English/page/2/">2</a><a class="extend next" rel="next" href="/tags/English/page/2/">后一页</a>
-    </nav>
-    
+<!-- 文章评论 -->
 
 
             </div>
