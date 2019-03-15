@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>promise | 青</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="青" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">青</span>
+                    <span class="description">Hope</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
+        <ul class="menu hidden" id="HeQing__menu">
+            
+            <li rel="/2019/03/08/javascript/promise/index.html" class="item ">
+                <a href="/" title="home" class="icon-home">&nbsp;home</a>
+            </li>
+            
+            <li rel="/2019/03/08/javascript/promise/index.html" class="item ">
+                <a href="/lab/" title="lab" class="icon-lab">&nbsp;lab</a>
+            </li>
+            
+            <li rel="/2019/03/08/javascript/promise/index.html" class="item ">
+                <a href="/about/" title="about" class="icon-about">&nbsp;about</a>
+            </li>
+            
+            <li rel="/2019/03/08/javascript/promise/index.html" class="item ">
+                <a href="/comment/" title="words" class="icon-comment">&nbsp;words</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                    <!-- <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a> -->
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="HeQing" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>promise</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        HeQing 发表于
+        <time datetime="2019-03-08T06:14:10.000Z">2019-03-08</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>from MDN : The Promise object is used for asynchronous computations. A Promise represents a single asynchronous operation that hasn’t completed yet, but is expected in the future.</p>
+</blockquote>
+<a id="more"></a>
+<p>我们就可以利用 then 进行「链式回调」，将异步操作以同步操作的流程表示出来,避免厄运回调金字塔，Promise 有三种状态（pending，fulfilled，rejected）有两种状态的改变&amp;API</p>
+<ol>
+<li>pending—–&gt;fulfilled 成功</li>
+<li>pending—–&gt;rejected 失败</li>
+<li>一旦状态改变，promise.then 绑定的函数就会被调用，然后一直保持这个状态</li>
+<li>Promise 新建后就会立即执行。而 then 方法中指定的回调函数，将在当前脚本所有同步任务执行完才会执行（单线程）</li>
+</ol>
+<pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// explain of the item 5 </span></span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"test"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// ==========  //</span></span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"test"</span>));</span><br><span class="line">&#125;);</span><br><span class="line">promise.catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</code></pre><ol>
+<li><p>Promise 一旦 fulfilled 了，再抛错，也不会变为 rejected，就不会被 catch 了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise 一旦 fulfilled 了，再抛错，也不会变为 rejected，就不会被 catch 了。</span></span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  resolve();</span><br><span class="line">  <span class="keyword">throw</span> <span class="string">"error"</span>;</span><br><span class="line">&#125;);</span><br><span class="line">promise.catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(e); <span class="comment">//This is never called</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Promise.prototype.then(onFulfilled, onRejected)</p>
+</li>
+<li>Promise.prototype.catch(onRejected),该方法是.then(undefined, onRejected)的别名</li>
+<li><p>Promise.all(iterable),该方法用于将多个Promise实例，包装成一个新的Promise实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接受一个数组（或具有Iterator接口）作参数,当p1, p2, p3状态都变为fulfilled，p的状态才会变为fulfilled，并将三个promise返回的结果，按参数的顺序（而不是 resolved的顺序）存入数组，传给p的回调函数</span></span><br><span class="line"> <span class="keyword">var</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Promise.race(iterable)，该方法同样是将多个Promise实例，包装成一个新的Promise实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当p1, p2, p3其中之一状态变为rejected，p的状态也会变为rejected，并把第一个被reject的promise的返回值，传给p的回调函数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.resolve()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'Success'</span>);</span><br><span class="line"><span class="comment">// ======== //</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    resolve(<span class="string">'Success'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'success'</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Promise.resolve()的另一个作用就是将thenable对象（即带有then方法的对象）转换为promise对象。</span></span><br><span class="line"><span class="keyword">var</span> p1 = &#123; </span><br><span class="line">  then: <span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"error"</span>);</span><br><span class="line">    resolve(<span class="string">"Resolved"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">Promise</span>.resolve(p1);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.reject()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法和上述的Promise.resolve()类似，它也是new Promise()的快捷方式。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">url, param, successFun, errorFun</span>) </span>&#123;</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  type: <span class="string">"POST"</span>,</span><br><span class="line">  url: url,</span><br><span class="line">  param: param,</span><br><span class="line">  <span class="keyword">async</span>: <span class="literal">true</span>, <span class="comment">//默认为true,即异步请求；false为同步请求</span></span><br><span class="line">  success: successFun,</span><br><span class="line">  error: errorFun</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对比 传统</span></span><br><span class="line">request(</span><br><span class="line"><span class="string">"test.html"</span>,</span><br><span class="line">&#123;&#125;,</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data1</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"第一次请求成功, 这是返回的数据:"</span>, data1);</span><br><span class="line">  request(</span><br><span class="line">    <span class="string">"test2.html"</span>,</span><br><span class="line">    data1,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">data2</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"第二次请求成功, 这是返回的数据:"</span>, data2);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">error2</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"第二次请求失败, 这是失败信息:"</span>, error2);</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">error1</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"第一次请求失败, 这是失败信息:"</span>, error1);</span><br><span class="line">&#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendRequest</span>(<span class="params">url, param</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  request(url, param, resolve, reject);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对比 promise</span></span><br><span class="line">sendRequest(<span class="string">"test.html"</span>, <span class="string">""</span>)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data1</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"第一次请求成功, 这是返回的数据:"</span>, data1);</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"第二次请求成功, 这是返回的数据:"</span>, data2);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//用catch捕捉前面的错误</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"sorry, 请求失败了, 这是失败信息:"</span>, error);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/web-skill/">web skill</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/js/" title="js">js</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=HeQing个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="/2019/03/11/javascript/basejs/">
+            
+                basics knowledge of the javascript
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2019/03/06/puzzle/project/">
+            
+                puzzle in the project
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/web-skill/">web skill</a>
+        <span class="badge">(16)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/life/">life</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/puzzle/">puzzle</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/collection/">collection</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/English/">English</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Interview/">Interview</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/web-framework/">web framework</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/web-skill/" title="web skill">web skill (2)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (8)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/life/" title="life">life (2)</a>
+  
+    <a class="tag-item" href="/tags/puzzle/" title="puzzle">puzzle (1)</a>
+  
+    <a class="tag-item" href="/tags/plug-in/" title="plug-in">plug-in (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/collection/" title="collection">collection (1)</a>
+  
+    <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
+  
+    <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
+  
+    <a class="tag-item" href="/tags/English/" title="English">English (8)</a>
+  
+    <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
+  
+    <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (2)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Hope Loves You</a>
+</footer>
+<div class="back-to-top" id="HeQing__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
