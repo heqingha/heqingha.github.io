@@ -169,7 +169,7 @@
 <ol>
 <li>封装使用</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">var</span> params = formsParams(options.data);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">formsParams</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> data) &#123;</span><br><span class="line">      arr.push(prop + <span class="string">"="</span> + data[prop]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">"&amp;"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//创建对象</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 连接</span></span><br><span class="line">  <span class="keyword">if</span> (options.type == <span class="string">"GET"</span>) &#123;</span><br><span class="line">    xhr.open(options.type, options.url + <span class="string">"?"</span> + params, options.async);</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (options.type == <span class="string">"POST"</span>) &#123;</span><br><span class="line">    xhr.open(options.type, options.url, options.async);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">    xhr.send(params);</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">      options.success(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ajax(&#123;</span><br><span class="line">  url: <span class="string">"a.php"</span>, <span class="comment">// url----&gt;地址</span></span><br><span class="line">  type: <span class="string">"POST"</span>, <span class="comment">// type ---&gt; 请求方式</span></span><br><span class="line">  <span class="keyword">async</span>: <span class="literal">true</span>, <span class="comment">// async----&gt; 同步：false，异步：true</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    <span class="comment">//传入信息</span></span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">  &#125;,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//返回接受信息</span></span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = (&#123;</span><br><span class="line">  url,</span><br><span class="line">  data,</span><br><span class="line">  body = <span class="literal">null</span>,</span><br><span class="line">  method = <span class="string">"POST"</span>,</span><br><span class="line">  <span class="keyword">async</span> = <span class="literal">true</span>,</span><br><span class="line">  contentType = <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">  success</span><br><span class="line">&#125;) =&gt; &#123;</span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">var</span> params = formsParams(data);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">formsParams</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> data) &#123;</span><br><span class="line">      arr.push(prop + <span class="string">"="</span> + data[prop]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">"&amp;"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//创建对象</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 连接</span></span><br><span class="line">  <span class="keyword">if</span> (method == <span class="string">"GET"</span>) &#123;</span><br><span class="line">    xhr.open(method, url + <span class="string">"?"</span> + params, <span class="keyword">async</span>);</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method == <span class="string">"POST"</span>) &#123;</span><br><span class="line">    xhr.open(method, url, <span class="keyword">async</span>);</span><br><span class="line">    xhr.setRequestHeader(contentType);</span><br><span class="line">    xhr.send(params);</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.onreadystatechange = () = &gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">      success(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr(&#123;</span><br><span class="line">  url: <span class="string">"a.php"</span>,</span><br><span class="line">  type: <span class="string">"POST"</span>,</span><br><span class="line">  <span class="comment">//   async: true,</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    name: <span class="string">"me"</span>,</span><br><span class="line">    age: <span class="number">24</span></span><br><span class="line">  &#125;,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//返回接受信息</span></span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
     </div>
     <p class="post-meta">
@@ -180,7 +180,7 @@
             标签：
             
     
-        <a href="/tags/js/" title="js">js</a>
+        <a href="/tags/ajax/" title="ajax">ajax</a>
     
 
         </span>
@@ -206,7 +206,11 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="javascript: void(0);">没有上一篇了</a>
+        <a href="/2019/05/26/javascript/SSR/">
+            
+                SSR (server side render)
+            
+        </a>
     </span>
     
 
@@ -237,7 +241,7 @@
     
     <li>
         <a href="/categories/web-skill/">web skill</a>
-        <span class="badge">(20)</span>
+        <span class="badge">(21)</span>
     </li>
     
     <li>
@@ -279,11 +283,15 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/web-skill/" title="web skill">web skill (3)</a>
+    <a class="tag-item" href="/tags/markdown/" title="markdown">markdown (1)</a>
+  
+    <a class="tag-item" href="/tags/ajax/" title="ajax">ajax (1)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
   
     <a class="tag-item" href="/tags/js/" title="js">js (11)</a>
   
-    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+    <a class="tag-item" href="/tags/SSR/" title="-SSR">-SSR (1)</a>
   
     <a class="tag-item" href="/tags/puzzle/" title="puzzle">puzzle (1)</a>
   
@@ -295,9 +303,9 @@
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/collection/" title="collection">collection (1)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
+  
+    <a class="tag-item" href="/tags/collection/" title="collection">collection (1)</a>
   
     <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
   
@@ -306,6 +314,8 @@
     <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
   
     <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (2)</a>
+  
+    <a class="tag-item" href="/tags/Event-Loop-browser/" title="Event Loop &amp; browser">Event Loop & browser (1)</a>
   
 </div>
     </section>
