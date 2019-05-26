@@ -129,7 +129,7 @@
 <h3 id="commonJS（JS-在后端的表现制定的）"><a href="#commonJS（JS-在后端的表现制定的）" class="headerlink" title="commonJS（JS 在后端的表现制定的）"></a>commonJS（JS 在后端的表现制定的）</h3><p>CommonJS 定义的模块分为:{模块引用(require)} {模块定义(exports)} {模块标识(module)}</p>
 <p>CommonJS 中有一个全局性方法 require()，用于加载模块</p>
 <p>require()用来引入外部模块；exports 对象用于导出当前模块的方法或变量，唯一的导出口；module 对象就代表模块本身。</p>
-<p>NodeJS 是 CommonJS 规范的实现，运行在服务端，不支持浏览器环境，因此大家希望有个可以运行在两者上面的, 但由于 require 是同步的，如果加载的时间过长，会阻塞，在服务器端不是什么问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间，但是在浏览器算是个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。因此 AMD(异步模块定义)出现了，它就主要为前端 JS 的表现制定规范。</p>
+<p>NodeJS 是 CommonJS 规范的实现，运行在服务端，浏览器中使用就需要用到 Browserify 解析了<br>因此大家希望有个可以运行在两者上面的, 但由于 require 是同步的，如果加载的时间过长，会阻塞<br>在服务器端不是什么问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间<br>但在浏览器算是个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态<br>因此 AMD(异步模块定义)出现了，它就主要为前端 JS 的表现制定规范。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
 <h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>采用异步方式加载模块,模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
 <p>AMD 也采用 require()语句加载模块</p>
@@ -157,7 +157,33 @@
 <li><p>插件机制不同。RequireJS 采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js 采取的是通用事件机制，插件类型更丰富。</p>
 </li>
 </ol>
-<p>from： <a href="https://www.cnblogs.com/chenguangliang/p/5856701.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenguangliang/p/5856701.html</a></p>
+<h3 id="Es6-module"><a href="#Es6-module" class="headerlink" title="Es6 module"></a>Es6 module</h3><p> 在Babel的帮助下，我们可以直接使用 ES6 的模块化,也可以在script标签中使用tpye=”module”在同域的情况下可以解决（非同域情况会被同源策略拦截，webstorm会开启一个同域的服务器没有这个问题，vscode貌似不行）</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// file a.js</span></span><br><span class="line"> <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"> <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"> <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line"><span class="comment">// file b.js</span></span><br><span class="line"> <span class="keyword">export</span> &#123;x&#125;</span><br><span class="line"> <span class="keyword">export</span> <span class="keyword">default</span> x</span><br><span class="line"> <span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"> <span class="comment">//  export &#123;&lt;变量&gt;&#125;导出的是一个变量的引用，export default导出的是一个值</span></span><br><span class="line"> <span class="comment">// 就是说在a.js中使用import导入这2个变量的后，在module.js中因为某些原因x变量被改变了，那么会立刻反映到a.js，而module.js中的y变量改变后，a.js中的y还是原来的值</span></span><br><span class="line"> <span class="keyword">import</span> &#123;a, b&#125; <span class="keyword">from</span> <span class="string">'./a.js'</span></span><br><span class="line"> <span class="keyword">import</span> XXX <span class="keyword">from</span> <span class="string">'./b.js'</span></span><br><span class="line"> <span class="keyword">export</span> &#123;x <span class="keyword">as</span> <span class="keyword">default</span>&#125;</span><br><span class="line"> <span class="comment">// 但是由于是使用export &#123;&lt;变量&gt;&#125;这种形式导出的模块,即使被重命名为default,仍然导出的是一个变量的引用</span></span><br><span class="line"> <span class="comment">// default 只能有一个</span></span><br><span class="line"></span><br><span class="line"> 这里和commonjs 做个对比</span><br><span class="line"></span><br><span class="line"> <span class="comment">// a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">exports.a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="built_in">require</span>(<span class="string">'./a.js'</span>)</span><br><span class="line"><span class="built_in">module</span>.a <span class="comment">// -&gt; log 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个是为什么 exports 和 module.exports 用法相似的原因</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = &#123;</span><br><span class="line">  exports: &#123;&#125; <span class="comment">// exports 就是个空对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> exports = <span class="built_in">module</span>.exports</span><br></pre></td></tr></table></figure>
+<h4 id="总结es6-和-commonjs"><a href="#总结es6-和-commonjs" class="headerlink" title="总结es6 和 commonjs"></a>总结es6 和 commonjs</h4><p>ES6 Module使用import关键字导入模块，export关键字导出模块,特点：</p>
+<pre><code>ES6 Module是静态的，也就是说它是在编译阶段运行，和var以及function一样具有提升效果
+
+自动采用严格模式（顶层的this返回undefined）
+
+ES6 Module支持使用export {&lt;变量&gt;}导出具名的接口，或者export default导出匿名的接口
+</code></pre><h4 id="两者不同"><a href="#两者不同" class="headerlink" title="两者不同"></a>两者不同</h4><ol>
+<li><p>CommonJs输出的是一个值的拷贝,ES6 Module通过export {&lt;变量&gt;}输出的是一个变量的引用,export default输出的是一个值</p>
+</li>
+<li><p>CommonJs运行在服务器上,被设计为运行时加载,即代码执行到那一行才回去加载模块,而ES6 Module是静态的输出一个接口,发生在编译的阶段</p>
+</li>
+<li><p>CommonJs在第一次加载的时候运行一次并且会生成一个缓存,之后加载返回的都是缓存中的内容</p>
+</li>
+<li><p>前者支持动态导入，也就是 require(${path}/xx.js)，后者目前不支持，但是已有提案</p>
+</li>
+<li><p>前者是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大。而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用同步导入会对渲染有很大影响</p>
+</li>
+<li><p>前者在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次。但是后者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化</p>
+</li>
+<li><p>后者会编译成 require/exports 来执行的</p>
+</li>
+</ol>
+<p>关于ES6 Module静态编译的特点,导致了无法动态加载,但是总是会有一些需要动态加载模块的需求,所以现在有一个提案,使用把import作为一个函数可以实现动态加载模块,它返回一个Promise,Promise被resolve时的值为输出的模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (<span class="string">'a.js'</span>).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p>from： <a href="https://www.cnblogs.com/chenguangliang/p/5856701.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenguangliang/p/5856701.html</a><br>form： <a href="https://yuchengkai.cn/docs/frontend/#commonjs" target="_blank" rel="noopener">https://yuchengkai.cn/docs/frontend/#commonjs</a></p>
 
     </div>
     <p class="post-meta">
@@ -194,7 +220,11 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="javascript: void(0);">没有上一篇了</a>
+        <a href="/2019/05/24/http/main/">
+            
+                http &amp; https
+            
+        </a>
     </span>
     
 
@@ -225,7 +255,7 @@
     
     <li>
         <a href="/categories/web-skill/">web skill</a>
-        <span class="badge">(18)</span>
+        <span class="badge">(20)</span>
     </li>
     
     <li>
@@ -244,6 +274,11 @@
     </li>
     
     <li>
+        <a href="/categories/English/">English</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
         <a href="/categories/Interview/">Interview</a>
         <span class="badge">(2)</span>
     </li>
@@ -251,11 +286,6 @@
     <li>
         <a href="/categories/web-framework/">web framework</a>
         <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/English/">English</a>
-        <span class="badge">(8)</span>
     </li>
     
 </ul>
@@ -269,31 +299,31 @@
   
     <a class="tag-item" href="/tags/web-skill/" title="web skill">web skill (3)</a>
   
-    <a class="tag-item" href="/tags/js/" title="js">js (9)</a>
+    <a class="tag-item" href="/tags/js/" title="js">js (11)</a>
   
     <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
   
     <a class="tag-item" href="/tags/puzzle/" title="puzzle">puzzle (1)</a>
   
-    <a class="tag-item" href="/tags/life/" title="life">life (2)</a>
-  
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
     <a class="tag-item" href="/tags/plug-in/" title="plug-in">plug-in (1)</a>
   
-    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+    <a class="tag-item" href="/tags/life/" title="life">life (2)</a>
+  
+    <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
   
     <a class="tag-item" href="/tags/collection/" title="collection">collection (1)</a>
   
-    <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
+    <a class="tag-item" href="/tags/English/" title="English">English (8)</a>
+  
+    <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
   
     <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
   
     <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (2)</a>
-  
-    <a class="tag-item" href="/tags/English/" title="English">English (8)</a>
   
 </div>
     </section>

@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>ajax &amp; xhr | 青</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
+    <meta name="description" content="贺青个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="青" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">青</span>
+                    <span class="description">Hope</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
+        <ul class="menu hidden" id="HeQing__menu">
+            
+            <li rel="/2019/05/26/ajax/index/index.html" class="item ">
+                <a href="/" title="home" class="icon-home">&nbsp;home</a>
+            </li>
+            
+            <li rel="/2019/05/26/ajax/index/index.html" class="item ">
+                <a href="/lab/" title="lab" class="icon-lab">&nbsp;lab</a>
+            </li>
+            
+            <li rel="/2019/05/26/ajax/index/index.html" class="item ">
+                <a href="/about/" title="about" class="icon-about">&nbsp;about</a>
+            </li>
+            
+            <li rel="/2019/05/26/ajax/index/index.html" class="item ">
+                <a href="/comment/" title="words" class="icon-comment">&nbsp;words</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/heqingha" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                    <!-- <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a> -->
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/tangtang.jpg" alt="avatar" title="HeQing" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>ajax &amp; xhr</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        HeQing 发表于
+        <time datetime="2019-05-26T03:03:20.000Z">2019-05-26</time>
+    </p>
+    <div class="post-content">
+        <blockquote>
+<p>记忆 ajax （Asynchronous JavaScript and XML） 概念、原理 封装实用 ajax Fn</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li>什么是 ？</li>
+</ol>
+<blockquote>
+<p>AJAX 不是新的编程语言，而是一种使用现有标准的新方法, 是一种创建交互网页应用的一门技术</p>
+</blockquote>
+<ol>
+<li>应用场景 ?</li>
+</ol>
+<blockquote>
+<p>实时更新，表单验证等等</p>
+</blockquote>
+<ol>
+<li>优缺点 ?</li>
+</ol>
+<blockquote>
+<p>实现局部更新（无刷新状态下），减轻了服务器端的压力</p>
+<p>破坏了浏览器前进和后退机制, 一个 Ajax 请求多了，也会出现页面加载慢的情况, 搜索引擎的支持程度比较低, ajax 的安全性问题不太好（可以用数据加密解决）</p>
+</blockquote>
+<ol>
+<li>如何实现 ？</li>
+</ol>
+<blockquote>
+<p>AJAX 的基础 XMLHttpRequest。所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）,XMLHttpRequest 用于在后台与服务器交换数据</p>
+</blockquote>
+<ol>
+<li><p>如何使用（四步） ？</p>
+<p>1.创建 ajax、 2.连接服务器、 3.发送请求、 4.接受返回值</p>
+</li>
+</ol>
+<p>—创建 ajax</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">  xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Mricosoft.XMLHTTP"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>—连接服务器、</p>
+<p>xhr.open（”请求方式（GET/POST）”，url 路径，“异步/同步”）<br>xhr.open（”请求方式（GET/POST）”，url 路径 + “？”请求数据 + ，“异步/同步”）</p>
+<p>—发送请求、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当请求方式为GET的时候，发送请求为xhr.send(null)</span></span><br><span class="line"><span class="comment">//当请求方式为POST的时候，发送请求为xhr.send(请求数据)</span></span><br><span class="line"><span class="comment">//此外使用POST的时候必须在xhr.send（请求数据）上面添加</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例子</span></span><br><span class="line"></span><br><span class="line">xmlhttp.open(<span class="string">"POST"</span>, <span class="string">"/try/ajax/demo_post2.php"</span>, <span class="literal">true</span>);</span><br><span class="line">xmlhttp.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">xmlhttp.send(<span class="string">"fname=Henry&amp;lname=Ford"</span>);</span><br></pre></td></tr></table></figure>
+<p>—接受返回值</p>
+<p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性<br>当请求被发送到服务器时，我们需要执行一些基于响应的任务<br>每当 readyState(XMLHttpRequest 的状态) 改变时，就会触发 onreadystatechange 事件</p>
+<p><img src="/img/ajax/xhr.png" alt="readyState"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xmlhttp.readyState == <span class="number">4</span> &amp;&amp; xmlhttp.status == <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML = xmlhttp.responseText;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>封装使用</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">var</span> params = formsParams(options.data);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">formsParams</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> data) &#123;</span><br><span class="line">      arr.push(prop + <span class="string">"="</span> + data[prop]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">"&amp;"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//创建对象</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 连接</span></span><br><span class="line">  <span class="keyword">if</span> (options.type == <span class="string">"GET"</span>) &#123;</span><br><span class="line">    xhr.open(options.type, options.url + <span class="string">"?"</span> + params, options.async);</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (options.type == <span class="string">"POST"</span>) &#123;</span><br><span class="line">    xhr.open(options.type, options.url, options.async);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">    xhr.send(params);</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">      options.success(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ajax(&#123;</span><br><span class="line">  url: <span class="string">"a.php"</span>, <span class="comment">// url----&gt;地址</span></span><br><span class="line">  type: <span class="string">"POST"</span>, <span class="comment">// type ---&gt; 请求方式</span></span><br><span class="line">  <span class="keyword">async</span>: <span class="literal">true</span>, <span class="comment">// async----&gt; 同步：false，异步：true</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    <span class="comment">//传入信息</span></span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">  &#125;,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//返回接受信息</span></span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/web-skill/">web skill</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/js/" title="js">js</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=HeQing个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2019/05/24/http/main/">
+            
+                http &amp; https
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/web-skill/">web skill</a>
+        <span class="badge">(20)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/puzzle/">puzzle</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/life/">life</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/collection/">collection</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/English/">English</a>
+        <span class="badge">(8)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Interview/">Interview</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/web-framework/">web framework</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/web-skill/" title="web skill">web skill (3)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (11)</a>
+  
+    <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
+  
+    <a class="tag-item" href="/tags/puzzle/" title="puzzle">puzzle (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/plug-in/" title="plug-in">plug-in (1)</a>
+  
+    <a class="tag-item" href="/tags/life/" title="life">life (2)</a>
+  
+    <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
+  
+    <a class="tag-item" href="/tags/collection/" title="collection">collection (1)</a>
+  
+    <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/English/" title="English">English (8)</a>
+  
+    <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
+  
+    <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
+  
+    <a class="tag-item" href="/tags/web-framework/" title="web framework">web framework (2)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://www.alloyteam.com/" target="_blank" title="腾讯全端Alloy Team团队">腾讯全端Alloy Team团队</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cnblogs.com/wangfupeng1988/p/4001284.html" target="_blank" title="深入理解javascript原型闭包">王福朋个人博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Hope Loves You</a>
+</footer>
+<div class="back-to-top" id="HeQing__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
