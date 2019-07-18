@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>浏览器缓存 | 青</title>
+    <title>行为型设计模式 | 青</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
     <meta name="description" content="贺青个人前端小站" >
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
         <ul class="menu hidden" id="HeQing__menu">
             
-            <li rel="/2019/05/30/浏览器/缓存/index.html" class="item ">
+            <li rel="/2017/12/05/javascript/读取execel/index.html" class="item ">
                 <a href="/" title="home" class="icon-home">&nbsp;home</a>
             </li>
             
-            <li rel="/2019/05/30/浏览器/缓存/index.html" class="item ">
+            <li rel="/2017/12/05/javascript/读取execel/index.html" class="item ">
                 <a href="/lab/" title="lab" class="icon-lab">&nbsp;lab</a>
             </li>
             
-            <li rel="/2019/05/30/浏览器/缓存/index.html" class="item ">
+            <li rel="/2017/12/05/javascript/读取execel/index.html" class="item ">
                 <a href="/about/" title="about" class="icon-about">&nbsp;about</a>
             </li>
             
-            <li rel="/2019/05/30/浏览器/缓存/index.html" class="item ">
+            <li rel="/2017/12/05/javascript/读取execel/index.html" class="item ">
                 <a href="/comment/" title="words" class="icon-comment">&nbsp;words</a>
             </li>
             
@@ -115,31 +115,25 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>浏览器缓存</span></h3>
+        <h3 class="post-title"><span>行为型设计模式</span></h3>
     </header>
     <p class="post-meta text-center">
         HeQing 发表于
-        <time datetime="2019-05-30T07:37:45.000Z">2019-05-30</time>
+        <time datetime="2017-12-05T02:41:20.000Z">2017-12-05</time>
     </p>
     <div class="post-content">
-        <a id="more"></a>
-<ul>
-<li><a href="https://www.cnblogs.com/slly/p/6732749.html" target="_blank" rel="noopener">文章一</a></li>
-<li><a href="http://caibaojian.com/http-cache-2.html" target="_blank" rel="noopener">文章二</a></li>
-<li><a href="https://www.cnblogs.com/etoah/p/5579622.html" target="_blank" rel="noopener">源码文档</a></li>
-<li><a href="https://blog.csdn.net/liqinghua1653/article/details/31387761" target="_blank" rel="noopener">appcache</a></li>
-</ul>
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入excel文件</span></span><br><span class="line">importfxx(obj) &#123;</span><br><span class="line"><span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line"><span class="keyword">let</span> inputDOM = <span class="keyword">this</span>.$refs.inputer;</span><br><span class="line"><span class="comment">// 通过DOM取文件数据</span></span><br><span class="line"><span class="keyword">this</span>.file = <span class="built_in">document</span>.getElementById(<span class="string">'uploadExcel'</span>).files[<span class="number">0</span>]; <span class="comment">//event.currentTarget.files[0];</span></span><br><span class="line"><span class="keyword">var</span> rABS = <span class="literal">false</span>; <span class="comment">//是否将文件读取为二进制字符串</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">this</span>.file;</span><br><span class="line"><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">FileReader.prototype.readAsBinaryString = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> binary = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">var</span> rABS = <span class="literal">false</span>; <span class="comment">//是否将文件读取为二进制字符串</span></span><br><span class="line"><span class="keyword">var</span> pt = <span class="keyword">this</span>;</span><br><span class="line"><span class="keyword">var</span> wb; <span class="comment">//读取完成的数据</span></span><br><span class="line"><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> bytes = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(reader.result);</span><br><span class="line"><span class="keyword">var</span> length = bytes.byteLength;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">binary += <span class="built_in">String</span>.fromCharCode(bytes[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> XLSX = <span class="built_in">require</span>(<span class="string">'xlsx'</span>);</span><br><span class="line"><span class="keyword">if</span> (rABS) &#123;</span><br><span class="line">wb = XLSX.read(btoa(fixdata(binary)), &#123;</span><br><span class="line"><span class="comment">//手动转化</span></span><br><span class="line">type: <span class="string">'base64'</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">wb = XLSX.read(binary, &#123;</span><br><span class="line">type: <span class="string">'binary'</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">_this.outdata = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[<span class="number">0</span>]]); <span class="comment">//outdata就是你想要的东西</span></span><br><span class="line">&#125;;</span><br><span class="line">reader.readAsArrayBuffer(f);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">if</span> (rABS) &#123;</span><br><span class="line">reader.readAsArrayBuffer(f);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">reader.readAsBinaryString(f);</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/浏览器/">浏览器</a>
+            <a class="cat-link" href="/categories/web-skill/">web skill</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/浏览器缓存/" title="浏览器缓存">浏览器缓存</a>
+        <a href="/tags/js/" title="js">js</a>
     
 
         </span>
@@ -165,16 +159,20 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="javascript: void(0);">没有上一篇了</a>
+        <a href="/2017/12/05/javascript/行为型设计模式/">
+            
+                行为型设计模式
+            
+        </a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br >
-        <a href="/2019/05/29/疑难杂症/index/">
+        <a href="/2017/12/03/工具/vsCode/">
             
-                疑难杂症
+                vscode plug-in
             
         </a>
     </span>
@@ -196,12 +194,7 @@
     
     <li>
         <a href="/categories/web-skill/">web skill</a>
-        <span class="badge">(21)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/life/">life</a>
-        <span class="badge">(2)</span>
+        <span class="badge">(22)</span>
     </li>
     
     <li>
@@ -210,23 +203,23 @@
     </li>
     
     <li>
-        <a href="/categories/collection/">collection</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/浏览器/">浏览器</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/English/">English</a>
-        <span class="badge">(8)</span>
+        <a href="/categories/life/">life</a>
+        <span class="badge">(2)</span>
     </li>
     
     <li>
         <a href="/categories/疑难杂症/">疑难杂症</a>
         <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/collection/">collection</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/English/">English</a>
+        <span class="badge">(8)</span>
     </li>
     
     <li>
@@ -250,35 +243,33 @@
   
     <a class="tag-item" href="/tags/markdown/" title="markdown">markdown (1)</a>
   
-    <a class="tag-item" href="/tags/js/" title="js">js (11)</a>
+    <a class="tag-item" href="/tags/ajax/" title="ajax">ajax (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (12)</a>
   
     <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
   
     <a class="tag-item" href="/tags/SSR/" title="-SSR">-SSR (1)</a>
   
-    <a class="tag-item" href="/tags/ajax/" title="ajax">ajax (1)</a>
-  
-    <a class="tag-item" href="/tags/life/" title="life">life (2)</a>
-  
     <a class="tag-item" href="/tags/puzzle/" title="puzzle">puzzle (1)</a>
   
-    <a class="tag-item" href="/tags/collection/" title="collection">collection (1)</a>
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/life/" title="life">life (2)</a>
   
     <a class="tag-item" href="/tags/plug-in/" title="plug-in">plug-in (1)</a>
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/浏览器缓存/" title="浏览器缓存">浏览器缓存 (1)</a>
-  
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+    <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
   
     <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
   
-    <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
+    <a class="tag-item" href="/tags/疑难杂症/" title="疑难杂症">疑难杂症 (1)</a>
+  
+    <a class="tag-item" href="/tags/collection/" title="collection">collection (2)</a>
   
     <a class="tag-item" href="/tags/English/" title="English">English (8)</a>
-  
-    <a class="tag-item" href="/tags/疑难杂症/" title="疑难杂症">疑难杂症 (1)</a>
   
     <a class="tag-item" href="/tags/Interview/" title="Interview">Interview (2)</a>
   
