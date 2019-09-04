@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
         <ul class="menu hidden" id="HeQing__menu">
             
-            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
                 <a href="/" title="home" class="icon-home">&nbsp;home</a>
             </li>
             
-            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
                 <a href="/lab/" title="lab" class="icon-lab">&nbsp;lab</a>
             </li>
             
-            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
                 <a href="/about/" title="about" class="icon-about">&nbsp;about</a>
             </li>
             
-            <li rel="/2019/03/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
                 <a href="/comment/" title="words" class="icon-comment">&nbsp;words</a>
             </li>
             
@@ -119,7 +119,7 @@
     </header>
     <p class="post-meta text-center">
         HeQing 发表于
-        <time datetime="2019-03-06T07:54:12.000Z">2019-03-06</time>
+        <time datetime="2019-08-06T07:54:12.000Z">2019-08-06</time>
     </p>
     <div class="post-content">
         <blockquote>
@@ -129,8 +129,10 @@
 <h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><blockquote>
 <p><strong>describe（react）</strong>：页面新增、修改、复制新增是同一个路由，同一个组件，仅仅根据query来区分，导致的问题，页面之间切换的时候，componentDidMount 只触发一次，在之中根据不同的query做的一系列判断加载fetch，不能实现<br><strong>solution</strong>: 每个页面加不同的路由，组件共用，根据 hook componentWillReceiveProps，当props 变化是，判断不同的pathname，处理原本要在componentDidMount执行的</p>
 <p><strong>describe（react）</strong>：页面二次进入，redux设置的state 改变之后不会在回到初始状态，导致上次操作的数据或者按钮状态会有问题<br><strong>solution</strong>: 在componentdidmount里面做初始化状态操作，如果是掉了接口的操作可以不用初始化</p>
+<p>怎么去除手机端 input 光标？</p>
+<p><strong>describe（react）</strong>：去除手机端 input 光标？<br><strong>solution</strong>: 给 input 添加css 属性</p>
 </blockquote>
-
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">width</span>: 200%;</span><br><span class="line"><span class="selector-tag">margin-left</span>: <span class="selector-tag">-100</span>%;</span><br><span class="line"><span class="selector-tag">text-indent</span>: <span class="selector-tag">-999em</span>;</span><br></pre></td></tr></table></figure>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
@@ -166,9 +168,9 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="/2019/03/08/javascript/promise/">
+        <a href="/2019/09/03/面试/高阶组件/">
             
-                promise
+                高阶组件
             
         </a>
     </span>
@@ -177,9 +179,9 @@
     
     <span class="next fr">
         下一篇<br >
-        <a href="/2019/03/01/面试/redux-dva-vuex/">
+        <a href="/2019/07/21/javascript/读取execel/">
             
-                web framework
+                excel读取
             
         </a>
     </span>
@@ -201,7 +203,7 @@
     
     <li>
         <a href="/categories/web-skill/">web skill</a>
-        <span class="badge">(20)</span>
+        <span class="badge">(19)</span>
     </li>
     
     <li>
@@ -259,8 +261,6 @@
   
     <a class="tag-item" href="/tags/css3/" title="css3">css3 (1)</a>
   
-    <a class="tag-item" href="/tags/SSR/" title="-SSR">-SSR (1)</a>
-  
     <a class="tag-item" href="/tags/js/" title="js">js (12)</a>
   
     <a class="tag-item" href="/tags/puzzle/" title="puzzle">puzzle (1)</a>
@@ -269,9 +269,9 @@
   
     <a class="tag-item" href="/tags/plug-in/" title="plug-in">plug-in (1)</a>
   
-    <a class="tag-item" href="/tags/collection/" title="collection">collection (2)</a>
-  
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
+  
+    <a class="tag-item" href="/tags/collection/" title="collection">collection (2)</a>
   
     <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
   
