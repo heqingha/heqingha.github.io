@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>puzzle in the project | 青</title>
+    <title>收藏的网站 | 青</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="heqing, 前端, Web, 贺青, 青, 前端开发, Hope" >
     <meta name="description" content="贺青个人前端小站" >
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="HeQing__btnDropNav"></div>
         <ul class="menu hidden" id="HeQing__menu">
             
-            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/06/18/网站收藏/index/index.html" class="item ">
                 <a href="/" title="home" class="icon-home">&nbsp;home</a>
             </li>
             
-            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/06/18/网站收藏/index/index.html" class="item ">
                 <a href="/lab/" title="lab" class="icon-lab">&nbsp;lab</a>
             </li>
             
-            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/06/18/网站收藏/index/index.html" class="item ">
                 <a href="/about/" title="about" class="icon-about">&nbsp;about</a>
             </li>
             
-            <li rel="/2019/08/06/puzzle/project/index.html" class="item ">
+            <li rel="/2019/06/18/网站收藏/index/index.html" class="item ">
                 <a href="/comment/" title="words" class="icon-comment">&nbsp;words</a>
             </li>
             
@@ -115,34 +115,77 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>puzzle in the project</span></h3>
+        <h3 class="post-title"><span>收藏的网站</span></h3>
     </header>
     <p class="post-meta text-center">
         HeQing 发表于
-        <time datetime="2019-08-06T07:54:12.000Z">2019-08-06</time>
+        <time datetime="2019-06-18T03:16:40.000Z">2019-06-18</time>
     </p>
     <div class="post-content">
-        <blockquote>
-<p>clear up puzzle that met in the project and find a solution about them.</p>
-</blockquote>
+        <p>收藏的一些网站</p>
 <a id="more"></a>
-<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><blockquote>
-<p><strong>describe（react）</strong>：页面新增、修改、复制新增是同一个路由，同一个组件，仅仅根据query来区分，导致的问题，页面之间切换的时候，componentDidMount 只触发一次，在之中根据不同的query做的一系列判断加载fetch，不能实现<br><strong>solution</strong>: 每个页面加不同的路由，组件共用，根据 hook componentWillReceiveProps，当props 变化是，判断不同的pathname，处理原本要在componentDidMount执行的</p>
-<p><strong>describe（react）</strong>：页面二次进入，redux设置的state 改变之后不会在回到初始状态，导致上次操作的数据或者按钮状态会有问题<br><strong>solution</strong>: 在componentdidmount里面做初始化状态操作，如果是掉了接口的操作可以不用初始化</p>
-<p>怎么去除手机端 input 光标？</p>
-<p><strong>describe（react）</strong>：去除手机端 input 光标？<br><strong>solution</strong>: 给 input 添加css 属性</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">width</span>: 200%;</span><br><span class="line"><span class="selector-tag">margin-left</span>: <span class="selector-tag">-100</span>%;</span><br><span class="line"><span class="selector-tag">text-indent</span>: <span class="selector-tag">-999em</span>;</span><br></pre></td></tr></table></figure>
+<p>react 高阶组件</p>
+<ul>
+<li><a href="https://www.cnblogs.com/libin-1/p/7087605.html" target="_blank" rel="noopener">React进阶之高阶组件</a></li>
+</ul>
+<p>MVVM 原理</p>
+<ul>
+<li><a href="https://juejin.im/entry/5923973da22b9d005893805a" target="_blank" rel="noopener">vue</a></li>
+</ul>
+<p>浏览器缓存</p>
+<ul>
+<li><a href="https://www.cnblogs.com/slly/p/6732749.html" target="_blank" rel="noopener">文章一</a></li>
+<li><a href="http://caibaojian.com/http-cache-2.html" target="_blank" rel="noopener">文章二</a></li>
+<li><a href="https://www.cnblogs.com/etoah/p/5579622.html" target="_blank" rel="noopener">源码文档</a></li>
+<li><a href="https://blog.csdn.net/liqinghua1653/article/details/31387761" target="_blank" rel="noopener">appcache</a></li>
+</ul>
+<p>内置类型</p>
+<ol>
+<li><a href="https://yuchengkai.cn/docs/frontend/#内置类型" target="_blank" rel="noopener">https://yuchengkai.cn/docs/frontend/#内置类型</a></li>
+</ol>
+<p>ES6语法知识点补充</p>
+<ol>
+<li><a href="https://juejin.im/post/5c6234f16fb9a049a81fcca5" target="_blank" rel="noopener">https://juejin.im/post/5c6234f16fb9a049a81fcca5</a></li>
+</ol>
+<p>prototype</p>
+<ol>
+<li><a href="https://github.com/KieSun/Dream/issues/2" target="_blank" rel="noopener">https://github.com/KieSun/Dream/issues/2</a></li>
+</ol>
+<ul>
+<li><a href="https://www.cnblogs.com/chen-cong/p/7862832.html" target="_blank" rel="noopener">BFC</a></li>
+<li><a href="https://segmentfault.com/a/1190000014148611" target="_blank" rel="noopener">webpack</a></li>
+<li><a href="https://www.cnblogs.com/heyushuo/p/8543889.html" target="_blank" rel="noopener">hash chunkhash contenthash</a></li>
+<li><a href="https://www.cnblogs.com/wangppjy/p/10140488.html" target="_blank" rel="noopener">webpack 2</a></li>
+<li><a href="http://www.manongjc.com/article/9404.html" target="_blank" rel="noopener">tree-shaking</a></li>
+<li><a href="https://juejin.im/post/5c6234f16fb9a049a81fcca5" target="_blank" rel="noopener">es6解析</a></li>
+<li><a href="https://www.jianshu.com/p/10b6074d772c" target="_blank" rel="noopener">SSR</a></li>
+</ul>
+<p>http</p>
+<p><a href="https://www.cnblogs.com/daisygogogo/p/10741597.html" target="_blank" rel="noopener">记录面试中http</a><br><a href="https://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="noopener">一篇就够系列</a><br><a href="https://blog.csdn.net/yicixing7/article/details/79320821" target="_blank" rel="noopener">interview</a><br><a href="https://blog.csdn.net/qq_41517936/article/details/80886618" target="_blank" rel="noopener">tcp/ip</a><br><a href="https://www.cnblogs.com/xuehaoyue/p/6639029.html" target="_blank" rel="noopener">Transfer-Encoding: chunked</a></p>
+<p>interview</p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000002629708" target="_blank" rel="noopener">interview</a></li>
+<li><a href="https://blog.csdn.net/wdlhao/article/details/79079660" target="_blank" rel="noopener">2018 最新 Web 前端经典面试试题及答案</a></li>
+</ul>
+<p>host</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/f2e219fb1ced" target="_blank" rel="noopener">host</a></li>
+</ul>
+<p>post </p>
+<ul>
+<li>[post 4] (<a href="https://segmentfault.com/a/1190000014343759" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014343759</a>)</li>
+</ul>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/puzzle/">puzzle</a>
+            <a class="cat-link" href="/categories/collection/">collection</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/puzzle/" title="puzzle">puzzle</a>
+        <a href="/tags/collection/" title="collection">collection</a>
     
 
         </span>
@@ -168,9 +211,9 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="/2019/09/03/面试/高阶组件/">
+        <a href="/2019/06/21/javascript/读取execel/">
             
-                高阶组件
+                excel读取
             
         </a>
     </span>
@@ -179,9 +222,9 @@
     
     <span class="next fr">
         下一篇<br >
-        <a href="/2019/07/21/javascript/读取execel/">
+        <a href="/2019/05/26/ajax/index/">
             
-                excel读取
+                ajax &amp; xhr
             
         </a>
     </span>
@@ -219,11 +262,6 @@
     <li>
         <a href="/categories/collection/">collection</a>
         <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/疑难杂症/">疑难杂症</a>
-        <span class="badge">(1)</span>
     </li>
     
     <li>
@@ -271,13 +309,11 @@
   
     <a class="tag-item" href="/tags/VPN/" title="VPN">VPN (1)</a>
   
-    <a class="tag-item" href="/tags/collection/" title="collection">collection (2)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (1)</a>
   
-    <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
+    <a class="tag-item" href="/tags/collection/" title="collection">collection (2)</a>
   
-    <a class="tag-item" href="/tags/疑难杂症/" title="疑难杂症">疑难杂症 (1)</a>
+    <a class="tag-item" href="/tags/browser/" title="browser">browser (1)</a>
   
     <a class="tag-item" href="/tags/English/" title="English">English (8)</a>
   
